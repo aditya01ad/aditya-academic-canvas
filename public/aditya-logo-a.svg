@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Aditya monogram A logo">
+  <rect width="512" height="512" fill="#ffffff"/>
+  <!-- Minimal single-line A -->
+  <g fill="none" stroke="#5BB7FF" stroke-width="28" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M156 392 L256 136 L356 392"/>
+    <path d="M198 300 H314"/>
+  </g>
+</svg>
