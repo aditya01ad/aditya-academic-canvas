@@ -3,7 +3,7 @@ import { Github, Mail, FileDown } from "lucide-react";
 const Hero = () => {
   return (
     <section className="min-h-[85vh] flex items-center justify-center px-6 pt-16">
-      <div className="max-w-3xl w-full text-center">
+      <div className="max-w-3xl w-full text-center fade-in">
         <h1 className="text-5xl sm:text-6xl md:text-7xl font-medium tracking-tight text-foreground mb-4">
           Aditya
         </h1>
@@ -28,7 +28,7 @@ const Hero = () => {
             <Mail className="w-5 h-5" />
           </a>
           <a
-            href="/cv.pdf"
+            href="/Aditya_Resume.pdf"
             download
             className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors border border-border px-4 py-2 rounded-sm"
           >
