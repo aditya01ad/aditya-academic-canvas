@@ -104,6 +104,7 @@
   .stagger-1 { animation-delay: 0.1s; }
   .stagger-2 { animation-delay: 0.2s; }
   .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
 
   /* Scroll-reveal: elements start hidden and become visible when the
      "reveal-visible" class is added via IntersectionObserver. */
@@ -139,4 +140,9 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes slowBounce {
+  0%, 100% { transform: translateY(0); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
+  50%       { transform: translateY(6px); animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
 }
