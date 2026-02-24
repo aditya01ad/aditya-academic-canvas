@@ -21,6 +21,15 @@ const Hero = () => {
             <Github className="w-5 h-5" />
           </a>
           <a
+            href="https://linkedin.com/in/your-linkedin-username"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+            aria-label="LinkedIn"
+          >
+            <Linkedin className="w-5 h-5" />
+          </a>
+          <a
             href="mailto:24MA05020@iitbbs.ac.in"
             className="text-muted-foreground hover:text-foreground transition-colors duration-200"
             aria-label="Email"
