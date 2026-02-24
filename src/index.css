@@ -85,19 +85,55 @@
 }
 
 @layer utilities {
+  /* Section divider grows from center on reveal */
   .section-divider {
-    @apply w-12 h-px bg-border mx-auto my-8;
+    @apply w-0 h-px bg-border mx-auto my-8;
+    transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.1s;
+  }
+
+  .reveal-visible .section-divider,
+  .section-divider.revealed {
+    @apply w-12;
   }
 
   .fade-in {
-    animation: fadeIn 0.6s ease-out both;
+    animation: fadeIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  /* Stagger helpers for Hero children */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+
+  /* Scroll-reveal: elements start hidden and become visible when the
+     "reveal-visible" class is added via IntersectionObserver. */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Card hover: subtle lift + shadow */
+  .card-hover {
+    transition: box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px -6px hsl(var(--foreground) / 0.12);
   }
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
