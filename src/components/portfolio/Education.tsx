@@ -22,7 +22,7 @@ const Education = () => {
         <h2 className="text-2xl font-medium text-foreground mb-8 text-center">Education</h2>
         <div className="space-y-6">
           {entries.map((entry) => (
-            <div key={entry.degree} className="border-l-2 border-border pl-5">
+            <div key={entry.degree} className="border-l-2 border-accent pl-5">
               <h3 className="text-base font-medium text-foreground">{entry.degree}</h3>
               {entry.institution && (
                 <p className="text-sm text-muted-foreground mt-1">{entry.institution}</p>

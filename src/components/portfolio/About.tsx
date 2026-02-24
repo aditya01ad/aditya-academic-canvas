@@ -29,7 +29,7 @@ const About = () => {
             {interests.map((interest) => (
               <span
                 key={interest}
-                className="text-xs px-3 py-1.5 border border-border text-foreground rounded-sm"
+                className="text-xs px-3 py-1.5 border border-border text-foreground rounded-sm transition-colors duration-200 hover:border-foreground hover:bg-secondary"
               >
                 {interest}
               </span>

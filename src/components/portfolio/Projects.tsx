@@ -8,7 +8,7 @@ const Projects = () => {
       <div ref={ref} className="max-w-2xl mx-auto reveal">
         <div className="section-divider" />
         <h2 className="text-2xl font-medium text-foreground mb-8 text-center">Projects</h2>
-        <article className="border border-border rounded-sm p-6">
+        <article className="border border-border rounded-sm p-6 card-hover">
           <div className="flex items-start justify-between gap-4 mb-2">
             <h3 className="text-lg font-medium text-foreground">
               Optimization Algorithms Implementation

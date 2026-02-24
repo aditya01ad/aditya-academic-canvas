@@ -30,7 +30,7 @@ const Skills = () => {
                 {cat.items.map((item) => (
                   <span
                     key={item}
-                    className="text-sm px-3 py-1.5 border border-border text-foreground rounded-sm"
+                    className="text-sm px-3 py-1.5 border border-border text-foreground rounded-sm transition-colors duration-200 hover:border-foreground hover:bg-secondary"
                   >
                     {item}
                   </span>
