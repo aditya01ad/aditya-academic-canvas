@@ -1,14 +1,18 @@
 import { ChevronDown } from "lucide-react";
 
 const ScrollIndicator = () => {
+  const handleClick = () => {
+    window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
+  };
+
   return (
-    <div
-      className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce"
+    <button
+      onClick={handleClick}
+      className="fixed bottom-8 right-8 z-50 animate-bounce text-muted-foreground hover:text-foreground transition-colors duration-200"
       aria-label="Scroll down"
-      role="img"
     >
-      <ChevronDown className="w-5 h-5 text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer" />
-    </div>
+      <ChevronDown className="w-6 h-6" />
+    </button>
   );
 };
 
