@@ -1,4 +1,7 @@
+import { useScrollReveal } from "@/hooks/useScrollReveal";
+
 const Skills = () => {
+  const ref = useScrollReveal();
   const categories = [
     {
       title: "Languages",
@@ -6,13 +9,13 @@ const Skills = () => {
     },
     {
       title: "Tools & Libraries",
-      items: ["NumPy", "Pandas", "LaTeX", "Git", "Linux"],
+      items: ["NumPy", "SciPy", "Pandas", "Matplotlib", "Jupyter", "LaTeX", "Git", "Linux"],
     },
   ];
 
   return (
     <section id="skills" className="py-20 px-6">
-      <div className="max-w-2xl mx-auto">
+      <div ref={ref} className="max-w-2xl mx-auto reveal">
         <div className="section-divider" />
         <h2 className="text-2xl font-medium text-foreground mb-8 text-center">
           Technical Skills

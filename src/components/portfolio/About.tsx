@@ -1,4 +1,7 @@
+import { useScrollReveal } from "@/hooks/useScrollReveal";
+
 const About = () => {
+  const ref = useScrollReveal();
   const interests = [
     "Spectral Graph Theory",
     "Convex Optimization",
@@ -8,7 +11,7 @@ const About = () => {
 
   return (
     <section id="about" className="py-20 px-6">
-      <div className="max-w-2xl mx-auto">
+      <div ref={ref} className="max-w-2xl mx-auto reveal">
         <div className="section-divider" />
         <h2 className="text-2xl font-medium text-foreground mb-6 text-center">About</h2>
         <p className="text-base leading-relaxed text-muted-foreground mb-8">

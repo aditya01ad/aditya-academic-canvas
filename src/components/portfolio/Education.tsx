@@ -1,4 +1,7 @@
+import { useScrollReveal } from "@/hooks/useScrollReveal";
+
 const Education = () => {
+  const ref = useScrollReveal();
   const entries = [
     {
       degree: "M.Sc. Mathematics",
@@ -14,7 +17,7 @@ const Education = () => {
 
   return (
     <section id="education" className="py-20 px-6">
-      <div className="max-w-2xl mx-auto">
+      <div ref={ref} className="max-w-2xl mx-auto reveal">
         <div className="section-divider" />
         <h2 className="text-2xl font-medium text-foreground mb-8 text-center">Education</h2>
         <div className="space-y-6">
