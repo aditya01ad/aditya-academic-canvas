@@ -1,8 +1,13 @@
 import { ChevronDown } from "lucide-react";
 
+const SECTION_IDS = ["about", "research", "projects", "skills", "education"];
+
 const ScrollIndicator = () => {
   const handleClick = () => {
-    const next = document.getElementById("about");
+    const scrollY = window.scrollY + window.innerHeight / 2;
+    const next = SECTION_IDS.map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null)
+      .find((el) => el.offsetTop > scrollY);
     if (next) next.scrollIntoView({ behavior: "smooth" });
   };
 
