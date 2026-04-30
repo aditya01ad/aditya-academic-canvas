@@ -1,3 +1,4 @@
+import { useSearchParams } from "react-router-dom";
 import PageLayout from "@/components/layout/PageLayout";
 import Badge from "@/components/ui/Badge";
 import Tabs, { Tab } from "@/components/ui/Tabs";
@@ -15,6 +16,10 @@ const skillGroups = [
 ];
 
 const About = () => {
+  const [searchParams] = useSearchParams();
+  const tabParam = searchParams.get("tab");
+  const defaultTab =
+    tabParam === "story" || tabParam === "education-awards" || tabParam === "skills" ? tabParam : "story";
   const tabs: Tab[] = [
     {
       id: "story",
@@ -106,7 +111,7 @@ const About = () => {
           the finalized narrative and achievements.
         </p>
         <div className="mt-10">
-          <Tabs tabs={tabs} defaultTab="story" />
+          <Tabs tabs={tabs} defaultTab={defaultTab} />
         </div>
       </section>
     </PageLayout>

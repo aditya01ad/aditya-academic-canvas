@@ -18,7 +18,7 @@ export default function PageLayout({ children, title }: PageLayoutProps) {
         Skip to content
       </a>
       <Navbar />
-      <main id="main-content" className="flex-1">
+      <main id="main-content" className="flex-1 pt-20">
         {children}
       </main>
       <Footer />
