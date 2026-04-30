@@ -2,6 +2,7 @@ import { useSearchParams } from "react-router-dom";
 import PageLayout from "@/components/layout/PageLayout";
 import Tabs, { Tab } from "@/components/ui/Tabs";
 import Tag from "@/components/ui/Tag";
+import { PROFILE } from "@/lib/profile";
 
 const skillGroups = [
   {
@@ -34,20 +35,21 @@ const About = () => {
       label: "Story",
       content: (
         <div className="space-y-6">
-          <article className="border border-border rounded-sm p-6 card-hover">
-            <h3 className="text-lg font-medium text-foreground">Mathematics, research, and ML</h3>
-            <p className="text-sm text-muted-foreground mt-4 leading-relaxed">
-              Placeholder narrative for Aditya&apos;s academic journey, current research direction, and the
-              motivation behind the shift toward machine learning engineering.
-            </p>
-          </article>
-          <div className="accent-left space-y-2">
-            <p className="text-xs uppercase tracking-widest text-muted-foreground">Current focus</p>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Exploring spectral graph methods, convex optimization, and the applied side of machine learning
-              theory through coursework, reading groups, and independent projects.
-            </p>
-          </div>
+            <article className="border border-border rounded-sm p-6 card-hover">
+              <h3 className="text-lg font-medium text-foreground">Mathematics, research, and ML</h3>
+              <p className="text-sm text-muted-foreground mt-4 leading-relaxed">
+                {PROFILE.name} is an MSc Mathematics student at IIT Bhubaneswar, focusing on spectral graph
+                theory and the applied side of machine learning. The long-term goal is to translate rigorous
+                theory into reliable ML systems.
+              </p>
+            </article>
+            <div className="accent-left space-y-2">
+              <p className="text-xs uppercase tracking-widest text-muted-foreground">Current focus</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Thesis work on {PROFILE.paperTitle} under {PROFILE.supervisor}, alongside independent study in
+                convex optimization and numerical analysis.
+              </p>
+            </div>
         </div>
       ),
     },
@@ -61,13 +63,14 @@ const About = () => {
             <div className="space-y-4">
               <div className="accent-left">
                 <p className="text-sm font-medium text-foreground">M.Sc. Mathematics</p>
-                <p className="text-xs text-muted-foreground mt-1">Indian Institute of Technology Bhubaneswar</p>
-                <p className="text-xs text-muted-foreground">2024 – 2026 (expected)</p>
+                <p className="text-xs text-muted-foreground mt-1">{PROFILE.msc}</p>
+                <p className="text-xs text-muted-foreground mt-2">Supervisor: {PROFILE.supervisor}</p>
+                <p className="text-xs text-muted-foreground mt-1">{PROFILE.paperTitle}</p>
+                <p className="text-xs text-muted-foreground">{PROFILE.paperCitation}</p>
               </div>
               <div className="accent-left">
                 <p className="text-sm font-medium text-foreground">B.Sc. Mathematics</p>
-                <p className="text-xs text-muted-foreground mt-1">Placeholder University</p>
-                <p className="text-xs text-muted-foreground">2021 – 2024</p>
+                <p className="text-xs text-muted-foreground mt-1">{PROFILE.bsc}</p>
               </div>
             </div>
           </div>
@@ -112,10 +115,8 @@ const About = () => {
     <PageLayout title="About">
       <section className="page-container page-section">
         <p className="page-subtitle">About</p>
-        <h1 className="page-title mt-2">Aditya Chauhan</h1>
-        <p className="text-sm text-muted-foreground mt-3">
-          MSc Mathematics · IIT Bhubaneswar · Graduating May 2026
-        </p>
+        <h1 className="page-title mt-2">{PROFILE.name}</h1>
+        <p className="text-sm text-muted-foreground mt-3">{PROFILE.msc}</p>
         <div className="mt-10">
           <Tabs tabs={tabs} defaultTab={defaultTab} />
         </div>

@@ -1,6 +1,7 @@
 import { Github, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import { SITE_NAME } from "@/lib/utils";
+import { PROFILE } from "@/lib/profile";
 
 const Footer = () => {
   return (
@@ -27,9 +28,27 @@ const Footer = () => {
             Contact
           </Link>
         </nav>
+        <div className="grid gap-3 text-xs text-muted-foreground sm:grid-cols-2">
+          <div className="space-y-1">
+            <p>{PROFILE.name}</p>
+            <p>{PROFILE.email}</p>
+            <p>{PROFILE.phone}</p>
+            <p>{PROFILE.linkedIn}</p>
+            <p>{PROFILE.github}</p>
+            <p>{PROFILE.website}</p>
+          </div>
+          <div className="space-y-1">
+            <p>{PROFILE.location}</p>
+            <p>{PROFILE.msc}</p>
+            <p>{PROFILE.bsc}</p>
+            <p>{PROFILE.supervisor}</p>
+            <p>{PROFILE.paperTitle}</p>
+            <p>{PROFILE.paperCitation}</p>
+          </div>
+        </div>
         <div className="flex items-center justify-center gap-5">
           <a
-            href="https://github.com/aditya01ad"
+            href={PROFILE.github}
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-foreground transition-colors duration-200"
@@ -38,7 +57,7 @@ const Footer = () => {
             <Github className="w-4 h-4" />
           </a>
           <a
-            href="https://www.linkedin.com/in/aditya01ad"
+            href={PROFILE.linkedIn}
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-foreground transition-colors duration-200"
@@ -60,7 +79,7 @@ const Footer = () => {
             </svg>
           </a>
           <a
-            href="mailto:24MA05020@iitbbs.ac.in"
+            href={`mailto:${PROFILE.email}`}
             className="text-muted-foreground hover:text-foreground transition-colors duration-200"
             aria-label="Email"
           >

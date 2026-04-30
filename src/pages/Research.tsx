@@ -2,13 +2,14 @@ import PageLayout from "@/components/layout/PageLayout";
 import Badge from "@/components/ui/Badge";
 import Tabs, { Tab } from "@/components/ui/Tabs";
 import Tag from "@/components/ui/Tag";
+import { PROFILE } from "@/lib/profile";
 
 const interestTags = [
   "Spectral Graphs",
+  "Convex Optimization",
+  "Numerical Analysis",
+  "Graph Neural Networks",
   "Topology",
-  "Combinatorics",
-  "Optimization",
-  "Mathematical Writing",
 ];
 
 const Research = () => {
@@ -18,23 +19,24 @@ const Research = () => {
       label: "Overview",
       content: (
         <div className="space-y-6">
-          <article className="border border-border rounded-sm p-6 card-hover">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <h3 className="text-lg font-medium text-foreground">Research vision</h3>
-              <Badge variant="inprep" />
+            <article className="border border-border rounded-sm p-6 card-hover">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <h3 className="text-lg font-medium text-foreground">Research vision</h3>
+                <Badge variant="inprep" />
+              </div>
+              <p className="text-sm text-muted-foreground mt-4 leading-relaxed">
+                Advancing spectral graph theory through rigorous proofs and computational validation. The
+                long-term goal is to bridge theoretical insights with applications in machine learning and
+                network science.
+              </p>
+            </article>
+            <div className="accent-left space-y-2">
+              <p className="text-xs uppercase tracking-widest text-muted-foreground">Current focus</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Thesis work supervised by {PROFILE.supervisor} on {PROFILE.paperTitle}, building new
+                invariants and characterizations for graph families.
+              </p>
             </div>
-            <p className="text-sm text-muted-foreground mt-4 leading-relaxed">
-              Placeholder summary of long-term research direction, key questions, and the interdisciplinary
-              lens applied to mathematical inquiry.
-            </p>
-          </article>
-          <div className="accent-left space-y-2">
-            <p className="text-xs uppercase tracking-widest text-muted-foreground">Current focus</p>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Placeholder detail on the most recent thread of investigation, including collaborators,
-              methodologies, and exploratory results.
-            </p>
-          </div>
         </div>
       ),
     },
@@ -43,29 +45,29 @@ const Research = () => {
       label: "DAS Project",
       content: (
         <div className="space-y-6">
-          <article className="border border-border rounded-sm p-6 card-hover">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <h3 className="text-lg font-medium text-foreground">Discrete Algebraic Structures</h3>
-              <Badge variant="active" />
+            <article className="border border-border rounded-sm p-6 card-hover">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <h3 className="text-lg font-medium text-foreground">Discrete Algebraic Structures</h3>
+                <Badge variant="active" />
+              </div>
+              <p className="text-sm text-muted-foreground mt-4 leading-relaxed">
+                The DAS project focuses on spectral determination with pendant attachments, combining proof
+                techniques with computational checks. Current output: {PROFILE.paperTitle}.
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                <Tag label="Graph spectra" />
+                <Tag label="Pendant attachments" />
+                <Tag label="Proof notebooks" />
+              </div>
+            </article>
+            <div className="border border-border rounded-sm p-6">
+              <p className="text-xs uppercase tracking-widest text-muted-foreground">Next milestones</p>
+              <ul className="mt-4 space-y-3 text-sm text-muted-foreground list-disc list-inside">
+                <li>Finalize proof outline and supporting lemmas.</li>
+                <li>Run computational verification across candidate graph families.</li>
+                <li>Complete manuscript draft with {PROFILE.paperCitation}.</li>
+              </ul>
             </div>
-            <p className="text-sm text-muted-foreground mt-4 leading-relaxed">
-              Placeholder description of the DAS project scope, objectives, and planned outputs. Replace with
-              specific goals, datasets, or theoretical results as needed.
-            </p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              <Tag label="Graph spectra" />
-              <Tag label="Invariant analysis" />
-              <Tag label="Proof notebooks" />
-            </div>
-          </article>
-          <div className="border border-border rounded-sm p-6">
-            <p className="text-xs uppercase tracking-widest text-muted-foreground">Next milestones</p>
-            <ul className="mt-4 space-y-3 text-sm text-muted-foreground list-disc list-inside">
-              <li>Placeholder milestone for literature review and foundational proofs.</li>
-              <li>Placeholder milestone for computational experiments and validation.</li>
-              <li>Placeholder milestone for drafting an initial manuscript.</li>
-            </ul>
-          </div>
         </div>
       ),
     },
@@ -74,24 +76,25 @@ const Research = () => {
       label: "Interests",
       content: (
         <div className="space-y-6">
-          <article className="border border-border rounded-sm p-6 card-hover">
-            <h3 className="text-lg font-medium text-foreground">Exploration themes</h3>
-            <p className="text-sm text-muted-foreground mt-3 leading-relaxed">
-              Placeholder list of research interests and adjacent topics that inspire reading, mentoring, and
-              collaborations.
-            </p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {interestTags.map((tag) => (
-                <Tag key={tag} label={tag} />
-              ))}
+            <article className="border border-border rounded-sm p-6 card-hover">
+              <h3 className="text-lg font-medium text-foreground">Exploration themes</h3>
+              <p className="text-sm text-muted-foreground mt-3 leading-relaxed">
+                Beyond thesis work, the research agenda includes convex optimization, numerical methods, and
+                the spectral view of machine learning models.
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {interestTags.map((tag) => (
+                  <Tag key={tag} label={tag} />
+                ))}
+              </div>
+            </article>
+            <div className="accent-left space-y-2">
+              <p className="text-xs uppercase tracking-widest text-muted-foreground">Open questions</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Seeking collaborations that connect spectral theory to practical ML systems, especially in
+                graph representation learning.
+              </p>
             </div>
-          </article>
-          <div className="accent-left space-y-2">
-            <p className="text-xs uppercase tracking-widest text-muted-foreground">Open questions</p>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Placeholder prompts for open questions, future collaborations, and potential proposals.
-            </p>
-          </div>
         </div>
       ),
     },
@@ -103,8 +106,8 @@ const Research = () => {
         <p className="page-subtitle">Research</p>
         <h1 className="page-title mt-2">Research portfolio</h1>
         <p className="page-lede mt-4 max-w-2xl">
-          Placeholder introduction framing the research program, featured projects, and areas of
-          exploration.
+          Current thesis work at {PROFILE.msc} with a focus on spectral graph theory and applied mathematical
+          analysis for machine learning.
         </p>
         <div className="mt-10">
           <Tabs tabs={tabs} defaultTab="overview" />

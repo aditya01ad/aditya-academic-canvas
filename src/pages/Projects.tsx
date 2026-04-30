@@ -14,19 +14,22 @@ const allProjects: Project[] = [
   {
     title: "Optimization Algorithms Playground",
     variant: "active",
-    summary: "Placeholder overview of algorithm experiments, benchmarking, and visualization work.",
+    summary:
+      "Benchmarks for gradient-based optimizers, visualized with NumPy/Matplotlib to compare convergence and stability.",
     tags: ["Python", "Numerical", "Visualization"],
   },
   {
     title: "Topology Notes Companion",
     variant: "completed",
-    summary: "Placeholder summary of a published note series and teaching materials.",
+    summary:
+      "LaTeX-first notes covering point-set topology, with curated exercises and teaching references.",
     tags: ["LaTeX", "Teaching", "Writing"],
   },
   {
     title: "Graph Spectra Toolkit",
     variant: "active",
-    summary: "Placeholder description for a toolkit supporting spectral graph investigations.",
+    summary:
+      "Reusable scripts for spectral computations, eigenvalue experiments, and invariant checks in graph theory.",
     tags: ["Graph Theory", "Research", "Tools"],
   },
 ];
@@ -92,8 +95,8 @@ const Projects = () => {
         <p className="page-subtitle">Projects</p>
         <h1 className="page-title mt-2">Project portfolio</h1>
         <p className="page-lede mt-4 max-w-2xl">
-          Placeholder overview of research-adjacent builds, collaborations, and experiments. Expand each
-          project with real outcomes and links.
+          A mix of research-adjacent builds, computational experiments, and structured learning artifacts.
+          Each project supports the transition from theory to ML engineering practice.
         </p>
         <div className="mt-10">
           <Tabs tabs={tabs} defaultTab="all" />
