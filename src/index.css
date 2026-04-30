@@ -129,6 +129,66 @@
     transform: translateY(-3px);
     box-shadow: 0 8px 24px -6px hsl(var(--foreground) / 0.12);
   }
+
+  .tab-bar {
+    @apply flex flex-wrap items-center gap-3 border-b border-border pb-3;
+  }
+
+  .tab-btn {
+    @apply text-xs uppercase tracking-widest px-4 py-2 rounded-sm border border-border text-muted-foreground transition-colors duration-200 hover:text-foreground hover:border-foreground;
+  }
+
+  .tab-active {
+    @apply border-foreground text-foreground bg-secondary;
+  }
+
+  .tab-panel {
+    @apply mt-6;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-sm border border-border px-2 py-1 text-[10px] uppercase tracking-widest text-muted-foreground;
+  }
+
+  .badge-inprep {
+    @apply text-muted-foreground;
+  }
+
+  .badge-active {
+    @apply text-accent;
+  }
+
+  .badge-completed {
+    @apply text-foreground;
+  }
+
+  .badge-planned {
+    @apply text-muted-foreground;
+  }
+
+  .page-container {
+    @apply max-w-4xl mx-auto px-6;
+  }
+
+  .page-section {
+    @apply py-16;
+  }
+
+  .page-title {
+    @apply text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-foreground;
+  }
+
+  .page-subtitle {
+    @apply text-xs uppercase tracking-widest text-muted-foreground;
+  }
+
+  .page-lede {
+    @apply text-base sm:text-lg text-muted-foreground leading-relaxed;
+  }
+
+  .accent-left {
+    @apply border-l-2 border-accent pl-5;
+  }
 }
 
 @keyframes fadeIn {

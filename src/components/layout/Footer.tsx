@@ -1,0 +1,97 @@
+import { Github, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
+import { SITE_NAME } from "@/lib/utils";
+import { PROFILE } from "@/lib/profile";
+
+const Footer = () => {
+  return (
+    <footer className="py-12 px-6 border-t border-border">
+      <div className="max-w-4xl mx-auto text-center space-y-6">
+        <p className="text-sm font-medium text-foreground tracking-wide">{SITE_NAME}</p>
+        <nav className="flex flex-wrap items-center justify-center gap-6 text-xs uppercase tracking-widest text-muted-foreground">
+          <Link to="/about" className="hover:text-foreground transition-colors duration-200">
+            About
+          </Link>
+          <Link to="/research" className="hover:text-foreground transition-colors duration-200">
+            Research
+          </Link>
+          <Link to="/projects" className="hover:text-foreground transition-colors duration-200">
+            Projects
+          </Link>
+          <Link to="/blog" className="hover:text-foreground transition-colors duration-200">
+            Blog
+          </Link>
+          <Link to="/about?tab=skills" className="hover:text-foreground transition-colors duration-200">
+            Skills
+          </Link>
+          <Link to="/contact" className="hover:text-foreground transition-colors duration-200">
+            Contact
+          </Link>
+        </nav>
+        <div className="grid gap-3 text-xs text-muted-foreground sm:grid-cols-2">
+          <div className="space-y-1">
+            <p>{PROFILE.name}</p>
+            <p>{PROFILE.email}</p>
+            <p>{PROFILE.phone}</p>
+            <p>{PROFILE.linkedIn}</p>
+            <p>{PROFILE.github}</p>
+            <p>{PROFILE.website}</p>
+          </div>
+          <div className="space-y-1">
+            <p>{PROFILE.location}</p>
+            <p>{PROFILE.msc}</p>
+            <p>{PROFILE.bsc}</p>
+            <p>{PROFILE.supervisor}</p>
+            <p>{PROFILE.paperTitle}</p>
+            <p>{PROFILE.paperCitation}</p>
+          </div>
+        </div>
+        <div className="flex items-center justify-center gap-5">
+          <a
+            href={PROFILE.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+            aria-label="GitHub"
+          >
+            <Github className="w-4 h-4" />
+          </a>
+          <a
+            href={PROFILE.linkedIn}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+            aria-label="LinkedIn"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="w-4 h-4"
+            >
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+              <rect width="4" height="12" x="2" y="9" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+          </a>
+          <a
+            href={`mailto:${PROFILE.email}`}
+            className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+            aria-label="Email"
+          >
+            <Mail className="w-4 h-4" />
+          </a>
+        </div>
+        <p className="text-xs text-muted-foreground">
+          © {new Date().getFullYear()} {SITE_NAME} · Built with purpose
+        </p>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
