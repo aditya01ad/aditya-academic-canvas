@@ -129,6 +129,30 @@
     transform: translateY(-3px);
     box-shadow: 0 8px 24px -6px hsl(var(--foreground) / 0.12);
   }
+
+  .page-container {
+    @apply max-w-4xl mx-auto px-6;
+  }
+
+  .page-section {
+    @apply py-16;
+  }
+
+  .page-title {
+    @apply text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-foreground;
+  }
+
+  .page-subtitle {
+    @apply text-xs uppercase tracking-widest text-muted-foreground;
+  }
+
+  .page-lede {
+    @apply text-base sm:text-lg text-muted-foreground leading-relaxed;
+  }
+
+  .accent-left {
+    @apply border-l-2 border-accent pl-5;
+  }
 }
 
 @keyframes fadeIn {
