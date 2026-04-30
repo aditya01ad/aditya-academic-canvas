@@ -11,10 +11,9 @@ interface PageLayoutProps {
 export default function PageLayout({ children, title }: PageLayoutProps) {
   useEffect(() => {
     if (!title) return;
-    const previousTitle = document.title;
     document.title = `${title} — ${SITE_NAME}`;
     return () => {
-      document.title = previousTitle;
+      document.title = SITE_NAME;
     };
   }, [title]);
   return (
