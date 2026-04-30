@@ -21,6 +21,8 @@ export default function Tabs({ tabs, defaultTab }: TabsProps) {
     }
   }, [defaultTab, tabs]);
 
+  if (!tabs.length) return null;
+
   return (
     <div>
       <div className="tab-bar" role="tablist">

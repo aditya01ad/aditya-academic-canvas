@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "next-themes";
 import { Menu, Moon, Sun, X } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn, SITE_NAME } from "@/lib/utils";
 
 const NAV_ITEMS = [
   { label: "Research", to: "/research" },
@@ -27,7 +27,7 @@ const Navbar = () => {
           className="text-sm font-medium text-foreground tracking-wide transition-opacity duration-200 hover:opacity-70"
           onClick={() => setMenuOpen(false)}
         >
-          Aditya Chauhan
+          {SITE_NAME}
         </Link>
 
         <ul className="hidden md:flex items-center gap-6">

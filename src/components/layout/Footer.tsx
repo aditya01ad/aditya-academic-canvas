@@ -1,11 +1,12 @@
 import { Github, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
+import { SITE_NAME } from "@/lib/utils";
 
 const Footer = () => {
   return (
     <footer className="py-12 px-6 border-t border-border">
       <div className="max-w-4xl mx-auto text-center space-y-6">
-        <p className="text-sm font-medium text-foreground tracking-wide">Aditya Chauhan</p>
+        <p className="text-sm font-medium text-foreground tracking-wide">{SITE_NAME}</p>
         <nav className="flex flex-wrap items-center justify-center gap-6 text-xs uppercase tracking-widest text-muted-foreground">
           <Link to="/about" className="hover:text-foreground transition-colors duration-200">
             About
@@ -67,7 +68,7 @@ const Footer = () => {
           </a>
         </div>
         <p className="text-xs text-muted-foreground">
-          © {new Date().getFullYear()} Aditya Chauhan · Built with purpose
+          © {new Date().getFullYear()} {SITE_NAME} · Built with purpose
         </p>
       </div>
     </footer>
