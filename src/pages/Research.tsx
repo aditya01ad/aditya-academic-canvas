@@ -1,6 +1,6 @@
 import PageLayout from "@/components/layout/PageLayout";
 import Badge from "@/components/ui/Badge";
-import TabGroup, { TabItem } from "@/components/ui/Tabs";
+import Tabs, { Tab } from "@/components/ui/Tabs";
 import Tag from "@/components/ui/Tag";
 
 const interestTags = [
@@ -12,7 +12,7 @@ const interestTags = [
 ];
 
 const Research = () => {
-  const tabs: TabItem[] = [
+  const tabs: Tab[] = [
     {
       id: "overview",
       label: "Overview",
@@ -21,7 +21,7 @@ const Research = () => {
           <article className="border border-border rounded-sm p-6 card-hover">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <h3 className="text-lg font-medium text-foreground">Research vision</h3>
-              <Badge tone="accent">Overview</Badge>
+              <Badge variant="inprep" />
             </div>
             <p className="text-sm text-muted-foreground mt-4 leading-relaxed">
               Placeholder summary of long-term research direction, key questions, and the interdisciplinary
@@ -46,16 +46,16 @@ const Research = () => {
           <article className="border border-border rounded-sm p-6 card-hover">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <h3 className="text-lg font-medium text-foreground">Discrete Algebraic Structures</h3>
-              <Badge tone="accent">Active</Badge>
+              <Badge variant="active" />
             </div>
             <p className="text-sm text-muted-foreground mt-4 leading-relaxed">
               Placeholder description of the DAS project scope, objectives, and planned outputs. Replace with
               specific goals, datasets, or theoretical results as needed.
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
-              <Tag>Graph spectra</Tag>
-              <Tag>Invariant analysis</Tag>
-              <Tag>Proof notebooks</Tag>
+              <Tag label="Graph spectra" />
+              <Tag label="Invariant analysis" />
+              <Tag label="Proof notebooks" />
             </div>
           </article>
           <div className="border border-border rounded-sm p-6">
@@ -82,7 +82,7 @@ const Research = () => {
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
               {interestTags.map((tag) => (
-                <Tag key={tag}>{tag}</Tag>
+                <Tag key={tag} label={tag} />
               ))}
             </div>
           </article>
@@ -98,7 +98,7 @@ const Research = () => {
   ];
 
   return (
-    <PageLayout>
+    <PageLayout title="Research">
       <section className="page-container page-section">
         <p className="page-subtitle">Research</p>
         <h1 className="page-title mt-2">Research portfolio</h1>
@@ -107,7 +107,7 @@ const Research = () => {
           exploration.
         </p>
         <div className="mt-10">
-          <TabGroup tabs={tabs} defaultTab="overview" />
+          <Tabs tabs={tabs} defaultTab="overview" />
         </div>
       </section>
     </PageLayout>

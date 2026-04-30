@@ -12,9 +12,9 @@ const focusAreas = [
 
 const Home = () => {
   return (
-    <PageLayout>
+    <PageLayout title="Home">
       <section className="page-container page-section text-center">
-        <Badge tone="accent">Personal brand</Badge>
+        <Badge variant="active" />
         <h1 className="page-title mt-4">Aditya · Academic Portfolio</h1>
         <p className="page-lede mt-4 max-w-2xl mx-auto">
           Placeholder introduction for a multi-page personal brand site. This landing view highlights the
@@ -40,7 +40,7 @@ const Home = () => {
       <section className="page-container page-section">
         <div className="grid gap-6 md:grid-cols-3">
           <article className="border border-border rounded-sm p-6 card-hover">
-            <Badge>Research</Badge>
+            <Badge variant="active" />
             <h2 className="text-lg font-medium text-foreground mt-3">Living research narrative</h2>
             <p className="text-sm text-muted-foreground mt-3">
               Placeholder summary describing ongoing investigations, current questions, and how the work
@@ -54,7 +54,7 @@ const Home = () => {
             </Link>
           </article>
           <article className="border border-border rounded-sm p-6 card-hover">
-            <Badge>Projects</Badge>
+            <Badge variant="inprep" />
             <h2 className="text-lg font-medium text-foreground mt-3">Project portfolio</h2>
             <p className="text-sm text-muted-foreground mt-3">
               Placeholder card for active and completed projects, showcasing methods, outcomes, and
@@ -68,7 +68,7 @@ const Home = () => {
             </Link>
           </article>
           <article className="border border-border rounded-sm p-6 card-hover">
-            <Badge>About</Badge>
+            <Badge variant="planned" />
             <h2 className="text-lg font-medium text-foreground mt-3">Personal story</h2>
             <p className="text-sm text-muted-foreground mt-3">
               Placeholder content for biography, education highlights, and the voice behind the work.
@@ -96,7 +96,7 @@ const Home = () => {
             </div>
             <div className="flex flex-wrap gap-2">
               {focusAreas.map((area) => (
-                <Tag key={area}>{area}</Tag>
+                <Tag key={area} label={area} />
               ))}
             </div>
           </div>

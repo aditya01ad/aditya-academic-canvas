@@ -1,55 +1,49 @@
-import type { ReactNode } from "react";
-import { useMemo, useState } from "react";
-import { cn } from "@/lib/utils";
+import React, { useState } from "react";
 
-export interface TabItem {
+export interface Tab {
   id: string;
   label: string;
-  content: ReactNode;
+  content: React.ReactNode;
 }
 
 interface TabsProps {
-  tabs: TabItem[];
+  tabs: Tab[];
   defaultTab?: string;
-  className?: string;
 }
 
-const Tabs = ({ tabs, defaultTab, className }: TabsProps) => {
-  const initialTab = useMemo(() => {
-    if (defaultTab && tabs.some((tab) => tab.id === defaultTab)) {
-      return defaultTab;
-    }
-    return tabs[0]?.id ?? "";
-  }, [defaultTab, tabs]);
-
-  const [activeTab, setActiveTab] = useState(initialTab);
-  const activeContent = tabs.find((tab) => tab.id === activeTab)?.content;
+export default function Tabs({ tabs, defaultTab }: TabsProps) {
+  const [active, setActive] = useState(defaultTab ?? tabs[0]?.id ?? "");
 
   return (
-    <div className={cn("space-y-6", className)}>
-      <div className="flex flex-wrap items-center gap-3 border-b border-border pb-3">
-        {tabs.map((tab) => {
-          const isActive = tab.id === activeTab;
-          return (
-            <button
-              key={tab.id}
-              type="button"
-              onClick={() => setActiveTab(tab.id)}
-              className={cn(
-                "text-xs uppercase tracking-widest px-4 py-2 rounded-sm border transition-colors duration-200",
-                isActive
-                  ? "border-foreground text-foreground bg-secondary"
-                  : "border-border text-muted-foreground hover:text-foreground hover:border-foreground",
-              )}
-            >
-              {tab.label}
-            </button>
-          );
-        })}
+    <div>
+      <div className="tab-bar" role="tablist">
+        {tabs.map((tab) => (
+          <button
+            key={tab.id}
+            role="tab"
+            id={`tab-${tab.id}`}
+            aria-selected={active === tab.id}
+            aria-controls={`panel-${tab.id}`}
+            className={`tab-btn${active === tab.id ? " tab-active" : ""}`}
+            onClick={() => setActive(tab.id)}
+            type="button"
+          >
+            {tab.label}
+          </button>
+        ))}
       </div>
-      <div>{activeContent}</div>
+      {tabs.map((tab) => (
+        <div
+          key={tab.id}
+          role="tabpanel"
+          id={`panel-${tab.id}`}
+          aria-labelledby={`tab-${tab.id}`}
+          className="tab-panel"
+          hidden={active !== tab.id}
+        >
+          {active === tab.id && tab.content}
+        </div>
+      ))}
     </div>
   );
-};
-
-export default Tabs;
+}

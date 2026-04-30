@@ -5,10 +5,10 @@ const Footer = () => {
   return (
     <footer className="py-12 px-6 border-t border-border">
       <div className="max-w-4xl mx-auto text-center space-y-6">
-        <p className="text-sm font-medium text-foreground tracking-wide">Aditya</p>
+        <p className="text-sm font-medium text-foreground tracking-wide">Aditya Chauhan</p>
         <nav className="flex flex-wrap items-center justify-center gap-6 text-xs uppercase tracking-widest text-muted-foreground">
-          <Link to="/" className="hover:text-foreground transition-colors duration-200">
-            Home
+          <Link to="/about" className="hover:text-foreground transition-colors duration-200">
+            About
           </Link>
           <Link to="/research" className="hover:text-foreground transition-colors duration-200">
             Research
@@ -16,11 +16,11 @@ const Footer = () => {
           <Link to="/projects" className="hover:text-foreground transition-colors duration-200">
             Projects
           </Link>
-          <Link to="/about" className="hover:text-foreground transition-colors duration-200">
-            About
-          </Link>
           <Link to="/blog" className="hover:text-foreground transition-colors duration-200">
             Blog
+          </Link>
+          <Link to="/about" className="hover:text-foreground transition-colors duration-200">
+            Skills
           </Link>
           <Link to="/contact" className="hover:text-foreground transition-colors duration-200">
             Contact
@@ -66,7 +66,9 @@ const Footer = () => {
             <Mail className="w-4 h-4" />
           </a>
         </div>
-        <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} Aditya · Built with purpose</p>
+        <p className="text-xs text-muted-foreground">
+          © {new Date().getFullYear()} Aditya Chauhan · Built with purpose
+        </p>
       </div>
     </footer>
   );

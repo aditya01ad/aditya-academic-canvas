@@ -1,21 +1,27 @@
 import { ReactNode } from "react";
-import { cn } from "@/lib/utils";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 interface PageLayoutProps {
   children: ReactNode;
-  className?: string;
+  title?: string;
 }
 
-const PageLayout = ({ children, className }: PageLayoutProps) => {
+export default function PageLayout({ children, title }: PageLayoutProps) {
+  if (title) document.title = `${title} — Aditya Chauhan`;
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen flex flex-col">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:border focus:rounded"
+      >
+        Skip to content
+      </a>
       <Navbar />
-      <main className={cn("pt-20", className)}>{children}</main>
+      <main id="main-content" className="flex-1">
+        {children}
+      </main>
       <Footer />
     </div>
   );
-};
-
-export default PageLayout;
+}

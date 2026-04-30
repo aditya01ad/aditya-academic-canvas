@@ -5,11 +5,10 @@ import { Menu, Moon, Sun, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
-  { label: "Home", to: "/" },
   { label: "Research", to: "/research" },
   { label: "Projects", to: "/projects" },
-  { label: "About", to: "/about" },
   { label: "Blog", to: "/blog" },
+  { label: "About", to: "/about" },
   { label: "Contact", to: "/contact" },
 ];
 
@@ -18,10 +17,7 @@ const Navbar = () => {
   const { pathname } = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const isActive = (path: string) => {
-    if (path === "/") return pathname === "/";
-    return pathname.startsWith(path);
-  };
+  const isActive = (path: string) => pathname === path;
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm border-b border-border">
@@ -31,7 +27,7 @@ const Navbar = () => {
           className="text-sm font-medium text-foreground tracking-wide transition-opacity duration-200 hover:opacity-70"
           onClick={() => setMenuOpen(false)}
         >
-          Aditya
+          Aditya Chauhan
         </Link>
 
         <ul className="hidden md:flex items-center gap-6">
@@ -41,6 +37,7 @@ const Navbar = () => {
               <li key={item.to}>
                 <Link
                   to={item.to}
+                  aria-current={pathname === item.to ? "page" : undefined}
                   className={cn(
                     "relative text-xs tracking-widest uppercase transition-colors duration-200 pb-0.5",
                     active ? "text-foreground" : "text-muted-foreground hover:text-foreground",
@@ -95,6 +92,7 @@ const Navbar = () => {
               <li key={item.to}>
                 <Link
                   to={item.to}
+                  aria-current={pathname === item.to ? "page" : undefined}
                   className={cn(
                     "text-xs tracking-widest uppercase transition-colors duration-200",
                     active ? "text-foreground font-medium" : "text-muted-foreground hover:text-foreground",

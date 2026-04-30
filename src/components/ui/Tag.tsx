@@ -1,16 +1,7 @@
-import { HTMLAttributes } from "react";
-import { cn } from "@/lib/utils";
-
-const Tag = ({ className, ...props }: HTMLAttributes<HTMLSpanElement>) => {
+export default function Tag({ label }: { label: string }) {
   return (
-    <span
-      className={cn(
-        "inline-flex items-center rounded-sm border border-border px-3 py-1.5 text-xs text-foreground transition-colors duration-200 hover:border-foreground hover:bg-secondary",
-        className,
-      )}
-      {...props}
-    />
+    <span className="text-xs px-2 py-1 bg-secondary text-secondary-foreground rounded-sm">
+      {label}
+    </span>
   );
-};
-
-export default Tag;
+}

@@ -1,21 +1,12 @@
-import { HTMLAttributes } from "react";
-import { cn } from "@/lib/utils";
+type BadgeVariant = "inprep" | "active" | "completed" | "planned";
 
-interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
-  tone?: "muted" | "accent";
-}
-
-const Badge = ({ tone = "muted", className, ...props }: BadgeProps) => {
-  return (
-    <span
-      className={cn(
-        "inline-flex items-center rounded-sm border border-border px-2 py-1 text-[10px] uppercase tracking-widest",
-        tone === "accent" ? "text-accent" : "text-muted-foreground",
-        className,
-      )}
-      {...props}
-    />
-  );
+const labels: Record<BadgeVariant, string> = {
+  inprep: "In Preparation",
+  active: "In Progress",
+  completed: "Completed",
+  planned: "Planned",
 };
 
-export default Badge;
+export default function Badge({ variant }: { variant: BadgeVariant }) {
+  return <span className={`badge badge-${variant}`}>{labels[variant]}</span>;
+}

@@ -1,6 +1,6 @@
 import PageLayout from "@/components/layout/PageLayout";
 import Badge from "@/components/ui/Badge";
-import TabGroup, { TabItem } from "@/components/ui/Tabs";
+import Tabs, { Tab } from "@/components/ui/Tabs";
 import Tag from "@/components/ui/Tag";
 
 const skillGroups = [
@@ -15,7 +15,7 @@ const skillGroups = [
 ];
 
 const About = () => {
-  const tabs: TabItem[] = [
+  const tabs: Tab[] = [
     {
       id: "story",
       label: "Story",
@@ -60,7 +60,7 @@ const About = () => {
           <div className="space-y-6">
             <div className="flex items-center justify-between">
               <h3 className="text-lg font-medium text-foreground">Awards</h3>
-              <Badge tone="accent">New</Badge>
+              <Badge variant="planned" />
             </div>
             <div className="space-y-4">
               <div className="accent-left">
@@ -86,7 +86,7 @@ const About = () => {
               <p className="text-xs uppercase tracking-widest text-muted-foreground">{group.title}</p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {group.items.map((item) => (
-                  <Tag key={item}>{item}</Tag>
+                  <Tag key={item} label={item} />
                 ))}
               </div>
             </div>
@@ -97,7 +97,7 @@ const About = () => {
   ];
 
   return (
-    <PageLayout>
+    <PageLayout title="About">
       <section className="page-container page-section">
         <p className="page-subtitle">About</p>
         <h1 className="page-title mt-2">Personal profile</h1>
@@ -106,7 +106,7 @@ const About = () => {
           the finalized narrative and achievements.
         </p>
         <div className="mt-10">
-          <TabGroup tabs={tabs} defaultTab="story" />
+          <Tabs tabs={tabs} defaultTab="story" />
         </div>
       </section>
     </PageLayout>

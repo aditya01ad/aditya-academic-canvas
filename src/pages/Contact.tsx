@@ -6,7 +6,7 @@ const conversationTopics = ["Research collaboration", "Speaking", "Teaching", "W
 
 const Contact = () => {
   return (
-    <PageLayout>
+    <PageLayout title="Contact">
       <section className="page-container page-section">
         <p className="page-subtitle">Contact</p>
         <h1 className="page-title mt-2">Let’s connect</h1>
@@ -31,7 +31,7 @@ const Contact = () => {
               <p className="text-xs uppercase tracking-widest text-muted-foreground">Conversation topics</p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {conversationTopics.map((topic) => (
-                  <Tag key={topic}>{topic}</Tag>
+                  <Tag key={topic} label={topic} />
                 ))}
               </div>
             </div>
@@ -40,7 +40,7 @@ const Contact = () => {
           <div className="border border-border rounded-sm p-6 card-hover">
             <div className="flex items-center justify-between">
               <h2 className="text-lg font-medium text-foreground">Send a note</h2>
-              <Badge tone="accent">Placeholder</Badge>
+              <Badge variant="inprep" />
             </div>
             <p className="text-sm text-muted-foreground mt-4 leading-relaxed">
               Placeholder text for a future contact form or scheduling widget. Replace with real fields or

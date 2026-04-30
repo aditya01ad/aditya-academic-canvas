@@ -3,7 +3,7 @@ import Badge from "@/components/ui/Badge";
 
 const Blog = () => {
   return (
-    <PageLayout>
+    <PageLayout title="Blog">
       <section className="page-container page-section">
         <p className="page-subtitle">Blog</p>
         <h1 className="page-title mt-2">Writing & notes</h1>
@@ -12,7 +12,7 @@ const Blog = () => {
           here when ready.
         </p>
         <div className="mt-10 border border-border rounded-sm p-8 text-center card-hover">
-          <Badge tone="accent">Empty state</Badge>
+          <Badge variant="planned" />
           <h2 className="text-lg font-medium text-foreground mt-4">No posts yet</h2>
           <p className="text-sm text-muted-foreground mt-3">
             Placeholder message indicating that new articles are in progress.
