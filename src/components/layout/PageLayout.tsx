@@ -10,7 +10,12 @@ interface PageLayoutProps {
 
 export default function PageLayout({ children, title }: PageLayoutProps) {
   useEffect(() => {
-    if (title) document.title = `${title} — ${SITE_NAME}`;
+    if (!title) return;
+    const previousTitle = document.title;
+    document.title = `${title} — ${SITE_NAME}`;
+    return () => {
+      document.title = previousTitle;
+    };
   }, [title]);
   return (
     <div className="min-h-screen flex flex-col">

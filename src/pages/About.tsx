@@ -18,8 +18,6 @@ const skillGroups = [
 const About = () => {
   const [searchParams] = useSearchParams();
   const tabParam = searchParams.get("tab");
-  const defaultTab =
-    tabParam === "story" || tabParam === "education-awards" || tabParam === "skills" ? tabParam : "story";
   const tabs: Tab[] = [
     {
       id: "story",
@@ -100,6 +98,7 @@ const About = () => {
       ),
     },
   ];
+  const defaultTab = tabParam && tabs.some((tab) => tab.id === tabParam) ? tabParam : "story";
 
   return (
     <PageLayout title="About">

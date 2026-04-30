@@ -12,12 +12,17 @@ interface TabsProps {
 }
 
 export default function Tabs({ tabs, defaultTab }: TabsProps) {
-  const [active, setActive] = useState(defaultTab ?? tabs[0]?.id ?? "");
+  const initialTab = defaultTab && tabs.some((tab) => tab.id === defaultTab) ? defaultTab : tabs[0]?.id ?? "";
+  const [active, setActive] = useState(initialTab);
 
   useEffect(() => {
     if (!defaultTab) return;
     if (tabs.some((tab) => tab.id === defaultTab)) {
       setActive(defaultTab);
+      return;
+    }
+    if (tabs[0]?.id) {
+      setActive(tabs[0].id);
     }
   }, [defaultTab, tabs]);
 
