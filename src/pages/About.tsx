@@ -1,17 +1,27 @@
 import { useSearchParams } from "react-router-dom";
 import PageLayout from "@/components/layout/PageLayout";
-import Badge from "@/components/ui/Badge";
 import Tabs, { Tab } from "@/components/ui/Tabs";
 import Tag from "@/components/ui/Tag";
 
 const skillGroups = [
   {
-    title: "Languages",
-    items: ["Python", "C++", "MATLAB", "R", "LaTeX"],
+    title: "Libraries",
+    items: ["NumPy", "Pandas", "Matplotlib", "Scikit-learn", "PyTorch (learning)"],
   },
   {
-    title: "Tools & Platforms",
-    items: ["Jupyter", "Git", "Linux", "Overleaf", "Obsidian"],
+    title: "Tools",
+    items: ["LaTeX", "Git", "Linux (Ubuntu)", "Docker (learning)", "FastAPI (learning)"],
+  },
+  {
+    title: "Mathematics",
+    items: [
+      "Spectral Methods",
+      "Convex Optimization",
+      "Numerical Analysis",
+      "Functional Analysis",
+      "Probability Theory",
+      "Topology",
+    ],
   },
 ];
 
@@ -25,23 +35,24 @@ const About = () => {
       content: (
         <div className="space-y-6">
           <article className="border border-border rounded-sm p-6 card-hover">
-            <h3 className="text-lg font-medium text-foreground">Narrative</h3>
+            <h3 className="text-lg font-medium text-foreground">Mathematics, research, and ML</h3>
             <p className="text-sm text-muted-foreground mt-4 leading-relaxed">
-              Placeholder biography describing academic background, motivations, and the personal journey
-              shaping the research portfolio.
+              Placeholder narrative for Aditya&apos;s academic journey, current research direction, and the
+              motivation behind the shift toward machine learning engineering.
             </p>
           </article>
           <div className="accent-left space-y-2">
-            <p className="text-xs uppercase tracking-widest text-muted-foreground">Guiding values</p>
+            <p className="text-xs uppercase tracking-widest text-muted-foreground">Current focus</p>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Placeholder values statement covering curiosity, rigor, mentorship, and collaborative impact.
+              Exploring spectral graph methods, convex optimization, and the applied side of machine learning
+              theory through coursework, reading groups, and independent projects.
             </p>
           </div>
         </div>
       ),
     },
     {
-      id: "education-awards",
+      id: "education",
       label: "Education & Awards",
       content: (
         <div className="space-y-8">
@@ -51,20 +62,17 @@ const About = () => {
               <div className="accent-left">
                 <p className="text-sm font-medium text-foreground">M.Sc. Mathematics</p>
                 <p className="text-xs text-muted-foreground mt-1">Indian Institute of Technology Bhubaneswar</p>
-                <p className="text-xs text-muted-foreground">Placeholder: 2024 – Present</p>
+                <p className="text-xs text-muted-foreground">2024 – 2026 (expected)</p>
               </div>
               <div className="accent-left">
                 <p className="text-sm font-medium text-foreground">B.Sc. Mathematics</p>
                 <p className="text-xs text-muted-foreground mt-1">Placeholder University</p>
-                <p className="text-xs text-muted-foreground">Placeholder: 2021 – 2024</p>
+                <p className="text-xs text-muted-foreground">2021 – 2024</p>
               </div>
             </div>
           </div>
           <div className="space-y-6">
-            <div className="flex items-center justify-between">
-              <h3 className="text-lg font-medium text-foreground">Awards</h3>
-              <Badge variant="planned" />
-            </div>
+            <h3 className="text-lg font-medium text-foreground">Awards</h3>
             <div className="space-y-4">
               <div className="accent-left">
                 <p className="text-sm font-medium text-foreground">Academic Excellence Award</p>
@@ -104,10 +112,9 @@ const About = () => {
     <PageLayout title="About">
       <section className="page-container page-section">
         <p className="page-subtitle">About</p>
-        <h1 className="page-title mt-2">Personal profile</h1>
-        <p className="page-lede mt-4 max-w-2xl">
-          Placeholder summary of personal story, education highlights, and professional skills. Replace with
-          the finalized narrative and achievements.
+        <h1 className="page-title mt-2">Aditya Chauhan</h1>
+        <p className="text-sm text-muted-foreground mt-3">
+          MSc Mathematics · IIT Bhubaneswar · Graduating May 2026
         </p>
         <div className="mt-10">
           <Tabs tabs={tabs} defaultTab={defaultTab} />
