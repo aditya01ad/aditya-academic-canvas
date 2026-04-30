@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
@@ -8,7 +8,9 @@ interface PageLayoutProps {
 }
 
 export default function PageLayout({ children, title }: PageLayoutProps) {
-  if (title) document.title = `${title} — Aditya Chauhan`;
+  useEffect(() => {
+    if (title) document.title = `${title} — Aditya Chauhan`;
+  }, [title]);
   return (
     <div className="min-h-screen flex flex-col">
       <a

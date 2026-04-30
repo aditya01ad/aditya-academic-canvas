@@ -35,8 +35,8 @@ const activeProjects = allProjects.filter((project) => project.variant === "acti
 const completedProjects = allProjects.filter((project) => project.variant === "completed");
 
 const Projects = () => {
-  const renderProject = (project: (typeof allProjects)[number]) => (
-    <article key={project.title} className="border border-border rounded-sm p-6 card-hover">
+  const ProjectCard = ({ project }: { project: Project }) => (
+    <article className="border border-border rounded-sm p-6 card-hover">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <h3 className="text-lg font-medium text-foreground">{project.title}</h3>
         <Badge variant={project.variant} />
@@ -54,17 +54,35 @@ const Projects = () => {
     {
       id: "all",
       label: "All",
-      content: <div className="space-y-6">{allProjects.map(renderProject)}</div>,
+      content: (
+        <div className="space-y-6">
+          {allProjects.map((project) => (
+            <ProjectCard key={project.title} project={project} />
+          ))}
+        </div>
+      ),
     },
     {
       id: "active",
       label: "Active",
-      content: <div className="space-y-6">{activeProjects.map(renderProject)}</div>,
+      content: (
+        <div className="space-y-6">
+          {activeProjects.map((project) => (
+            <ProjectCard key={project.title} project={project} />
+          ))}
+        </div>
+      ),
     },
     {
       id: "completed",
       label: "Completed",
-      content: <div className="space-y-6">{completedProjects.map(renderProject)}</div>,
+      content: (
+        <div className="space-y-6">
+          {completedProjects.map((project) => (
+            <ProjectCard key={project.title} project={project} />
+          ))}
+        </div>
+      ),
     },
   ];
 
