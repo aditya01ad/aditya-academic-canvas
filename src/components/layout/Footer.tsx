@@ -28,24 +28,6 @@ const Footer = () => {
             Contact
           </Link>
         </nav>
-        <div className="grid gap-3 text-xs text-muted-foreground sm:grid-cols-2">
-          <div className="space-y-1">
-            <p>{PROFILE.name}</p>
-            <p>{PROFILE.email}</p>
-            <p>{PROFILE.phone}</p>
-            <p>{PROFILE.linkedIn}</p>
-            <p>{PROFILE.github}</p>
-            <p>{PROFILE.website}</p>
-          </div>
-          <div className="space-y-1">
-            <p>{PROFILE.location}</p>
-            <p>{PROFILE.msc}</p>
-            <p>{PROFILE.bsc}</p>
-            <p>{PROFILE.supervisor}</p>
-            <p>{PROFILE.paperTitle}</p>
-            <p>{PROFILE.paperCitation}</p>
-          </div>
-        </div>
         <div className="flex items-center justify-center gap-5">
           <a
             href={PROFILE.github}
