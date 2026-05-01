@@ -15,7 +15,6 @@ const Home = () => {
   return (
     <PageLayout title="Home">
       <section className="page-container page-section text-center">
-        <Badge variant="active" />
         <h1 className="page-title mt-4">{PROFILE.name}</h1>
         <p className="text-sm text-muted-foreground mt-3">Mathematician · ML Engineer</p>
         <p className="page-lede mt-4 max-w-2xl mx-auto">
@@ -42,7 +41,6 @@ const Home = () => {
       <section className="page-container page-section">
         <div className="grid gap-6 md:grid-cols-3">
           <article className="border border-border rounded-sm p-6 card-hover">
-            <Badge variant="active" />
             <h2 className="text-lg font-medium text-foreground mt-3">Research focus</h2>
             <p className="text-sm text-muted-foreground mt-3">
               Working under {PROFILE.supervisor} on {PROFILE.paperTitle}. Current milestone is drafting the
