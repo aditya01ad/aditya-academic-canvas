@@ -2,13 +2,15 @@ import { ChevronDown } from "lucide-react";
 
 const ScrollIndicator = () => {
   const handleClick = () => {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const scrollBehavior: ScrollBehavior = reducedMotion ? "auto" : "smooth";
     const scrollY = window.scrollY + window.innerHeight / 2;
     const sections = Array.from(document.querySelectorAll<HTMLElement>("section"));
     const next = sections.find((el) => el.offsetTop > scrollY);
     if (next) {
-      next.scrollIntoView({ behavior: "smooth" });
+      next.scrollIntoView({ behavior: scrollBehavior });
     } else {
-      window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
+      window.scrollBy({ top: window.innerHeight, behavior: scrollBehavior });
     }
   };
 
