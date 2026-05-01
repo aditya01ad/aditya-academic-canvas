@@ -2,6 +2,7 @@ import { ReactNode, useEffect } from "react";
 import { SITE_NAME } from "@/lib/utils";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import ScrollIndicator from "@/components/ui/ScrollIndicator";
 
 interface PageLayoutProps {
   children: ReactNode;
@@ -28,6 +29,7 @@ export default function PageLayout({ children, title }: PageLayoutProps) {
       <main id="main-content" className="flex-1 pt-20">
         {children}
       </main>
+      <ScrollIndicator />
       <Footer />
     </div>
   );
