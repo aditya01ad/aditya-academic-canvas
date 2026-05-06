@@ -16,7 +16,7 @@ const Blog = () => {
       <section className="page-container page-section">
         <div className="max-w-2xl">
           <p className="page-subtitle">Writing</p>
-          <h1 className="page-title mt-2">Thinking out loud about math and ML.</h1>
+          <h1 className="page-title mt-2">Thinking out loud about Math and Tech.</h1>
           <p className="page-lede mt-4">
             I write about the intersection of rigorous mathematics, science and tech applications — and the
             journey of transitioning. Posts coming June 2026.
