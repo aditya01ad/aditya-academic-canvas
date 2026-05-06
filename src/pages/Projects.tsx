@@ -15,18 +15,18 @@ const allProjects: Project[] = [
     title: "Optimization Algorithms Playground",
     variant: "active",
     summary:
-      "Benchmarks for gradient-based optimizers, visualized with NumPy/Matplotlib to compare convergence and stability.",
+      "Benchmarks for gradient-based optimizers, visualized with NumPy/Matplotlib to compare convergence and stability.(pending)",
     tags: ["Python", "Numerical", "Visualization"],
   },
-  {
+  /*{
     title: "Topology Notes Companion",
     variant: "completed",
     summary:
       "LaTeX-first notes covering point-set topology, with curated exercises and teaching references.",
     tags: ["LaTeX", "Teaching", "Writing"],
-  },
+  },*/
   {
-    title: "Graph Spectra Toolkit",
+    title: "Graph Spectra codes",
     variant: "active",
     summary:
       "Reusable scripts for spectral computations, eigenvalue experiments, and invariant checks in graph theory.",
