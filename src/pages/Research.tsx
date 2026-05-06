@@ -48,7 +48,7 @@ const Research = () => {
                 <Badge variant="planed" />
               </div>
               <p className="text-sm text-muted-foreground mt-4 leading-relaxed">
-                Coming soon >>>
+                Coming soon &gt;&gt;&gt;
               </p>
               <div className="mt-4 flex flex-wrap gap-2">
                 <Tag label="Graph spectra" />

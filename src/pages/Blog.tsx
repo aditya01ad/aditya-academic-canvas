@@ -2,7 +2,7 @@ import PageLayout from "@/components/layout/PageLayout";
 
 const plannedTopics = [
   "The spectral view of graph neural networks",
-  what is optimization mathematically and why?",
+  "what is optimization mathematically and why?",
   "From IIT theorem-proving to career building — what changed",
   "Why eigenvalues matters?",
   "Engineering Advancement : the mathematician's perspective",
