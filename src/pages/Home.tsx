@@ -11,6 +11,32 @@ const focusAreas = [
   "Numerical Analysis",
 ];
 
+const highlights = [
+  { label: "Institution", value: "IIT Bhubaneswar", sub: "M.Sc. Mathematics · 2024–2026" },
+  { label: "Academic Standing", value: "CGPA 8.42 / 10.0", sub: "MSc · IIT Bhubaneswar" },
+  { label: "Undergraduate", value: "CGPA 8.63 / 10.0", sub: "BSc · VNSGU, Surat · 2021–2024" },
+  { label: "Research Paper", value: "In Preparation", sub: PROFILE.paperCitation },
+  { label: "Supervisor", value: PROFILE.supervisor, sub: "Spectral Graph Theory" },
+  { label: "Availability", value: "Open to Opportunities", sub: "Research · Industry · Teaching" },
+];
+
+const educationEntries = [
+  {
+    degree: "M.Sc. Mathematics",
+    institution: "Indian Institute of Technology Bhubaneswar",
+    period: "2024 – 2026",
+    cgpa: "CGPA: 8.42 / 10.0",
+    note: `Thesis: ${PROFILE.paperTitle}`,
+  },
+  {
+    degree: "B.Sc. Mathematics",
+    institution: "Veer Narmad South Gujarat University, Surat",
+    period: "2021 – 2024",
+    cgpa: "CGPA: 8.63 / 10.0",
+    note: "",
+  },
+];
+
 const Home = () => {
   return (
     <PageLayout title="Home">
@@ -82,6 +108,49 @@ const Home = () => {
               Start a conversation
             </Link>
           </article>
+        </div>
+      </section>
+
+      {/* ── Overview / Profile Highlights ── */}
+      <section className="page-container page-section">
+        <p className="page-subtitle">Overview</p>
+        <h2 className="text-2xl font-medium text-foreground mt-2">Profile highlights</h2>
+        <p className="page-lede mt-3 max-w-2xl">
+          A quick snapshot of academic standing, research status, and availability.
+        </p>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+          {highlights.map((highlight) => (
+            <div key={highlight.label} className="border border-border rounded-sm p-5 card-hover">
+              <p className="text-[10px] uppercase tracking-widest text-muted-foreground">{highlight.label}</p>
+              <p className="mt-2 text-base font-medium text-foreground">{highlight.value}</p>
+              {highlight.sub && <p className="mt-1 text-xs text-muted-foreground">{highlight.sub}</p>}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Education ── */}
+      <section className="page-container page-section">
+        <p className="page-subtitle">Education</p>
+        <h2 className="text-2xl font-medium text-foreground mt-2">Academic background</h2>
+        <div className="mt-8 space-y-6">
+          {educationEntries.map((entry) => (
+            <div key={entry.degree} className="border border-border rounded-sm p-6 card-hover">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+                <div>
+                  <h3 className="text-base font-medium text-foreground">{entry.degree}</h3>
+                  <p className="text-sm text-muted-foreground mt-1">{entry.institution}</p>
+                  {entry.note && (
+                    <p className="text-xs text-muted-foreground mt-2 italic">{entry.note}</p>
+                  )}
+                </div>
+                <div className="flex flex-col items-start sm:items-end gap-1 shrink-0">
+                  <span className="text-xs text-muted-foreground">{entry.period}</span>
+                  <span className="text-xs font-medium text-foreground">{entry.cgpa}</span>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
