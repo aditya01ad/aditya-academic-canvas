@@ -19,9 +19,8 @@ const Home = () => {
         <h1 className="page-title mt-4">{PROFILE.name}</h1>
         <p className="text-sm text-muted-foreground mt-3">Mathematician · ML Engineer</p>
         <p className="page-lede mt-4 max-w-2xl mx-auto">
-          MSc Mathematics at IIT Bhubaneswar with a focus on spectral methods, convex optimization, and
-          machine learning theory. Building toward applied ML engineering roles through research-led
-          projects and collaboration.
+          MSc Mathematics at IIT Bhubaneswar with a focus on spectral methods research, pure mathematics, and
+          programming. Exited to work on applied roles through research-le projects and collaboration. love intellectual conversations. A curious mind, enjoy exploring. 
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <Link
@@ -59,7 +58,7 @@ const Home = () => {
             <Badge variant="inprep" />
             <h2 className="text-lg font-medium text-foreground mt-3">Project portfolio</h2>
             <p className="text-sm text-muted-foreground mt-3">
-              Applied builds centered on optimization experiments, graph spectra tooling, and structured
+              Applied builds centered on optimization algorithms, graph spectra codes, and structured
               math notes for learning and teaching.
             </p>
             <Link
@@ -73,7 +72,7 @@ const Home = () => {
             <Badge variant="planned" />
             <h2 className="text-lg font-medium text-foreground mt-3">Collaborate & connect</h2>
             <p className="text-sm text-muted-foreground mt-3">
-              Open to ML engineering roles and research discussions. Reach out via {PROFILE.email} or
+              Open to different roles and research discussions. Reach out via {PROFILE.email} or
               explore work at {PROFILE.website}.
             </p>
             <Link
@@ -93,8 +92,7 @@ const Home = () => {
             <p className="page-subtitle">Focus areas</p>
             <h2 className="text-2xl font-medium text-foreground mt-2">Themes shaping the work</h2>
             <p className="text-sm text-muted-foreground mt-3 max-w-xl">
-              Bridging rigorous mathematics with practical machine learning, anchored by coursework,
-              research, and a growing engineering toolkit.
+               rigorous mathematics, stuck in coursework, getting research done,growing Intellectually and emotionally.
             </p>
             </div>
             <div className="flex flex-wrap gap-2">
