@@ -43,7 +43,7 @@ const Home = () => {
       <section className="page-container page-section text-center">
        
         <h1 className="page-title mt-4">{PROFILE.name}</h1>
-        <p className="text-sm text-muted-foreground mt-3">Mathematician · ML Engineer</p>
+        <p className="text-sm text-muted-foreground mt-3">Mathematician · Tech</p>
         <p className="page-lede mt-4 max-w-2xl mx-auto">
           MSc Mathematics at IIT Bhubaneswar with a focus on spectral methods research, pure mathematics, and
           programming. Exited to work on applied roles through research-le projects and collaboration. love intellectual conversations. A curious mind, enjoy exploring. 
