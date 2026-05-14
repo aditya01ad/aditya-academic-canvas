@@ -3,7 +3,7 @@ import ScrollIndicator from "@/components/ui/ScrollIndicator";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[85vh] flex items-center justify-center px-6 pt-16">
+    <section id="home" className="relative min-h-[85vh] flex items-center justify-center px-6 pt-16">
       <div className="max-w-3xl w-full text-center">
         <h1 className="fade-in stagger-1 text-5xl sm:text-6xl md:text-7xl font-medium tracking-tight text-foreground mb-4">
           Aditya
@@ -20,8 +20,8 @@ const Hero = () => {
             href="https://github.com/aditya01ad"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-foreground transition-colors duration-200"
-            aria-label="GitHub"
+            className="text-muted-foreground hover:text-foreground transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+            aria-label="GitHub profile"
           >
             <Github className="w-5 h-5" />
           </a>
@@ -29,8 +29,8 @@ const Hero = () => {
             href="https://www.linkedin.com/in/aditya01ad"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-foreground transition-colors duration-200"
-            aria-label="LinkedIn"
+            className="text-muted-foreground hover:text-foreground transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+            aria-label="LinkedIn profile"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -49,15 +49,16 @@ const Hero = () => {
           </a>
           <a
             href="mailto:24MA05020@iitbbs.ac.in"
-            className="text-muted-foreground hover:text-foreground transition-colors duration-200"
-            aria-label="Email"
+            className="text-muted-foreground hover:text-foreground transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+            aria-label="Send email"
           >
             <Mail className="w-5 h-5" />
           </a>
           <a
             href="/Aditya_Resume.pdf"
             download
-            className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-200 border border-border hover:border-foreground px-4 py-2 rounded-sm"
+            className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-200 border border-border hover:border-foreground px-4 py-2 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            aria-label="Download CV (PDF)"
           >
             <FileDown className="w-4 h-4" />
             CV

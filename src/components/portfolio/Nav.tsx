@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useTheme } from "next-themes";
 import { Sun, Moon, Menu, X } from "lucide-react";
 
@@ -35,6 +35,23 @@ const Nav = () => {
     return () => observer.disconnect();
   }, []);
 
+  // Close mobile menu on Escape key press
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (e.key === "Escape" && menuOpen) setMenuOpen(false);
+  }, [menuOpen]);
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [handleKeyDown]);
+
+  // Close mobile menu on hash change (route navigation)
+  useEffect(() => {
+    const onHashChange = () => setMenuOpen(false);
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm border-b border-border transition-shadow duration-300 ${
@@ -43,8 +60,8 @@ const Nav = () => {
     >
       <div className="max-w-3xl mx-auto px-6 py-3 flex items-center justify-between">
         <a
-          href="#"
-          className="text-sm font-medium text-foreground tracking-wide transition-opacity duration-200 hover:opacity-70"
+          href="#home"
+          className="text-sm font-medium text-foreground tracking-wide transition-opacity duration-200 hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
         >
           Aditya
         </a>
@@ -57,7 +74,7 @@ const Nav = () => {
               <li key={link}>
                 <a
                   href={`#${link.toLowerCase()}`}
-                  className={`relative text-xs tracking-widest uppercase transition-colors duration-200 pb-0.5 ${
+                  className={`relative text-xs tracking-widest uppercase transition-colors duration-200 pb-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm ${
                     isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
@@ -76,8 +93,9 @@ const Nav = () => {
         <div className="flex items-center gap-3">
           {/* Dark mode toggle */}
           <button
+            type="button"
             onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-            className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+            className="text-muted-foreground hover:text-foreground transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm p-1"
             aria-label="Toggle dark mode"
           >
             {resolvedTheme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
@@ -85,9 +103,12 @@ const Nav = () => {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden text-muted-foreground hover:text-foreground transition-colors duration-200"
+            type="button"
+            className="md:hidden text-muted-foreground hover:text-foreground transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm p-1"
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
           >
             <span className="transition-transform duration-200 inline-block">
               {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -98,6 +119,7 @@ const Nav = () => {
 
       {/* Mobile dropdown with slide-down animation */}
       <div
+        id="mobile-menu"
         className={`md:hidden border-t border-border bg-background/95 overflow-hidden transition-all duration-300 ease-in-out ${
           menuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
         }`}
@@ -109,7 +131,7 @@ const Nav = () => {
               <li key={link}>
                 <a
                   href={`#${link.toLowerCase()}`}
-                  className={`text-xs tracking-widest uppercase transition-colors duration-200 ${
+                  className={`text-xs tracking-widest uppercase transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm ${
                     isActive ? "text-foreground font-medium" : "text-muted-foreground hover:text-foreground"
                   }`}
                   onClick={() => setMenuOpen(false)}
