@@ -5,7 +5,7 @@ export const PROFILE = {
   linkedIn: "https://linkedin.com/in/aditya01ad",
   github: "https://github.com/aditya01ad",
   website: "https://aditya-math.me",
-  location: "Bhubaneswar, Odisha, India",
+  location: "Surat, Gujarat, India",
 
   // Full strings (used in About, Research pages)
   msc: "IIT Bhubaneswar · Mathematics · May 2026 · CGPA 8.53/10.0",

@@ -55,7 +55,6 @@ const Contact = () => {
             I typically respond within 24 hours.
           </p>
 
-          {/* Contact cards */}
           <div className="mt-10 grid gap-5 sm:grid-cols-3">
             {contactItems.map((item) => (
               <div key={item.label} className="border border-border rounded-sm p-6 card-hover">
@@ -73,7 +72,6 @@ const Contact = () => {
             ))}
           </div>
 
-          {/* Open to */}
           <div className="mt-10">
             <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Open to</p>
             <ul className="space-y-2">
@@ -86,7 +84,6 @@ const Contact = () => {
             </ul>
           </div>
 
-          {/* Happy to discuss */}
           <div className="mt-10">
             <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Happy to discuss</p>
             <div className="flex flex-wrap gap-2">
@@ -96,9 +93,8 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Status footer */}
           <div className="mt-8 border-t border-border pt-6 space-y-1">
-            <p className="text-sm text-muted-foreground">📍 Bhubaneswar, Odisha, India</p>
+            <p className="text-sm text-muted-foreground">📍 Surat, Gujarat, India</p>
             <p className="text-sm text-muted-foreground">
               M.Sc. Mathematics · IIT Bhubaneswar · Graduated May 2026
             </p>
