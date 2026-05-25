@@ -34,20 +34,6 @@ const allProjects: Project[] = [
       "Structured LaTeX notes on spectral determination of graphs — covering DAS conjecture, cospectral mates, and known results. Doubles as a reading companion for the thesis.",
     tags: ["LaTeX", "Graph Theory", "Writing"],
   },
-  {
-    title: "Topology Notes Companion",
-    variant: "completed",
-    summary:
-      "LaTeX-first notes covering point-set topology with curated exercises and teaching references. Covers metric spaces, compactness, connectedness, and quotient spaces.",
-    tags: ["LaTeX", "Teaching", "Writing"],
-  },
-  {
-    title: "Linear Algebra Problem Sets",
-    variant: "completed",
-    summary:
-      "Curated problem sets for undergraduate linear algebra — eigenvalues, inner product spaces, canonical forms. Designed for self-study and teaching use.",
-    tags: ["Linear Algebra", "Teaching", "LaTeX"],
-  },
 ];
 
 const Projects = () => {
@@ -74,7 +60,6 @@ const Projects = () => {
           Each project bridges mathematical theory with practical implementation.
         </p>
 
-        {/* Filter tabs */}
         <div className="mt-8 flex gap-2 flex-wrap">
           {tabs.map((tab) => (
             <button
@@ -91,12 +76,10 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* Project count */}
         <p className="mt-4 text-xs text-muted-foreground">
           {filtered.length} project{filtered.length !== 1 ? "s" : ""}
         </p>
 
-        {/* Project cards */}
         <div className="mt-6 space-y-5">
           {filtered.map((project) => (
             <article
