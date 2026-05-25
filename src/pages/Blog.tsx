@@ -2,10 +2,12 @@ import PageLayout from "@/components/layout/PageLayout";
 
 const plannedTopics = [
   "The spectral view of graph neural networks",
-  "What every ML engineer should know about convex optimization",
-  "From IIT theorem-proving to first ML job — what changed",
-  "Why eigenvalues matter in deep learning",
-  "Gradient descent: the mathematician's perspective",
+  "what is optimization mathematically and why?",
+  "From IIT theorem-proving to career building — what changed",
+  "Why eigenvalues matters?",
+  "Engineering Advancement : the mathematician's perspective",
+  "A list of interesting mathematics for all",
+  "What extra a math graduate students/ scholars can have?"
 ];
 
 const Blog = () => {
@@ -14,10 +16,10 @@ const Blog = () => {
       <section className="page-container page-section">
         <div className="max-w-2xl">
           <p className="page-subtitle">Writing</p>
-          <h1 className="page-title mt-2">Thinking out loud about math and ML.</h1>
+          <h1 className="page-title mt-2">Thinking out loud about Math and Tech.</h1>
           <p className="page-lede mt-4">
-            I write about the intersection of rigorous mathematics and practical machine learning — and the
-            journey of transitioning from research to industry. Posts coming June 2026.
+            I write about the intersection of rigorous mathematics, science and tech applications — and the
+            journey of transitioning. Posts coming June 2026.
           </p>
 
           <div className="mt-10">

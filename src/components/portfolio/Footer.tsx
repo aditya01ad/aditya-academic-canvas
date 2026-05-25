@@ -50,6 +50,13 @@ const Footer = () => {
           >
             <Mail className="w-4 h-4" />
           </a>
+          <a
+            href="/Aditya_Resume.pdf"
+            download
+            className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors border border-border px-4 py-2 rounded-sm"
+          >
+            CV
+          </a>
         </div>
         <p className="text-xs text-muted-foreground">
           © {new Date().getFullYear()} Aditya · Built with purpose
