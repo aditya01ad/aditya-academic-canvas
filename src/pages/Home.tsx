@@ -15,7 +15,6 @@ const highlights = [
   { label: "Institution", value: PROFILE.mscInstitution, sub: `${PROFILE.mscDegree} · ${PROFILE.mscPeriod}` },
   { label: "Academic Standing", value: `CGPA ${PROFILE.mscCgpa}`, sub: `MSc · IIT Bhubaneswar` },
   { label: "Undergraduate", value: `CGPA ${PROFILE.bscCgpa}`, sub: `BSc · VNSGU, Surat · ${PROFILE.bscPeriod}` },
-  { label: "Research Paper", value: "In Preparation", sub: PROFILE.paperCitation },
   { label: "Supervisor", value: PROFILE.supervisor, sub: "Spectral Graph Theory" },
   { label: "Availability", value: "Open to Opportunities", sub: "Research · Industry · Teaching" },
 ];
@@ -111,7 +110,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ── Overview / Profile Highlights ── */}
       <section className="page-container page-section">
         <p className="page-subtitle">Overview</p>
         <h2 className="text-2xl font-medium text-foreground mt-2">Profile highlights</h2>
@@ -129,7 +127,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ── Education ── */}
       <section className="page-container page-section">
         <p className="page-subtitle">Education</p>
         <h2 className="text-2xl font-medium text-foreground mt-2">Academic background</h2>
