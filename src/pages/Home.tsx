@@ -12,9 +12,9 @@ const focusAreas = [
 ];
 
 const highlights = [
-  { label: "Institution", value: "IIT Bhubaneswar", sub: "M.Sc. Mathematics · 2024–2026" },
-  { label: "Academic Standing", value: "CGPA 8.52 / 10.0", sub: "MSc · IIT Bhubaneswar" },
-  { label: "Undergraduate", value: "CGPA 8.63 / 10.0", sub: "BSc · VNSGU, Surat · 2021–2024" },
+  { label: "Institution", value: PROFILE.mscInstitution, sub: `${PROFILE.mscDegree} · ${PROFILE.mscPeriod}` },
+  { label: "Academic Standing", value: `CGPA ${PROFILE.mscCgpa}`, sub: `MSc · IIT Bhubaneswar` },
+  { label: "Undergraduate", value: `CGPA ${PROFILE.bscCgpa}`, sub: `BSc · VNSGU, Surat · ${PROFILE.bscPeriod}` },
   { label: "Research Paper", value: "In Preparation", sub: PROFILE.paperCitation },
   { label: "Supervisor", value: PROFILE.supervisor, sub: "Spectral Graph Theory" },
   { label: "Availability", value: "Open to Opportunities", sub: "Research · Industry · Teaching" },
@@ -22,17 +22,17 @@ const highlights = [
 
 const educationEntries = [
   {
-    degree: "M.Sc. Mathematics",
-    institution: "Indian Institute of Technology Bhubaneswar",
-    period: "2024 – 2026",
-    cgpa: "CGPA: 8.52 / 10.0",
+    degree: PROFILE.mscDegree,
+    institution: PROFILE.mscInstitution,
+    period: PROFILE.mscPeriod,
+    cgpa: `CGPA: ${PROFILE.mscCgpa}`,
     note: `Thesis: ${PROFILE.paperTitle}`,
   },
   {
-    degree: "B.Sc. Mathematics",
-    institution: "Veer Narmad South Gujarat University, Surat",
-    period: "2021 – 2024",
-    cgpa: "CGPA: 8.63 / 10.0",
+    degree: PROFILE.bscDegree,
+    institution: PROFILE.bscInstitution,
+    period: PROFILE.bscPeriod,
+    cgpa: `CGPA: ${PROFILE.bscCgpa}`,
     note: "",
   },
 ];
