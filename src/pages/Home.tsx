@@ -13,7 +13,7 @@ const focusAreas = [
 
 const highlights = [
   { label: "Institution", value: "IIT Bhubaneswar", sub: "M.Sc. Mathematics · 2024–2026" },
-  { label: "Academic Standing", value: "CGPA 8.42 / 10.0", sub: "MSc · IIT Bhubaneswar" },
+  { label: "Academic Standing", value: "CGPA 8.52 / 10.0", sub: "MSc · IIT Bhubaneswar" },
   { label: "Undergraduate", value: "CGPA 8.63 / 10.0", sub: "BSc · VNSGU, Surat · 2021–2024" },
   { label: "Research Paper", value: "In Preparation", sub: PROFILE.paperCitation },
   { label: "Supervisor", value: PROFILE.supervisor, sub: "Spectral Graph Theory" },
@@ -25,7 +25,7 @@ const educationEntries = [
     degree: "M.Sc. Mathematics",
     institution: "Indian Institute of Technology Bhubaneswar",
     period: "2024 – 2026",
-    cgpa: "CGPA: 8.42 / 10.0",
+    cgpa: "CGPA: 8.52 / 10.0",
     note: `Thesis: ${PROFILE.paperTitle}`,
   },
   {
@@ -41,12 +41,12 @@ const Home = () => {
   return (
     <PageLayout title="Home">
       <section className="page-container page-section text-center">
-       
         <h1 className="page-title mt-4">{PROFILE.name}</h1>
-        <p className="text-sm text-muted-foreground mt-3">Mathematician · Tech</p>
+        <p className="text-sm text-muted-foreground mt-3">Mathematician · IIT Bhubaneswar</p>
         <p className="page-lede mt-4 max-w-2xl mx-auto">
-          MSc Mathematics at IIT Bhubaneswar with a focus on spectral methods research, pure mathematics, and
-          programming. Exited to work on applied roles through research-le projects and collaboration. love intellectual conversations. A curious mind, enjoy exploring. 
+          MSc Mathematics at IIT Bhubaneswar with a focus on spectral graph theory, pure mathematics, and
+          programming. Excited to work on applied roles through research-led projects and collaboration.
+          A curious mind who enjoys exploring new ideas and intellectual conversations.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <Link
@@ -98,7 +98,7 @@ const Home = () => {
             <Badge variant="planned" />
             <h2 className="text-lg font-medium text-foreground mt-3">Collaborate & connect</h2>
             <p className="text-sm text-muted-foreground mt-3">
-              Open to different roles and research discussions. Reach out via {PROFILE.email} or
+              Open to research discussions and collaboration. Reach out via {PROFILE.email} or
               explore work at {PROFILE.website}.
             </p>
             <Link
@@ -158,11 +158,11 @@ const Home = () => {
         <div className="border border-border rounded-sm p-6 md:p-8 card-hover">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
-            <p className="page-subtitle">Focus areas</p>
-            <h2 className="text-2xl font-medium text-foreground mt-2">Themes shaping the work</h2>
-            <p className="text-sm text-muted-foreground mt-3 max-w-xl">
-               rigorous mathematics, stuck in coursework, getting research done,growing Intellectually and emotionally.
-            </p>
+              <p className="page-subtitle">Focus areas</p>
+              <h2 className="text-2xl font-medium text-foreground mt-2">Themes shaping the work</h2>
+              <p className="text-sm text-muted-foreground mt-3 max-w-xl">
+                Rigorous mathematics, active research in spectral graph theory, and a growing interest in applied and computational directions.
+              </p>
             </div>
             <div className="flex flex-wrap gap-2">
               {focusAreas.map((area) => (

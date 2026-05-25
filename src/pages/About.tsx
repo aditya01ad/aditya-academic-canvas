@@ -36,11 +36,11 @@ const About = () => {
       content: (
         <div className="space-y-6">
             <article className="border border-border rounded-sm p-6 card-hover">
-              <h3 className="text-lg font-medium text-foreground">Mathematics, research, and ML</h3>
+              <h3 className="text-lg font-medium text-foreground">Mathematics and research</h3>
               <p className="text-sm text-muted-foreground mt-4 leading-relaxed">
                 {PROFILE.name} is an MSc Mathematics student at IIT Bhubaneswar, focusing on spectral graph
-                theory and the applied side of machine learning. The long-term goal is to translate rigorous
-                theory into reliable ML systems.
+                theory and its applications. The long-term goal is to translate rigorous mathematical
+                theory into meaningful research contributions and applied work.
               </p>
             </article>
             <div className="accent-left space-y-2">
@@ -75,15 +75,19 @@ const About = () => {
             </div>
           </div>
           <div className="space-y-6">
-            <h3 className="text-lg font-medium text-foreground">Awards</h3>
+            <h3 className="text-lg font-medium text-foreground">Competitive Exams</h3>
             <div className="space-y-4">
               <div className="accent-left">
-                <p className="text-sm font-medium text-foreground">Academic Excellence Award</p>
-                <p className="text-xs text-muted-foreground mt-1">Placeholder award description and year.</p>
+                <p className="text-sm font-medium text-foreground">GATE 2026 — Mathematics (MA)</p>
+                <p className="text-xs text-muted-foreground mt-1">Qualified</p>
               </div>
               <div className="accent-left">
-                <p className="text-sm font-medium text-foreground">Research Travel Grant</p>
-                <p className="text-xs text-muted-foreground mt-1">Placeholder award description and year.</p>
+                <p className="text-sm font-medium text-foreground">IIT JAM 2024 — Mathematics</p>
+                <p className="text-xs text-muted-foreground mt-1">Qualified</p>
+              </div>
+              <div className="accent-left">
+                <p className="text-sm font-medium text-foreground">JEE Advanced 2020</p>
+                <p className="text-xs text-muted-foreground mt-1">Qualified</p>
               </div>
             </div>
           </div>
