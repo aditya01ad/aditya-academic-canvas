@@ -15,7 +15,7 @@ export const PROFILE = {
   mscDegree: "M.Sc. Mathematics",
   mscInstitution: "IIT Bhubaneswar",
   mscPeriod: "2024 – 2026",
-  mscCgpa: "8.53/10.0",
+  mscCgpa: "8.52/10.0",
 
   bscDegree: "B.Sc. Mathematics",
   bscInstitution: "VNSGU, Surat",
@@ -24,5 +24,4 @@ export const PROFILE = {
 
   supervisor: "Prof. Sasmita Barik",
   paperTitle: "Spectral Determination of Graphs with Pendant Attachments",
-  paperCitation: "A. Chauhan & S. Barik (In Preparation)",
-};
+  };
