@@ -49,10 +49,10 @@ const Home = () => {
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <Link
-            to="/research"
+            to="/about"
             className="inline-flex items-center justify-center border border-border px-5 py-2 rounded-sm text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground hover:border-foreground transition-colors duration-200"
           >
-            Explore research
+            Explore
           </Link>
           <Link
             to="/contact"
