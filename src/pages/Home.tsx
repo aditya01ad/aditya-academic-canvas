@@ -66,7 +66,7 @@ const Home = () => {
       <section className="page-container page-section">
         <div className="grid gap-6 md:grid-cols-3">
           <article className="border border-border rounded-sm p-6 card-hover">
-            <h2 className="text-lg font-medium text-foreground mt-3">Research focus</h2>
+            <h2 className="text-lg font-medium text-foreground">Research focus</h2>
             <p className="text-sm text-muted-foreground mt-3">
               Working under {PROFILE.supervisor} on {PROFILE.paperTitle}. Current milestone is drafting the
               manuscript while deepening expertise in spectral graph theory.
