@@ -8,7 +8,7 @@ export const PROFILE = {
   location: "Surat, Gujarat, India",
 
   // Full strings (used in About, Research pages)
-  msc: "IIT Bhubaneswar · Mathematics · May 2026 · CGPA 8.53/10.0",
+  msc: "IIT Bhubaneswar · Mathematics · May 2026 · CGPA 8.52/10.0",
   bsc: "VNSGU, Surat · Mathematics · May 2024 · CGPA 8.63/10.0",
 
   // Individual fields (used in Home.tsx highlights + education cards)
