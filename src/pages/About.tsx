@@ -7,27 +7,28 @@ import { PROFILE } from "@/lib/profile";
 const skillGroups = [
   {
     title: "Programming",
-    items: ["Python", "SageMath", "C (basics)", "Bash"],
+    items: ["Python", "SageMath", "C (basics)"],
   },
   {
     title: "Libraries",
-    items: ["NumPy", "Pandas", "Matplotlib", "Scikit-learn", "PyTorch (learning)"],
+    items: ["NumPy"],
   },
   {
     title: "Tools",
-    items: ["LaTeX", "Git", "Linux (Ubuntu)", "VS Code", "Docker (learning)"],
+    items: ["LaTeX", "Git", "Linux(learning)", "VS Code"],
   },
   {
     title: "Mathematics",
     items: [
       "Spectral Graph Theory",
       "Linear Algebra",
-      "Convex Optimization",
+      "Optimization",
       "Numerical Analysis",
       "Functional Analysis",
       "Probability & Statistics",
       "Topology",
       "Abstract Algebra",
+						"Representation Theory",
     ],
   },
 ];
