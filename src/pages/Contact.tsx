@@ -20,7 +20,7 @@ const contactItems = [
     label: "GitHub",
     value: "github.com/aditya01ad",
     href: "https://github.com/aditya01ad",
-    cta: "View work →",
+    cta: "Take a look →",
     isExternal: true,
   },
 ];
@@ -28,7 +28,7 @@ const contactItems = [
 const preferredTopics = [
   "Spectral Graph Theory",
   "Applied Mathematics",
-  "Data Science & ML",
+  "Algorithm Design and Analysis",
   "Research Collaboration",
   "Mathematical Problem Solving",
   "Teaching & Mentoring",
@@ -36,7 +36,7 @@ const preferredTopics = [
 
 const openTo = [
   "Research roles & PhD opportunities",
-  "Data Science / ML Engineering",
+  "Algorithm Design",
   "Quantitative & analytical roles",
   "Teaching & academic positions",
   "Open source collaboration",
@@ -52,7 +52,7 @@ const Contact = () => {
           <p className="text-sm text-muted-foreground mt-4 leading-relaxed">
             Open to collaboration, research discussion, and new opportunities.
             M.Sc. Mathematics graduate from IIT Bhubaneswar — available immediately.
-            I typically respond within 24 hours.
+            I typically respond within 48 hours.
           </p>
 
           <div className="mt-10 grid gap-5 sm:grid-cols-3">
