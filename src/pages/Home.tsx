@@ -49,10 +49,10 @@ const Home = () => {
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <Link
-            to="/research"
+            to="/about"
             className="inline-flex items-center justify-center border border-border px-5 py-2 rounded-sm text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground hover:border-foreground transition-colors duration-200"
           >
-            Explore research
+            Explore
           </Link>
           <Link
             to="/contact"
@@ -66,8 +66,7 @@ const Home = () => {
       <section className="page-container page-section">
         <div className="grid gap-6 md:grid-cols-3">
           <article className="border border-border rounded-sm p-6 card-hover">
-            <Badge variant="active" />
-            <h2 className="text-lg font-medium text-foreground mt-3">Research focus</h2>
+            <h2 className="text-lg font-medium text-foreground">Research focus</h2>
             <p className="text-sm text-muted-foreground mt-3">
               Working under {PROFILE.supervisor} on {PROFILE.paperTitle}. Current milestone is drafting the
               manuscript while deepening expertise in spectral graph theory.

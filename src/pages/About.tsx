@@ -7,27 +7,28 @@ import { PROFILE } from "@/lib/profile";
 const skillGroups = [
   {
     title: "Programming",
-    items: ["Python", "SageMath", "C (basics)", "Bash"],
+    items: ["Python", "SageMath", "C (basics)"],
   },
   {
     title: "Libraries",
-    items: ["NumPy", "Pandas", "Matplotlib", "Scikit-learn", "PyTorch (learning)"],
+    items: ["NumPy"],
   },
   {
     title: "Tools",
-    items: ["LaTeX", "Git", "Linux (Ubuntu)", "VS Code", "Docker (learning)"],
+    items: ["LaTeX", "Git", "Linux(learning)", "VS Code"],
   },
   {
     title: "Mathematics",
     items: [
       "Spectral Graph Theory",
       "Linear Algebra",
-      "Convex Optimization",
+      "Optimization",
       "Numerical Analysis",
       "Functional Analysis",
       "Probability & Statistics",
       "Topology",
       "Abstract Algebra",
+						"Representation Theory",
     ],
   },
 ];
@@ -56,8 +57,8 @@ const About = () => {
             <p className="text-xs uppercase tracking-widest text-muted-foreground">Current focus</p>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Finalising the manuscript on {PROFILE.paperTitle} alongside independent study in
-              convex optimization, numerical methods, and applied ML — actively exploring
-              industry, research, and teaching roles.
+              convex optimization, numerical methods, and applied — actively exploring
+              industr, research, and teaching roles.
             </p>
           </div>
 
@@ -65,7 +66,7 @@ const About = () => {
             <p className="text-xs uppercase tracking-widest text-muted-foreground">Background</p>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Completed B.Sc. Mathematics from VNSGU, Surat (CGPA 8.63), then qualified IIT JAM 2024
-              to join IIT Bhubaneswar. Also qualified GATE 2026 (MA) and JEE Advanced 2020.
+              and join IIT Bhubaneswar. Finished  my M.Sc. Mathematics in may,2026. Also qualified GATE 2026 (MA) and JEE Advanced 2020.
               A fast learner with genuine curiosity across mathematics, physics, economics, and computing.
             </p>
           </div>
@@ -104,7 +105,7 @@ const About = () => {
 
             <div className="accent-left">
               <p className="text-sm font-medium text-foreground">GATE 2026 — Mathematics (MA)</p>
-              <p className="text-xs text-muted-foreground mt-1">Qualified &nbsp;·&nbsp; IIT Roorkee</p>
+              <p className="text-xs text-muted-foreground mt-1">Qualified</p>
             </div>
 
             <div className="accent-left">
