@@ -104,7 +104,7 @@ const About = () => {
 
             <div className="accent-left">
               <p className="text-sm font-medium text-foreground">GATE 2026 — Mathematics (MA)</p>
-              <p className="text-xs text-muted-foreground mt-1">Qualified &nbsp;·&nbsp; IIT Roorkee</p>
+              <p className="text-xs text-muted-foreground mt-1">Qualified</p>
             </div>
 
             <div className="accent-left">
