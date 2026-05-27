@@ -25,7 +25,6 @@ const Research = () => {
           <article className="border border-border rounded-sm p-6 card-hover">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <h3 className="text-lg font-medium text-foreground">Research vision</h3>
-              <Badge variant="inprep" />
             </div>
             <p className="text-sm text-muted-foreground mt-4 leading-relaxed">
               Advancing spectral graph theory through rigorous proofs and computational validation.
@@ -35,7 +34,7 @@ const Research = () => {
           </article>
 
           <div className="accent-left space-y-2">
-            <p className="text-xs uppercase tracking-widest text-muted-foreground">Current focus</p>
+            <p className="text-xs uppercase tracking-widest text-muted-foreground">Research Experience</p>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Thesis work supervised by {PROFILE.supervisor} on <em>{PROFILE.paperTitle}</em> —
               studying spectral invariants, adjacency spectra, and characterizations of graph families
@@ -67,7 +66,6 @@ const Research = () => {
           <article className="border border-border rounded-sm p-6 card-hover">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <h3 className="text-lg font-medium text-foreground">Spectral Determination of Graphs with Pendant Attachments</h3>
-              <Badge variant="inprep" />
             </div>
             <p className="text-sm text-muted-foreground mt-4 leading-relaxed">
               M.Sc. thesis research investigating which graph families are determined by their
@@ -88,7 +86,8 @@ const Research = () => {
             <ul className="mt-4 space-y-3 text-sm text-muted-foreground list-disc list-inside">
               <li>Developed spectral invariants for pendant-attached graph families.</li>
               <li>Computational verification across candidate graph families using SageMath.</li>
-              <li>Manuscript in preparation &mdash; {PROFILE.paperCitation}.</li>
+															<li>Determined the structure of cospectral mates with construction.</li>
+															<li>Determined Spectral characterization of graph family.</li>
             </ul>
           </div>
 
@@ -136,6 +135,7 @@ const Research = () => {
               <li>Applications of convex optimization to combinatorial problems</li>
               <li>Graph neural networks grounded in spectral theory</li>
               <li>Numerical methods for large-scale eigenvalue problems</li>
+															<li>Anything else, always open to new fields.</li>
             </ul>
           </div>
         </div>
