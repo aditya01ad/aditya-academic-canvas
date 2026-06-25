@@ -68,8 +68,7 @@ const Home = () => {
           <article className="border border-border rounded-sm p-6 card-hover">
             <h2 className="text-lg font-medium text-foreground">Research focus</h2>
             <p className="text-sm text-muted-foreground mt-3">
-              Working under {PROFILE.supervisor} on {PROFILE.paperTitle}. Current milestone is drafting the
-              manuscript while deepening expertise in spectral graph theory.
+              Working under {PROFILE.supervisor} on {PROFILE.paperTitle}, deepening expertise in spectral graph theory. Completed in may 2026.
             </p>
             <Link
               to="/research"
