@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import RecipeBook from "@/components/misc/RecipeBook";
+import RecipeBook from "@/components/Misc/RecipeBook";
 import { SITE_NAME } from "@/lib/utils";
 
 const Miscellany = () => {
