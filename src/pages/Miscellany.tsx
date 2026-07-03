@@ -19,7 +19,7 @@ const Miscellany = () => {
         style={{
           position: "fixed",
           top: 14,
-          left: 14,
+          right: 14,
           zIndex: 100,
           fontSize: 12,
           fontWeight: 500,
