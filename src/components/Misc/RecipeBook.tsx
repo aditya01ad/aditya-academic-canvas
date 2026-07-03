@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import "./RecipeBook.css";
 
 const RECIPES = [
   {
@@ -81,8 +82,6 @@ function toFrac(n:number){if(!n)return"0";const w=Math.floor(n),f=n-w;if(f<.01)r
 const sc=(a:number,sv:number,b:number)=>toFrac((a*sv)/b);
 const ft=(s:number)=>`${Math.floor(s/60)}:${String(s%60).padStart(2,"0")}`;
 
-const STYLE_ID = "recipebook-scoped-reset";
-
 export default function RecipeBook() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [view, setView] = useState("index");
@@ -93,10 +92,6 @@ export default function RecipeBook() {
   const [cStep, setCStep] = useState(0);
   const [catF, setCatF] = useState("All");
 
-  // Scoped font + reset — does NOT touch document.body (previous version leaked
-  // a global body background override across the whole SPA since routes don't
-  // full-reload). Font link persists (harmless, dedup-checked); style tag is
-  // scoped under .rb-scope and cleaned up on unmount.
   useEffect(() => {
     if (!document.querySelector('link[data-recipebook-font]')) {
       const l = document.createElement("link");
@@ -105,16 +100,6 @@ export default function RecipeBook() {
       l.setAttribute("data-recipebook-font", "true");
       document.head.appendChild(l);
     }
-    let styleTag = document.getElementById(STYLE_ID) as HTMLStyleElement | null;
-    if (!styleTag) {
-      styleTag = document.createElement("style");
-      styleTag.id = STYLE_ID;
-      styleTag.textContent = ".rb-scope,.rb-scope *,.rb-scope *::before,.rb-scope *::after{box-sizing:border-box;}.rb-scope button{font-family:inherit;}";
-      document.head.appendChild(styleTag);
-    }
-    return () => {
-      document.getElementById(STYLE_ID)?.remove();
-    };
   }, []);
 
   useEffect(() => { scrollRef.current?.scrollTo({top:0}); }, [view, rId]);
@@ -139,37 +124,33 @@ export default function RecipeBook() {
   const back = () => { setView("index"); setRId(null); setCook(false); };
   const togT = (key: string, total: number) => setTimers(p=>{const c=p[key];if(!c||c.rem<=0)return{...p,[key]:{rem:total,running:true}};return{...p,[key]:{...c,running:!c.running}};});
 
-  const BG="#F5F0E8", WH="#FFF", DK="#1A1008",
-        TX="#231B12", MU="#6B5D4E", SB="#8A7A66",
-        BO="#E8E0D4", PL="#EDEBE5", NT="#EDE9E0";
-  const FF="'Inter',system-ui,sans-serif";
-  const SF="'Playfair Display',Georgia,serif";
-
   if (view==="index") return (
-    <div ref={scrollRef} className="rb-scope" style={{fontFamily:FF,background:BG,minHeight:"100vh",maxWidth:480,margin:"0 auto",overflowY:"auto"}}>
-      <div style={{padding:"52px 24px 16px"}}>
-        <p style={{fontSize:12,fontWeight:600,letterSpacing:"0.14em",textTransform:"uppercase",color:SB,marginBottom:6}}>Miscellany</p>
-        <h1 style={{fontFamily:SF,fontSize:30,fontWeight:900,color:DK,lineHeight:1.1}}>Recipes</h1>
-        <p style={{fontSize:14,color:MU,marginTop:8,lineHeight:1.5}}>Not a project. Just things I actually make.</p>
-      </div>
-      <div style={{display:"flex",gap:8,overflowX:"auto",padding:"4px 24px 20px"}}>
-        {cats.map(c=>(
-          <button key={c} onClick={()=>setCatF(c)} style={{padding:"6px 18px",borderRadius:999,border:`1.5px solid ${c===catF?DK:BO}`,background:c===catF?DK:"transparent",color:c===catF?"#FFF":MU,fontSize:13,fontWeight:500,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0}}>{c}</button>
-        ))}
-      </div>
-      <div style={{padding:"0 16px 48px",display:"flex",flexDirection:"column",gap:12}}>
-        {vis.map(r=>(
-          <div key={r.id} onClick={()=>open(r.id)} style={{background:WH,borderRadius:18,padding:"20px 22px",cursor:"pointer",boxShadow:"0 1px 4px rgba(0,0,0,0.07),0 4px 16px rgba(0,0,0,0.04)"}}>
-            <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:11}}>
-              <div style={{flex:1}}>
-                <p style={{fontSize:11,fontWeight:700,letterSpacing:"0.1em",textTransform:"uppercase",color:SB,marginBottom:5}}>{r.cat} · {r.time}</p>
-                <h2 style={{fontFamily:SF,fontSize:21,fontWeight:800,color:DK,lineHeight:1.2}}>{r.title}</h2>
+    <div ref={scrollRef} className="rb-scope">
+      <div className="rb-index">
+        <div className="rb-index-head">
+          <p className="rb-eyebrow">Miscellany</p>
+          <h1 className="rb-h1">Recipes</h1>
+          <p className="rb-lede">Not a project. Just things I actually make.</p>
+        </div>
+        <div className="rb-cats">
+          {cats.map(c=>(
+            <button key={c} onClick={()=>setCatF(c)} className={`rb-cat-btn${c===catF?" active":""}`}>{c}</button>
+          ))}
+        </div>
+        <div className="rb-cards">
+          {vis.map(r=>(
+            <div key={r.id} onClick={()=>open(r.id)} className="rb-card">
+              <div className="rb-card-top">
+                <div>
+                  <p className="rb-card-meta">{r.cat} · {r.time}</p>
+                  <h2 className="rb-card-title">{r.title}</h2>
+                </div>
+                <span className="rb-card-emoji">{r.emoji}</span>
               </div>
-              <span style={{fontSize:34,marginLeft:14,flexShrink:0,lineHeight:1}}>{r.emoji}</span>
+              <p className="rb-card-tag">{r.tagline}</p>
             </div>
-            <p style={{fontSize:13.5,color:MU,lineHeight:1.55}}>{r.tagline}</p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -179,104 +160,107 @@ export default function RecipeBook() {
     const gT=(i:number)=>timers[tKey(i)];
 
     return (
-      <div ref={scrollRef} className="rb-scope" style={{fontFamily:FF,background:BG,minHeight:"100vh",maxWidth:480,margin:"0 auto",overflowY:"auto",position:"relative"}}>
-        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"20px 22px 0"}}>
-          <button onClick={back} style={{background:"none",border:"none",cursor:"pointer",fontSize:15,fontWeight:500,color:MU,padding:0}}>← Back</button>
-          <span style={{fontSize:22,color:MU,lineHeight:1}}>⋯</span>
-        </div>
+      <div ref={scrollRef} className="rb-scope">
+        <div className="rb-detail-wrap">
+          <div className="rb-detail-nav">
+            <button onClick={back} className="rb-back-btn">← Back</button>
+          </div>
 
-        <div style={{padding:"14px 22px 64px"}}>
-          <h1 style={{fontFamily:SF,fontSize:34,fontWeight:900,color:DK,lineHeight:1.08,marginBottom:10}}>{recipe.title}</h1>
-          <p style={{fontSize:15,color:MU,lineHeight:1.62,marginBottom:26}}>{recipe.tagline}</p>
+          <div className="rb-detail-body">
+            <h1 className="rb-detail-title">{recipe.title}</h1>
+            <p className="rb-detail-tagline">{recipe.tagline}</p>
 
-          <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:16}}>
-            <span style={{fontSize:15,fontWeight:500,color:TX}}>Servings</span>
-            <div style={{display:"flex",alignItems:"center",border:`1.5px solid ${BO}`,borderRadius:999,overflow:"hidden"}}>
-              <button onClick={()=>setSvs(p=>({...p,[rId as number]:Math.max(1,sv-1)}))} style={{width:38,height:38,border:"none",background:"none",cursor:"pointer",fontSize:22,fontWeight:300,color:DK}}>−</button>
-              <span style={{minWidth:30,textAlign:"center",fontSize:15,fontWeight:600,color:DK}}>{sv}</span>
-              <button onClick={()=>setSvs(p=>({...p,[rId as number]:sv+1}))} style={{width:38,height:38,border:"none",background:"none",cursor:"pointer",fontSize:22,fontWeight:300,color:DK}}>+</button>
+            <div className="rb-servings-row">
+              <span className="rb-servings-label">Servings</span>
+              <div className="rb-servings-ctrl">
+                <button onClick={()=>setSvs(p=>({...p,[rId as number]:Math.max(1,sv-1)}))} className="rb-servings-btn">−</button>
+                <span className="rb-servings-val">{sv}</span>
+                <button onClick={()=>setSvs(p=>({...p,[rId as number]:sv+1}))} className="rb-servings-btn">+</button>
+              </div>
             </div>
-          </div>
 
-          <button onClick={()=>{setCook(true);setCStep(0);}} style={{width:"100%",background:DK,color:"#FFF",border:"none",borderRadius:14,padding:"16px 0",fontSize:16,fontWeight:600,cursor:"pointer",marginBottom:30,letterSpacing:"0.01em"}}>
-            Cooking mode
-          </button>
+            <button onClick={()=>{setCook(true);setCStep(0);}} className="rb-cook-btn">
+              Cooking mode
+            </button>
 
-          <p style={{fontSize:11,fontWeight:700,letterSpacing:"0.12em",textTransform:"uppercase",color:SB,marginBottom:14}}>Ingredients</p>
-          <div style={{marginBottom:28}}>
-            {recipe.ingredients.map((ing,i)=>{
-              const amt=sc(ing.amount,sv,recipe.baseServings);
-              const unit=ing.unit?` ${ing.unit}`:"";
-              const last=i===recipe.ingredients.length-1;
-              return(
-                <div key={ing.id} style={{fontSize:15,color:TX,lineHeight:1.65,paddingBottom:last?0:11,marginBottom:last?0:11,borderBottom:last?"none":`1px solid ${BO}`}}>
-                  <b style={{fontWeight:600}}>{amt}{unit}</b> {ing.name}
-                  {ing.note&&<span style={{color:SB,fontSize:13.5}}> ({ing.note})</span>}
-                </div>
-              );
-            })}
-          </div>
-
-          <div style={{borderTop:`1px solid ${BO}`,marginBottom:26}}/>
-
-          <p style={{fontSize:11,fontWeight:700,letterSpacing:"0.12em",textTransform:"uppercase",color:SB,marginBottom:18}}>Steps</p>
-          <div style={{marginBottom:28}}>
-            {recipe.steps.map((s,i)=>{
-              const tk=tKey(i),t=gT(i);
-              const rem=t?t.rem:s.timer;
-              const running=t?.running||false;
-              return(
-                <div key={i} style={{display:"flex",gap:14,marginBottom:i<recipe.steps.length-1?22:0}}>
-                  <div style={{width:28,height:28,borderRadius:"50%",background:DK,color:"#FFF",fontSize:13,fontWeight:700,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,marginTop:2}}>{i+1}</div>
-                  <div style={{flex:1,fontSize:15,color:TX,lineHeight:1.65}}>
-                    {s.text}
-                    {s.timer&&(
-                      <div style={{marginTop:8}}>
-                        <button onClick={()=>togT(tk,s.timer as number)} style={{display:"inline-flex",alignItems:"center",gap:8,background:running?DK:PL,color:running?"#FFF":MU,border:"none",borderRadius:999,padding:"7px 16px",fontSize:14,fontWeight:500,cursor:"pointer"}}>
-                          <span style={{fontSize:11}}>{running?"⏸":"▷"}</span>
-                          {ft(rem??s.timer as number)}
-                        </button>
-                      </div>
-                    )}
+            <p className="rb-section-label">Ingredients</p>
+            <div className="rb-ing-list">
+              {recipe.ingredients.map((ing,i)=>{
+                const amt=sc(ing.amount,sv,recipe.baseServings);
+                const unit=ing.unit?` ${ing.unit}`:"";
+                const last=i===recipe.ingredients.length-1;
+                return(
+                  <div key={ing.id} className={`rb-ing-row${last?" last":""}`}>
+                    <b>{amt}{unit}</b> {ing.name}
+                    {ing.note&&<span className="rb-ing-note"> ({ing.note})</span>}
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
+
+            <div className="rb-divider"/>
+
+            <p className="rb-section-label">Steps</p>
+            <div className="rb-steps">
+              {recipe.steps.map((s,i)=>{
+                const tk=tKey(i),t=gT(i);
+                const rem=t?t.rem:s.timer;
+                const running=t?.running||false;
+                return(
+                  <div key={i} className="rb-step">
+                    <div className="rb-step-num">{i+1}</div>
+                    <div className="rb-step-text">
+                      {s.text}
+                      {s.timer&&(
+                        <div>
+                          <button onClick={()=>togT(tk,s.timer as number)} className={`rb-timer-btn${running?" running":""}`}>
+                            <span style={{fontSize:11}}>{running?"⏸":"▷"}</span>
+                            {ft(rem??s.timer as number)}
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="rb-divider"/>
+
+            <p className="rb-section-label">Notes</p>
+            <div className="rb-notes-box">{recipe.notes}</div>
           </div>
-
-          <div style={{borderTop:`1px solid ${BO}`,marginBottom:26}}/>
-
-          <p style={{fontSize:11,fontWeight:700,letterSpacing:"0.12em",textTransform:"uppercase",color:SB,marginBottom:14}}>Notes</p>
-          <div style={{background:NT,borderRadius:13,padding:18,fontSize:14.5,color:MU,lineHeight:1.72}}>{recipe.notes}</div>
         </div>
 
         {cook&&(
-          <div style={{position:"fixed",inset:0,background:DK,display:"flex",flexDirection:"column",padding:"44px 28px 36px",zIndex:99}}>
-            <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:10}}>
-              <span style={{fontSize:12,fontWeight:600,letterSpacing:"0.1em",textTransform:"uppercase",color:"#5A4A38"}}>Step {cStep+1} / {recipe.steps.length}</span>
-              <button onClick={()=>setCook(false)} style={{background:"none",border:"none",color:"#5A4A38",fontSize:22,cursor:"pointer",lineHeight:1}}>✕</button>
-            </div>
-            <div style={{height:2,background:"#2A1E12",borderRadius:1,marginBottom:44}}>
-              <div style={{height:2,background:"#6A5A48",borderRadius:1,transition:"width 0.3s",width:`${((cStep+1)/recipe.steps.length)*100}%`}}/>
-            </div>
-            <div style={{flex:1,display:"flex",flexDirection:"column",justifyContent:"center"}}>
-              <p style={{fontFamily:SF,fontSize:28,fontWeight:700,color:"#FFF",lineHeight:1.35,marginBottom:32}}>{recipe.steps[cStep].text}</p>
-              {recipe.steps[cStep].timer&&(()=>{
-                const tk=tKey(cStep),t=gT(cStep);
-                const rem=t?t.rem:recipe.steps[cStep].timer;
-                const running=t?.running||false;
-                return(
-                  <button onClick={()=>togT(tk,recipe.steps[cStep].timer as number)} style={{display:"inline-flex",alignItems:"center",gap:10,background:"rgba(255,255,255,0.1)",color:"#FFF",border:"1.5px solid rgba(255,255,255,0.2)",borderRadius:999,padding:"12px 24px",fontSize:22,fontWeight:600,cursor:"pointer",width:"fit-content"}}>
-                    {running?"⏸":"▷"} {ft(rem??recipe.steps[cStep].timer as number)}
-                  </button>
-                );
-              })()}
-            </div>
-            <div style={{display:"flex",gap:12}}>
-              <button onClick={()=>setCStep(Math.max(0,cStep-1))} disabled={cStep===0} style={{flex:1,padding:"15px 0",borderRadius:12,border:"1.5px solid rgba(255,255,255,0.12)",background:"transparent",color:cStep===0?"#3A2A1A":"#FFF",fontSize:15,fontWeight:500,cursor:cStep===0?"default":"pointer"}}>← Prev</button>
-              <button onClick={()=>cStep<recipe.steps.length-1?setCStep(cStep+1):setCook(false)} style={{flex:2,padding:"15px 0",borderRadius:12,border:"none",background:"#FFF",color:DK,fontSize:15,fontWeight:700,cursor:"pointer"}}>
-                {cStep<recipe.steps.length-1?"Next Step →":"Done ✓"}
-              </button>
+          <div className="rb-cooking">
+            <div className="rb-cooking-inner">
+              <div className="rb-cooking-head">
+                <span className="rb-cooking-step-label">Step {cStep+1} / {recipe.steps.length}</span>
+                <button onClick={()=>setCook(false)} className="rb-cooking-close">✕</button>
+              </div>
+              <div className="rb-cooking-progress-track">
+                <div className="rb-cooking-progress-fill" style={{width:`${((cStep+1)/recipe.steps.length)*100}%`}}/>
+              </div>
+              <div className="rb-cooking-body">
+                <p className="rb-cooking-text">{recipe.steps[cStep].text}</p>
+                {recipe.steps[cStep].timer&&(()=>{
+                  const tk=tKey(cStep),t=gT(cStep);
+                  const rem=t?t.rem:recipe.steps[cStep].timer;
+                  const running=t?.running||false;
+                  return(
+                    <button onClick={()=>togT(tk,recipe.steps[cStep].timer as number)} className="rb-cooking-timer">
+                      {running?"⏸":"▷"} {ft(rem??recipe.steps[cStep].timer as number)}
+                    </button>
+                  );
+                })()}
+              </div>
+              <div className="rb-cooking-actions">
+                <button onClick={()=>setCStep(Math.max(0,cStep-1))} disabled={cStep===0} className="rb-cooking-prev">← Prev</button>
+                <button onClick={()=>cStep<recipe.steps.length-1?setCStep(cStep+1):setCook(false)} className="rb-cooking-next">
+                  {cStep<recipe.steps.length-1?"Next Step →":"Done ✓"}
+                </button>
+              </div>
             </div>
           </div>
         )}
