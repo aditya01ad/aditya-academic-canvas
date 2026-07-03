@@ -43,9 +43,9 @@ const Home = () => {
         <h1 className="page-title mt-4">{PROFILE.name}</h1>
         <p className="text-sm text-muted-foreground mt-3">Mathematician · IIT Bhubaneswar</p>
         <p className="page-lede mt-4 max-w-2xl mx-auto">
-          MSc Mathematics at IIT Bhubaneswar with a focus on spectral graph theory, pure mathematics, and
-          programming. Excited to work on applied roles through research-led projects and collaboration.
-          A curious mind who enjoys exploring new ideas and intellectual conversations.
+          MSc Mathematics at IIT Bhubaneswar with focus on pure mathematics, interest in applied, programming, tech, physics and project work in spectral graph theory 
+          programming. Excited to work on applied roles through different opportunities and collaboration.
+          A curious mind who enjoys exploring new ideas and intellectual conversations, drop a message randomly if interested.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <Link
