@@ -1,0 +1,463 @@
+.rb-scope {
+  --rb-bg: #F5F0E8;
+  --rb-white: #FFFFFF;
+  --rb-dark: #1A1008;
+  --rb-text: #231B12;
+  --rb-muted: #6B5D4E;
+  --rb-subtle: #8A7A66;
+  --rb-border: #E8E0D4;
+  --rb-pill: #EDEBE5;
+  --rb-note-bg: #EDE9E0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--rb-bg);
+  min-height: 100vh;
+}
+.rb-scope, .rb-scope *, .rb-scope *::before, .rb-scope *::after {
+  box-sizing: border-box;
+}
+.rb-scope button {
+  font-family: inherit;
+}
+
+/* ---------- Index view ---------- */
+.rb-index {
+  max-width: 480px;
+  margin: 0 auto;
+  padding-bottom: 48px;
+}
+@media (min-width: 640px) {
+  .rb-index { max-width: 680px; }
+}
+@media (min-width: 1024px) {
+  .rb-index { max-width: 980px; }
+}
+
+.rb-index-head {
+  padding: 64px 24px 16px;
+}
+@media (min-width: 1024px) {
+  .rb-index-head { padding-top: 84px; }
+}
+
+.rb-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rb-subtle);
+  margin-bottom: 6px;
+}
+.rb-h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 900;
+  color: var(--rb-dark);
+  line-height: 1.1;
+  margin: 0;
+}
+.rb-lede {
+  font-size: 14px;
+  color: var(--rb-muted);
+  margin-top: 8px;
+  line-height: 1.5;
+  max-width: 520px;
+}
+
+.rb-cats {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 4px 24px 24px;
+}
+.rb-cat-btn {
+  padding: 6px 18px;
+  border-radius: 999px;
+  border: 1.5px solid var(--rb-border);
+  background: transparent;
+  color: var(--rb-muted);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.rb-cat-btn.active {
+  border-color: var(--rb-dark);
+  background: var(--rb-dark);
+  color: #fff;
+}
+
+.rb-cards {
+  padding: 0 16px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+@media (min-width: 640px) {
+  .rb-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 24px 56px;
+    gap: 14px;
+  }
+}
+@media (min-width: 1024px) {
+  .rb-cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+}
+
+.rb-card {
+  background: var(--rb-white);
+  border-radius: 18px;
+  padding: 20px 22px;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07), 0 4px 16px rgba(0,0,0,0.04);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.rb-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.09), 0 8px 24px rgba(0,0,0,0.06);
+}
+.rb-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 11px;
+}
+.rb-card-meta {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--rb-subtle);
+  margin-bottom: 5px;
+}
+.rb-card-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 21px;
+  font-weight: 800;
+  color: var(--rb-dark);
+  line-height: 1.2;
+  margin: 0;
+}
+.rb-card-emoji {
+  font-size: 34px;
+  margin-left: 14px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.rb-card-tag {
+  font-size: 13.5px;
+  color: var(--rb-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ---------- Detail view ---------- */
+.rb-detail-wrap {
+  max-width: 480px;
+  margin: 0 auto;
+  position: relative;
+}
+@media (min-width: 1024px) {
+  .rb-detail-wrap { max-width: 720px; }
+}
+
+.rb-detail-nav {
+  padding: 64px 22px 0;
+}
+@media (min-width: 1024px) {
+  .rb-detail-nav { padding-top: 84px; }
+}
+.rb-back-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--rb-muted);
+  padding: 0;
+}
+.rb-back-btn:hover {
+  color: var(--rb-dark);
+}
+
+.rb-detail-body {
+  padding: 14px 22px 64px;
+}
+
+.rb-detail-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 900;
+  color: var(--rb-dark);
+  line-height: 1.08;
+  margin: 0 0 10px;
+}
+.rb-detail-tagline {
+  font-size: 15px;
+  color: var(--rb-muted);
+  line-height: 1.62;
+  margin: 0 0 26px;
+  max-width: 560px;
+}
+
+.rb-servings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.rb-servings-label {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--rb-text);
+}
+.rb-servings-ctrl {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid var(--rb-border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.rb-servings-btn {
+  width: 38px;
+  height: 38px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--rb-dark);
+}
+.rb-servings-val {
+  min-width: 30px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--rb-dark);
+}
+
+.rb-cook-btn {
+  width: 100%;
+  background: var(--rb-dark);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  padding: 16px 0;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 30px;
+  letter-spacing: 0.01em;
+  transition: opacity 0.15s;
+}
+.rb-cook-btn:hover {
+  opacity: 0.9;
+}
+
+.rb-section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rb-subtle);
+  margin-bottom: 14px;
+}
+
+.rb-ing-list {
+  margin-bottom: 28px;
+}
+.rb-ing-row {
+  font-size: 15px;
+  color: var(--rb-text);
+  line-height: 1.65;
+  padding-bottom: 11px;
+  margin-bottom: 11px;
+  border-bottom: 1px solid var(--rb-border);
+}
+.rb-ing-row.last {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.rb-ing-note {
+  color: var(--rb-subtle);
+  font-size: 13.5px;
+}
+
+.rb-divider {
+  border-top: 1px solid var(--rb-border);
+  margin-bottom: 26px;
+}
+
+.rb-steps {
+  margin-bottom: 28px;
+}
+.rb-step {
+  display: flex;
+  gap: 14px;
+}
+.rb-step + .rb-step {
+  margin-top: 22px;
+}
+.rb-step-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--rb-dark);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.rb-step-text {
+  flex: 1;
+  font-size: 15px;
+  color: var(--rb-text);
+  line-height: 1.65;
+}
+.rb-timer-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  border-radius: 999px;
+  padding: 7px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 8px;
+  background: var(--rb-pill);
+  color: var(--rb-muted);
+}
+.rb-timer-btn.running {
+  background: var(--rb-dark);
+  color: #fff;
+}
+
+.rb-notes-box {
+  background: var(--rb-note-bg);
+  border-radius: 13px;
+  padding: 18px;
+  font-size: 14.5px;
+  color: var(--rb-muted);
+  line-height: 1.72;
+}
+
+/* ---------- Cooking mode overlay ---------- */
+.rb-cooking {
+  position: fixed;
+  inset: 0;
+  background: var(--rb-dark);
+  display: flex;
+  flex-direction: column;
+  padding: 44px 28px 36px;
+  z-index: 99;
+}
+@media (min-width: 768px) {
+  .rb-cooking { align-items: center; }
+}
+.rb-cooking-inner {
+  width: 100%;
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.rb-cooking-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.rb-cooking-step-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #5A4A38;
+}
+.rb-cooking-close {
+  background: none;
+  border: none;
+  color: #5A4A38;
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+}
+.rb-cooking-progress-track {
+  height: 2px;
+  background: #2A1E12;
+  border-radius: 1px;
+  margin-bottom: 44px;
+}
+.rb-cooking-progress-fill {
+  height: 2px;
+  background: #6A5A48;
+  border-radius: 1px;
+  transition: width 0.3s;
+}
+.rb-cooking-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.rb-cooking-text {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(22px, 4vw, 34px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.35;
+  margin: 0 0 32px;
+}
+.rb-cooking-timer {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  border: 1.5px solid rgba(255,255,255,0.2);
+  border-radius: 999px;
+  padding: 12px 24px;
+  font-size: 22px;
+  font-weight: 600;
+  cursor: pointer;
+  width: fit-content;
+}
+.rb-cooking-actions {
+  display: flex;
+  gap: 12px;
+}
+.rb-cooking-prev,
+.rb-cooking-next {
+  border-radius: 12px;
+  font-size: 15px;
+  padding: 15px 0;
+  cursor: pointer;
+}
+.rb-cooking-prev {
+  flex: 1;
+  border: 1.5px solid rgba(255,255,255,0.12);
+  background: transparent;
+  color: #fff;
+}
+.rb-cooking-prev:disabled {
+  color: #3A2A1A;
+  cursor: default;
+}
+.rb-cooking-next {
+  flex: 2;
+  border: none;
+  background: #fff;
+  color: var(--rb-dark);
+  font-weight: 700;
+}
