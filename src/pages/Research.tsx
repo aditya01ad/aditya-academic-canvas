@@ -1,5 +1,4 @@
 import PageLayout from "@/components/layout/PageLayout";
-import Badge from "@/components/ui/Badge";
 import Tabs, { Tab } from "@/components/ui/Tabs";
 import Tag from "@/components/ui/Tag";
 import { PROFILE } from "@/lib/profile";
@@ -27,7 +26,7 @@ const Research = () => {
               <h3 className="text-lg font-medium text-foreground">Research vision</h3>
             </div>
             <p className="text-sm text-muted-foreground mt-4 leading-relaxed">
-              Advancing spectral graph theory through rigorous proofs and computational validation.
+              Using rigorous spectral graph theory together with computational validation to study structural properties of graphs.
               The long-term goal is to bridge theoretical insights with applications in
               graph algorithms and data-driven computation.
             </p>
@@ -36,7 +35,7 @@ const Research = () => {
           <div className="accent-left space-y-2">
             <p className="text-xs uppercase tracking-widest text-muted-foreground">Research Experience</p>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Thesis work supervised by {PROFILE.supervisor} on <em>{PROFILE.paperTitle}</em> —
+              Completed M.Sc. thesis work under {PROFILE.supervisor} on <em>{PROFILE.paperTitle}</em> —
               studying spectral invariants, adjacency spectra, and characterizations of graph families
               with pendant attachments.
             </p>
@@ -68,7 +67,7 @@ const Research = () => {
               <h3 className="text-lg font-medium text-foreground">Spectral Determination of Graphs with Pendant Attachments</h3>
             </div>
             <p className="text-sm text-muted-foreground mt-4 leading-relaxed">
-              M.Sc. thesis research investigating which graph families are determined by their
+              M.Sc. thesis research, completed in May 2026, investigating which graph families are determined by their
               adjacency spectrum when pendant vertices are attached. The work develops new
               spectral invariants and characterization techniques for detecting cospectral mates.
             </p>

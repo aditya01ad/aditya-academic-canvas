@@ -13,26 +13,53 @@ type Project = {
 
 const allProjects: Project[] = [
   {
-    title: "Optimization Algorithms Playground",
-    variant: "active",
-    summary:
-      "Benchmarks for gradient-based optimizers (SGD, Adam, RMSProp) visualized with NumPy/Matplotlib. Compares convergence speed, stability, and loss landscapes across test functions.",
-    tags: ["Python", "NumPy", "Matplotlib", "Numerical"],
+    title: "Spectral Determination of Graphs with Pendant Attachments",
+    variant: "completed",
+    summary: "M.Sc. thesis research on spectral determination, cospectral graphs, and structural invariants for graph families with pendant attachments.",
+    tags: ["Spectral Graph Theory", "SageMath", "Research"],
+    link: "https://github.com/aditya01ad/spectral-project",
   },
   {
-    title: "Graph Spectra Toolkit",
-    variant: "active",
-    summary:
-      "Reusable Python scripts for spectral computations — adjacency/Laplacian eigenvalues, spectral gap, graph isomorphism checks, and pendant-attachment invariants used in research.",
-    tags: ["Graph Theory", "SageMath", "Python", "Research"],
-    link: "https://github.com/aditya01ad",
+    title: "Study of Cospectral Graphs",
+    variant: "completed",
+    summary: "Computational and mathematical exploration of graph spectra, cospectrality, and constructions relevant to spectral graph theory.",
+    tags: ["Graph Theory", "Python", "SageMath"],
+    link: "https://github.com/aditya01ad/Study_of_Cospectral_Graphs",
   },
   {
-    title: "Spectral Determination Notes",
+    title: "Optimization Techniques",
+    variant: "completed",
+    summary: "Implementations and experiments around optimization methods, with an emphasis on numerical behavior and convergence.",
+    tags: ["Python", "Optimization", "Numerical"],
+    link: "https://github.com/aditya01ad/Optimization-techniques",
+  },
+  {
+    title: "Circle Packing",
+    variant: "completed",
+    summary: "Computational geometry project exploring circle-packing configurations and algorithmic construction.",
+    tags: ["Python", "Computational Geometry", "Algorithms"],
+    link: "https://github.com/aditya01ad/Circle-packing",
+  },
+  {
+    title: "DS Analyzer",
+    variant: "completed",
+    summary: "A data-structure and algorithm analysis project demonstrating practical programming and analytical tooling.",
+    tags: ["Python", "Algorithms", "Data Structures"],
+    link: "https://github.com/aditya01ad/ds-analyzer",
+  },
+  {
+    title: "Academic Canvas",
     variant: "active",
-    summary:
-      "Structured LaTeX notes on spectral determination of graphs — covering DAS conjecture, cospectral mates, and known results. Doubles as a reading companion for the thesis.",
-    tags: ["LaTeX", "Graph Theory", "Writing"],
+    summary: "The React/TypeScript academic portfolio itself, designed to present research, projects, education, and technical work in one place.",
+    tags: ["React", "TypeScript", "Vite", "Tailwind"],
+    link: "https://github.com/aditya01ad/aditya-academic-canvas",
+  },
+  {
+    title: "Research Writing App",
+    variant: "active",
+    summary: "A research-oriented writing tool exploring structured workflows for mathematical and academic writing.",
+    tags: ["Research Tools", "Writing", "Software"],
+    link: "https://github.com/aditya01ad/Research-Writing-app",
   },
 ];
 

@@ -12,7 +12,7 @@ const Research = () => {
             Spectral Determination of Graphs
           </h3>
           <p className="text-xs uppercase tracking-widest text-accent mb-4 font-medium">
-            Ongoing
+            Completed
           </p>
           <p className="text-sm leading-relaxed text-muted-foreground">
             Investigating conditions under which graphs are uniquely determined by

@@ -1,25 +1,26 @@
 import PageLayout from "@/components/layout/PageLayout";
 import Tag from "@/components/ui/Tag";
+import { PROFILE } from "@/lib/profile";
 
 const contactItems = [
   {
     label: "Email",
-    value: "aditya1512me@gmail.com",
-    href: "mailto:aditya1512me@gmail.com",
+    value: PROFILE.email,
+    href: `mailto:${PROFILE.email}`,
     cta: "Send email →",
     isExternal: false,
   },
   {
     label: "LinkedIn",
     value: "in/aditya01ad",
-    href: "https://linkedin.com/in/aditya01ad",
+    href: PROFILE.linkedIn,
     cta: "Connect →",
     isExternal: true,
   },
   {
     label: "GitHub",
     value: "github.com/aditya01ad",
-    href: "https://github.com/aditya01ad",
+    href: PROFILE.github,
     cta: "Take a look →",
     isExternal: true,
   },
@@ -94,7 +95,7 @@ const Contact = () => {
           </div>
 
           <div className="mt-8 border-t border-border pt-6 space-y-1">
-            <p className="text-sm text-muted-foreground">📍 Surat, Gujarat, India</p>
+            <p className="text-sm text-muted-foreground">📍 {PROFILE.location}</p>
             <p className="text-sm text-muted-foreground">
               M.Sc. Mathematics · IIT Bhubaneswar · Graduated May 2026
             </p>
