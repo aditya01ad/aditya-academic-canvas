@@ -1,34 +1,58 @@
-# Profile Website
+# Aditya Academic Canvas
 
-Welcome to my personal profile website! This site is built using modern technologies including Vite, React, TypeScript, and Tailwind CSS, along with beautiful components from shadcn-ui.
+Personal academic and technical portfolio for **Aditya Chauhan**, M.Sc. Mathematics graduate from IIT Bhubaneswar.
 
-## Features
-- **Fast Loading**: The website is powered by Vite, ensuring quick load times and an optimal user experience.
-- **Responsive Design**: Tailwind CSS enables a fully responsive design, adapting seamlessly to any device.
-- **TypeScript Support**: Enhancing code quality, maintainability, and developer experience.
-- **Elegant UI Components**: Utilizing shadcn-ui components for a polished and professional look.
+The site presents research in **spectral graph theory**, computational mathematics, selected software projects, academic background, and current professional interests.
 
-## Technologies Used
-- **Vite**: A build tool that significantly speeds up the development process.
-- **React**: A JavaScript library for building user interfaces.
-- **TypeScript**: A superset of JavaScript that adds static types.
-- **Tailwind CSS**: A utility-first CSS framework for designing directly in your markup.
-- **shadcn-ui**: A set of high-quality UI components for React.
+## Highlights
 
-## Getting Started
-To get started with this project, clone the repository and install the dependencies:
+- Research portfolio focused on spectral graph theory and graph spectra
+- M.Sc. thesis: **Spectral Determination of Graphs with Pendant Attachments**
+- Computational projects in graph theory, optimization, algorithms, and geometry
+- Responsive React/TypeScript interface
+- Centralized profile data for consistent academic and contact information
 
-```bash
-git clone https://github.com/aditya01ad/aditya-academic-canvas.git
-cd aditya-academic-canvas
-npm install
+## Stack
+
+- React 18
+- TypeScript
+- Vite
+- Tailwind CSS
+- React Router
+- Radix UI / shadcn-style components
+- Vitest
+
+## Project structure
+
+```text
+src/
+├── components/     # Reusable UI and layout components
+├── lib/            # Shared profile/configuration data
+├── pages/          # Main routed portfolio pages
+└── main.tsx        # Application entry point
 ```
 
-Then, run the development server:
+## Development
 
 ```bash
+npm install
 npm run dev
 ```
 
+Useful checks:
+
+```bash
+npm run build
+npm run lint
+npm run test
+```
+
+## Portfolio
+
+- Website: https://aditya-math.me
+- GitHub: https://github.com/aditya01ad
+- LinkedIn: https://linkedin.com/in/aditya01ad
+
 ## Author
-Created by **Aditya**. Feel free to reach out through my social media links below!
+
+**Aditya Chauhan** · Mathematics Graduate · Spectral Graph Theory · Computational Mathematics
