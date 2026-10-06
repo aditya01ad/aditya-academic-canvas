@@ -15,7 +15,7 @@ const skillGroups = [
   },
   {
     title: "Tools",
-    items: ["LaTeX", "Git", "Linux(learning)", "VS Code"],
+    items: ["LaTeX", "Git", "Linux", "VS Code"],
   },
   {
     title: "Mathematics",
@@ -56,9 +56,7 @@ const About = () => {
           <div className="accent-left space-y-2">
             <p className="text-xs uppercase tracking-widest text-muted-foreground">Current focus</p>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Finalising the manuscript on {PROFILE.paperTitle} alongside independent study in
-              convex optimization, numerical methods, and applied — actively exploring
-              industr, research, and teaching roles.
+              Building on the completed thesis through independent study in convex optimization, numerical methods, and applied computation, while exploring research, technical, and teaching opportunities.
             </p>
           </div>
 
@@ -66,8 +64,8 @@ const About = () => {
             <p className="text-xs uppercase tracking-widest text-muted-foreground">Background</p>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Completed B.Sc. Mathematics from VNSGU, Surat (CGPA 8.63), then qualified IIT JAM 2024
-              and join IIT Bhubaneswar. Finished  my M.Sc. Mathematics in may,2026. Also qualified GATE 2026 (MA) and JEE Advanced 2020.
-              A fast learner with genuine curiosity across mathematics, physics, economics, and computing.
+              and joined IIT Bhubaneswar. Completed my M.Sc. Mathematics in May 2026. Also qualified GATE 2026 (MA) and JEE Advanced 2020.
+              A mathematically trained problem solver with broad curiosity across mathematics and computing.
             </p>
           </div>
         </div>
