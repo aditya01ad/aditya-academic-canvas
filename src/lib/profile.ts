@@ -7,11 +7,9 @@ export const PROFILE = {
   website: "https://aditya-math.me",
   location: "Surat, Gujarat, India",
 
-  // Full strings (used in About, Research pages)
   msc: "IIT Bhubaneswar · Mathematics · May 2026 · CGPA 8.52/10.0",
   bsc: "VNSGU, Surat · Mathematics · May 2024 · CGPA 8.63/10.0",
 
-  // Individual fields (used in Home.tsx highlights + education cards)
   mscDegree: "M.Sc. Mathematics",
   mscInstitution: "IIT Bhubaneswar",
   mscPeriod: "2024 – 2026",
@@ -24,4 +22,4 @@ export const PROFILE = {
 
   supervisor: "Prof. Sasmita Barik",
   paperTitle: "Spectral Determination of Graphs with Pendant Attachments",
-  };
+} as const;
