@@ -41,11 +41,9 @@ const Home = () => {
     <PageLayout title="Home">
       <section className="page-container page-section text-center">
         <h1 className="page-title mt-4">{PROFILE.name}</h1>
-        <p className="text-sm text-muted-foreground mt-3">Mathematician · IIT Bhubaneswar</p>
+        <p className="text-sm text-muted-foreground mt-3">Mathematics Graduate · Spectral Graph Theory · Computational Mathematics</p>
         <p className="page-lede mt-4 max-w-2xl mx-auto">
-          MSc Mathematics at IIT Bhubaneswar with focus on pure mathematics, interest in applied, programming, tech, physics and project work in spectral graph theory 
-          programming. Excited to work on applied roles through different opportunities and collaboration.
-          A curious mind who enjoys exploring new ideas and intellectual conversations, drop a message randomly if interested.
+          M.Sc. Mathematics graduate from IIT Bhubaneswar with research experience in spectral graph theory and a growing focus on computational mathematics. I enjoy turning mathematical ideas into reproducible computational experiments, algorithms, and useful software.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <Link
@@ -68,7 +66,7 @@ const Home = () => {
           <article className="border border-border rounded-sm p-6 card-hover">
             <h2 className="text-lg font-medium text-foreground">Research focus</h2>
             <p className="text-sm text-muted-foreground mt-3">
-              Working under {PROFILE.supervisor} on {PROFILE.paperTitle}, deepening expertise in spectral graph theory. Completed in may 2026.
+              Working under {PROFILE.supervisor} on {PROFILE.paperTitle}, deepening expertise in spectral graph theory. Completed in May 2026.
             </p>
             <Link
               to="/research"
@@ -81,8 +79,7 @@ const Home = () => {
             <Badge variant="inprep" />
             <h2 className="text-lg font-medium text-foreground mt-3">Project portfolio</h2>
             <p className="text-sm text-muted-foreground mt-3">
-              Applied builds centered on optimization algorithms, graph spectra codes, and structured
-              math notes for learning and teaching.
+              Computational work spanning optimization, graph spectra, numerical experiments, and research tooling.
             </p>
             <Link
               to="/projects"
@@ -112,7 +109,7 @@ const Home = () => {
         <p className="page-subtitle">Overview</p>
         <h2 className="text-2xl font-medium text-foreground mt-2">Profile highlights</h2>
         <p className="page-lede mt-3 max-w-2xl">
-          A quick snapshot of academic standing, research status, and availability.
+          A concise snapshot of academic background, research, and current professional direction.
         </p>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
           {highlights.map((highlight) => (
