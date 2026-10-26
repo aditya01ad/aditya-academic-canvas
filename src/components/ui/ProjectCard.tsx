@@ -1,18 +1,25 @@
 import { ArrowUpRight } from "lucide-react";
 import type { PortfolioProject } from "@/data/projects";
+
+/** Text-first project entry. Designed to be read, not to look like a product card. */
 export default function ProjectCard({ project, index }: { project: PortfolioProject; index: number }) {
-  return <article className="project-card group">
-    <div className="flex justify-between gap-5">
-      <span className="eyebrow">{String(index + 1).padStart(2, "0")} / {project.category}</span>
-      <span className="status-tag">{project.status === "completed" ? "Completed" : "In progress"}</span>
-    </div>
-    <div className="mt-9">
-      <h3 className="font-display text-2xl leading-tight tracking-tight md:text-[1.8rem]">{project.title}</h3>
-      <p className="mt-4 text-sm leading-7 text-muted-foreground">{project.description}</p>
-    </div>
-    <div className="mt-8 flex flex-wrap gap-2">{project.tags.map(tag=><span className="chip" key={tag}>{tag}</span>)}</div>
-    <a className="project-link mt-8" href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.title} repository on GitHub`}>
-      Explore repository <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"/>
-    </a>
-  </article>;
+  return (
+    <article className="work-entry">
+      <span className="work-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+      <div className="min-w-0">
+        <div className="work-heading">
+          <h3 className="work-title">{project.title}</h3>
+          <span className="work-status">{project.status === "completed" ? "Completed" : "Ongoing"}</span>
+        </div>
+        <p className="work-category">{project.category}</p>
+        <p className="work-description">{project.description}</p>
+        <div className="work-meta">
+          <span className="work-tags">{project.tags.join(" · ")}</span>
+          <a className="quiet-link" href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.title} on GitHub`}>
+            View source <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+          </a>
+        </div>
+      </div>
+    </article>
+  );
 }

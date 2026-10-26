@@ -2,95 +2,145 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Design system / editorial mathematics portfolio, version 2 */
+/* Quiet, text-first mathematics portfolio. Design principles in docs/DESIGN_SYSTEM.md */
 @layer base {
   :root {
-    --background: 42 32% 97%; --foreground: 171 24% 13%;
-    --card: 45 26% 99%; --card-foreground: 171 24% 13%;
-    --popover: 45 26% 99%; --popover-foreground: 171 24% 13%;
-    --primary: 166 31% 26%; --primary-foreground: 45 33% 98%;
-    --secondary: 42 22% 92%; --secondary-foreground: 170 20% 18%;
-    --muted: 40 23% 93%; --muted-foreground: 168 8% 39%;
-    --accent: 22 44% 48%; --accent-foreground: 45 33% 98%;
-    --destructive: 0 76% 50%; --destructive-foreground: 0 0% 100%;
-    --border: 40 18% 83%; --input: 40 18% 83%; --ring: 166 31% 26%;
-    --radius: .65rem;
+    --background: 40 26% 98%;
+    --foreground: 168 14% 18%;
+    --card: 40 26% 98%;
+    --card-foreground: 168 14% 18%;
+    --popover: 40 26% 98%;
+    --popover-foreground: 168 14% 18%;
+    --primary: 166 24% 30%;
+    --primary-foreground: 40 26% 98%;
+    --secondary: 40 16% 94%;
+    --secondary-foreground: 168 14% 18%;
+    --muted: 40 16% 94%;
+    --muted-foreground: 165 6% 39%;
+    --accent: 163 27% 34%;
+    --accent-foreground: 40 26% 98%;
+    --destructive: 0 66% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 40 12% 83%;
+    --input: 40 12% 83%;
+    --ring: 163 27% 34%;
+    --radius: .3rem;
   }
   .dark {
-    --background: 173 22% 9%; --foreground: 42 28% 92%;
-    --card: 172 20% 12%; --card-foreground: 42 28% 92%;
-    --popover: 172 20% 12%; --popover-foreground: 42 28% 92%;
-    --primary: 153 30% 70%; --primary-foreground: 173 22% 9%;
-    --secondary: 170 19% 18%; --secondary-foreground: 42 28% 92%;
-    --muted: 170 18% 17%; --muted-foreground: 45 11% 67%;
-    --accent: 25 50% 66%; --accent-foreground: 173 22% 9%;
-    --destructive: 0 67% 60%; --destructive-foreground: 0 0% 100%;
-    --border: 172 13% 24%; --input: 172 13% 24%; --ring: 153 30% 70%;
+    --background: 175 14% 11%;
+    --foreground: 40 18% 89%;
+    --card: 175 14% 11%;
+    --card-foreground: 40 18% 89%;
+    --popover: 175 14% 14%;
+    --popover-foreground: 40 18% 89%;
+    --primary: 149 23% 71%;
+    --primary-foreground: 175 14% 11%;
+    --secondary: 173 12% 17%;
+    --secondary-foreground: 40 18% 89%;
+    --muted: 173 12% 17%;
+    --muted-foreground: 42 11% 68%;
+    --accent: 147 25% 70%;
+    --accent-foreground: 175 14% 11%;
+    --destructive: 0 62% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 175 10% 27%;
+    --input: 175 10% 27%;
+    --ring: 147 25% 70%;
   }
   * { @apply border-border; }
   html { scroll-behavior: smooth; }
-  body { @apply bg-background text-foreground antialiased; font-family: 'DM Sans', sans-serif; }
-  h1,h2,h3,h4,h5,h6,.font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
-  ::selection { background: hsl(var(--primary) / .18); }
+  body { @apply bg-background text-foreground antialiased; font-family: "Source Serif 4", Georgia, serif; font-size: 16px; line-height: 1.65; }
+  h1,h2,h3,h4,h5,h6,.font-display { font-family: "Playfair Display", Georgia, serif; }
+  a { text-underline-offset: 4px; }
+  ::selection { background: hsl(var(--accent) / .2); }
   :focus-visible { outline: 2px solid hsl(var(--accent)); outline-offset: 4px; }
 }
 @layer components {
-  .page-container { @apply mx-auto w-full max-w-[1240px] px-5 sm:px-8 lg:px-12; }
-  .page-section { @apply py-16 md:py-24; }
-  .page-title { @apply font-display text-5xl leading-[1.04] tracking-[-.035em] sm:text-6xl md:text-[5rem]; }
-  .page-subtitle,.eyebrow { @apply text-[10px] font-bold uppercase tracking-[.22em] text-muted-foreground; }
-  .page-lede { @apply text-base leading-8 text-muted-foreground md:text-lg; }
-  .section-space { @apply py-20 md:py-28; }
-  .section-title { @apply font-display text-4xl leading-[1.08] tracking-[-.03em] sm:text-5xl md:text-6xl; }
+  .page-container { @apply mx-auto w-full max-w-[1030px] px-5 sm:px-8 md:px-12; }
+  .site-header { @apply sticky top-0 z-50 border-b border-border bg-background; }
+  .header-inner { @apply flex h-[72px] items-center justify-between gap-5; }
+  .site-wordmark { @apply font-display text-[21px] font-semibold tracking-tight; }
+  .desktop-nav { @apply hidden items-center gap-7 md:flex; }
+  .nav-link { @apply text-[13px] text-muted-foreground transition-colors hover:text-foreground; font-family: "DM Sans", sans-serif; }
+  .nav-active { @apply text-foreground; text-decoration: underline; text-decoration-color: hsl(var(--accent)); text-underline-offset: 9px; }
+  .header-actions { @apply flex items-center gap-2; }
+  .header-icon { @apply inline-flex h-9 w-9 items-center justify-center text-muted-foreground transition-colors hover:text-foreground; }
+  .mobile-menu-button { @apply md:hidden; }
+  .mobile-navigation { @apply border-t border-border bg-background; }
+  .mobile-navigation[hidden] { display:none; }
+  .mobile-navigation-inner { @apply flex flex-col py-2; }
+  .mobile-link { @apply border-b border-border py-3 text-base; }
   .accent-ink { color:hsl(var(--accent)); }
-  .accent-dot { @apply inline-block h-2 w-2 rounded-full bg-accent; }
-  .site-header { @apply sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-xl; }
-  .brand-mark { @apply inline-flex items-center gap-3; }
-  .brand-symbol { @apply font-display text-[2rem] font-semibold leading-none; }
-  .nav-link { @apply border-b-2 border-transparent py-2 text-xs font-semibold tracking-wide text-muted-foreground transition-colors hover:text-foreground; }
-  .nav-link-active { @apply border-accent text-foreground; }
-  .icon-button { @apply inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-secondary; }
-  .header-cta { @apply items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-xs font-semibold text-primary-foreground transition-opacity hover:opacity-90; }
-  .mobile-navigation { @apply border-t border-border bg-background shadow-lg; }
-  .mobile-nav-link { @apply flex items-center justify-between border-b border-border py-4 font-display text-2xl; }
-  .hero-shell { background:radial-gradient(circle at 81% 45%, hsl(var(--secondary) / .75), transparent 44%); }
-  .hero-heading { @apply font-display text-[clamp(3.6rem,7.2vw,7.2rem)] leading-[.94] tracking-[-.048em]; }
-  .hero-kicker { @apply flex items-center gap-3; }
-  .hero-detail { @apply font-medium; }
-  .hero-rule { @apply h-px bg-border; }
-  .btn-primary,.btn-secondary,.btn-on-dark,.btn-on-dark-outline { @apply inline-flex min-h-12 items-center justify-center gap-3 rounded-full px-6 py-3 text-xs font-semibold transition-all duration-200; }
-  .btn-primary { @apply bg-primary text-primary-foreground hover:-translate-y-0.5 hover:shadow-lg; }
-  .btn-secondary { @apply border border-border text-foreground hover:border-primary hover:bg-secondary; }
-  .text-link { @apply inline-flex items-center gap-2 text-xs font-bold tracking-wide text-foreground transition-colors hover:text-accent; }
-  .math-visual { @apply aspect-[1.07] w-full rounded-[2rem] border border-border bg-card; box-shadow:0 32px 100px -66px hsl(var(--foreground)/.3); }
-  .math-visual-grid { background-image: linear-gradient(hsl(var(--foreground)/.035) 1px,transparent 1px),linear-gradient(90deg,hsl(var(--foreground)/.035) 1px,transparent 1px); background-size:38px 38px; mask-image:radial-gradient(circle,black 45%,transparent 85%); }
-  .visual-label { fill: hsl(var(--muted-foreground)); font: 12px 'DM Sans',sans-serif; letter-spacing:1.3px; }
-  .math-visual-caption { @apply absolute bottom-5 left-6 text-[9px] font-semibold tracking-[.24em] text-muted-foreground; }
-  .project-card { @apply flex h-full flex-col rounded-2xl border border-border bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 md:p-8; }
-  .project-card>div:nth-child(2) { @apply flex-1; }
-  .chip { @apply rounded-full border border-border bg-secondary/50 px-3 py-1.5 text-[10px] font-medium text-muted-foreground; }
-  .status-tag { @apply whitespace-nowrap rounded-full bg-secondary px-3 py-1.5 text-[10px] font-semibold text-muted-foreground; }
-  .project-link { @apply inline-flex items-center gap-2 border-t border-border pt-5 text-xs font-bold text-foreground transition-colors hover:text-accent; }
-  .section-band { @apply border-y border-border bg-secondary/40; }
-  .interest-pill { @apply inline-flex items-center gap-3 rounded-full border border-border bg-card px-4 py-3 text-sm text-foreground; }
-  .interest-pill span { @apply text-[10px] font-bold text-accent; }
-  .credential-panel { @apply rounded-2xl border border-border bg-card p-7 md:p-9; }
-  .contact-banner { @apply flex flex-wrap items-center justify-between gap-10 rounded-[1.5rem] bg-primary p-8 text-primary-foreground md:p-12; }
-  .btn-on-dark { @apply bg-background text-foreground hover:opacity-90; }
-  .btn-on-dark-outline { @apply border border-white/40 text-white hover:bg-white/10; }
-  .site-footer { @apply border-t border-border bg-secondary/30; }
-  .footer-link { @apply text-xs font-medium text-muted-foreground transition-colors hover:text-foreground; }
-  .filter-button { @apply rounded-full border border-border px-5 py-2.5 text-xs font-semibold text-muted-foreground transition-colors hover:border-primary hover:text-foreground; }
-  .filter-button.is-selected { @apply border-primary bg-primary text-primary-foreground; }
-  .tab-bar { @apply flex flex-wrap items-center gap-2 border-b border-border pb-4; }
-  .tab-btn { @apply rounded-full border border-border px-4 py-2 text-xs font-semibold text-muted-foreground transition-colors hover:text-foreground; }
-  .tab-active { @apply border-primary bg-primary text-primary-foreground; }
-  .tab-panel { @apply mt-8; }
-  .badge { @apply inline-flex items-center rounded-full border border-border px-3 py-1 text-[10px] font-semibold text-muted-foreground; }
-  .badge-active { @apply text-accent; }
-  .badge-completed { @apply text-primary; }
+  .eyebrow,.section-label,.page-subtitle { @apply text-[11px] font-medium uppercase tracking-[.11em] text-muted-foreground; font-family: "DM Sans", sans-serif; }
+  .home-intro { @apply grid items-center gap-8 pb-14 pt-16 sm:pt-20 md:grid-cols-[minmax(0,1fr)_170px] md:gap-10 md:pb-20 md:pt-24; }
+  .home-intro-text { @apply min-w-0; }
+  .home-name { @apply mt-3 text-[clamp(2.8rem,5.6vw,4.35rem)] font-medium tracking-[-.04em]; line-height:1.2; }
+  .home-subtitle { @apply mt-3 text-[13px] text-muted-foreground; font-family:"DM Sans",sans-serif; }
+  .intro-lead { @apply mt-9 max-w-[640px] text-[clamp(1.25rem,2.2vw,1.5rem)] leading-[1.55]; }
+  .intro-copy { @apply mt-4 max-w-[650px] text-[16px] leading-[1.85] text-muted-foreground; }
+  .intro-links { @apply mt-7 flex flex-wrap gap-x-7 gap-y-3; }
+  .text-link,.quiet-link { @apply inline-flex items-center gap-2 text-sm font-medium text-primary transition-colors hover:text-foreground; font-family:"DM Sans",sans-serif; }
+  .graph-note { @apply mx-auto hidden w-full max-w-[168px] self-start pt-8 text-foreground md:block; transform:rotate(-4deg); }
+  .graph-caption { @apply text-center text-[10px] italic text-muted-foreground; }
+  .graph-notation { fill:hsl(var(--muted-foreground)); font-family:"Source Serif 4",Georgia,serif; font-size:13px; font-style:italic; }
+  .hairline { @apply h-px bg-border; }
+  .home-section { @apply py-14 sm:py-16; }
+  .last-section { @apply border-t border-border pb-20; }
+  .section-heading { @apply mb-7 flex flex-wrap items-end justify-between gap-x-6 gap-y-4; }
+  .section-title { @apply mt-3 text-[clamp(1.65rem,3vw,2.3rem)] font-medium tracking-[-.02em]; line-height:1.3; }
+  .section-description { @apply mt-3 max-w-[620px] leading-8 text-muted-foreground; }
+  .section-action { @apply pb-1; }
+  .work-list { @apply border-t border-border; }
+  .work-entry { @apply grid grid-cols-[32px_minmax(0,1fr)] gap-4 border-b border-border py-7 sm:grid-cols-[54px_minmax(0,1fr)] sm:gap-6; }
+  .work-number { @apply pt-1 text-[11px] text-muted-foreground; font-family:"DM Sans",sans-serif; }
+  .work-heading { @apply flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1; }
+  .work-title { @apply text-[19px] font-medium leading-snug sm:text-[21px]; }
+  .work-status { @apply text-[11px] text-muted-foreground; font-family:"DM Sans",sans-serif; }
+  .work-category { @apply mt-2 text-[11px] tracking-wide text-muted-foreground; font-family:"DM Sans",sans-serif; }
+  .work-description { @apply mt-3 max-w-[660px] leading-[1.8] text-muted-foreground; }
+  .work-meta { @apply mt-3 flex flex-wrap items-center justify-between gap-x-5 gap-y-3; }
+  .work-tags { @apply text-[11px] text-muted-foreground; font-family:"DM Sans",sans-serif; }
+  .quiet-link { @apply text-xs; }
+  .section-columns { @apply grid gap-5 border-t border-border md:grid-cols-[.85fr_1.15fr] md:gap-12; }
+  .prose-column { @apply max-w-[610px] text-muted-foreground; }
+  .prose-column p + p { @apply mt-4; }
+  .prose-column .text-link { @apply mt-5; }
+  .inner-page { @apply pb-20 pt-14 sm:pb-28 sm:pt-20; }
+  .page-intro { @apply max-w-[690px] pb-10; }
+  .page-title { @apply mt-3 text-[clamp(2.45rem,5vw,3.7rem)] font-medium tracking-[-.035em]; line-height:1.2; }
+  .page-lede { @apply mt-4 max-w-[650px] text-[17px] leading-[1.85] text-muted-foreground; }
+  .filter-line { @apply mb-3 flex flex-wrap items-center gap-x-5 gap-y-2 border-b border-border pb-4; }
+  .filter-link { @apply py-2 text-sm text-muted-foreground transition-colors hover:text-foreground; font-family:"DM Sans",sans-serif; }
+  .filter-active { @apply border-b border-primary font-semibold text-foreground; }
+  .project-count { @apply ml-auto text-xs text-muted-foreground; font-family:"DM Sans",sans-serif; }
+  .reading-section { @apply border-t border-border py-10; }
+  .reading-heading { @apply mb-4 text-[22px] font-medium; }
+  .reading-copy { @apply max-w-[670px] text-[16px] leading-[1.85] text-muted-foreground; }
+  .reading-copy + .reading-copy { @apply mt-4; }
+  .detail-list { @apply divide-y divide-border border-y border-border; }
+  .detail-row { @apply grid gap-2 py-5 sm:grid-cols-[165px_minmax(0,1fr)] sm:gap-8; }
+  .detail-term { @apply pt-1 text-[12px] font-medium text-muted-foreground; font-family:"DM Sans",sans-serif; }
+  .detail-description { @apply leading-7; }
+  .tag-line { @apply mt-3 text-[13px] leading-7 text-muted-foreground; font-family:"DM Sans",sans-serif; }
+  .plain-link { @apply text-primary underline decoration-border underline-offset-4 hover:text-foreground; }
+  .site-footer { @apply border-t border-border; }
+  .footer-inner { @apply grid gap-7 py-10 sm:py-12; }
+  .footer-name { @apply font-display text-[20px] font-medium; }
+  .footer-note { @apply mt-1 text-sm text-muted-foreground; }
+  .footer-links { @apply flex flex-wrap gap-x-6 gap-y-2 text-xs text-muted-foreground; font-family:"DM Sans",sans-serif; }
+  .footer-links a:hover,.footer-social a:hover { @apply text-foreground; }
+  .footer-bottom { @apply flex flex-wrap items-center justify-between gap-3 border-t border-border pt-5 text-xs text-muted-foreground; font-family:"DM Sans",sans-serif; }
+  .footer-social { @apply flex gap-5; }
+  .skip-link { @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-background focus:px-4 focus:py-2; }
+  /* Compatibility styles for minor pages and the retained notebook pages. */
+  .page-section { @apply py-14 sm:py-20; }
   .accent-left { @apply border-l-2 border-accent pl-5; }
-  .card-hover { @apply transition-transform duration-300 hover:-translate-y-0.5; }
-  .skip-link { @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-background focus:px-5 focus:py-3; }
+  .card-hover { @apply transition-colors hover:border-primary/40; }
+  .tab-bar { @apply flex flex-wrap gap-3 border-b border-border pb-3; }
+  .tab-btn { @apply border-b border-transparent px-1 py-2 text-sm text-muted-foreground; }
+  .tab-active { @apply border-accent text-foreground; }
+  .tab-panel { @apply mt-8; }
+  .badge { @apply inline-flex text-xs text-muted-foreground; }
+  .badge-active,.badge-completed { @apply text-primary; }
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
