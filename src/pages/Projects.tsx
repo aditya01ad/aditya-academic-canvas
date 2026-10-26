@@ -1,123 +1,71 @@
 import { useState } from "react";
 import PageLayout from "@/components/layout/PageLayout";
-import Badge from "@/components/ui/Badge";
 import Tag from "@/components/ui/Tag";
+import { projectFilters, projects, type ProjectGroup } from "@/data/projects";
 
-type Project = {
-  title: string;
-  variant: "active" | "completed";
-  summary: string;
-  tags: string[];
-  link?: string;
-};
+type Filter = "all" | ProjectGroup;
 
-const allProjects: Project[] = [
-  {
-    title: "Optimization Algorithms Playground",
-    variant: "active",
-    summary:
-      "Benchmarks for gradient-based optimizers (SGD, Adam, RMSProp) visualized with NumPy/Matplotlib. Compares convergence speed, stability, and loss landscapes across test functions.",
-    tags: ["Python", "NumPy", "Matplotlib", "Numerical"],
-  },
-  {
-    title: "Graph Spectra Toolkit",
-    variant: "active",
-    summary:
-      "Reusable Python scripts for spectral computations — adjacency/Laplacian eigenvalues, spectral gap, graph isomorphism checks, and pendant-attachment invariants used in research.",
-    tags: ["Graph Theory", "SageMath", "Python", "Research"],
-    link: "https://github.com/aditya01ad",
-  },
-  {
-    title: "Spectral Determination Notes",
-    variant: "active",
-    summary:
-      "Structured LaTeX notes on spectral determination of graphs — covering DAS conjecture, cospectral mates, and known results. Doubles as a reading companion for the thesis.",
-    tags: ["LaTeX", "Graph Theory", "Writing"],
-  },
-];
-
-const Projects = () => {
-  const [filter, setFilter] = useState<"all" | "active" | "completed">("all");
-
-  const filtered =
-    filter === "all"
-      ? allProjects
-      : allProjects.filter((p) => p.variant === filter);
-
-  const tabs: { id: "all" | "active" | "completed"; label: string }[] = [
-    { id: "all", label: "All" },
-    { id: "active", label: "Active" },
-    { id: "completed", label: "Completed" },
-  ];
+export default function Projects() {
+  const [filter, setFilter] = useState<Filter>("all");
+  const visible = filter === "all" ? projects : projects.filter((project) => project.group === filter);
 
   return (
     <PageLayout title="Projects">
       <section className="page-container page-section">
-        <p className="page-subtitle">Projects</p>
-        <h1 className="page-title mt-2">Project portfolio</h1>
+        <p className="page-subtitle">Projects & experiments</p>
+        <h1 className="page-title mt-2">Things I've tried making</h1>
         <p className="page-lede mt-4 max-w-2xl">
-          Research-adjacent builds, computational experiments, and structured learning artifacts.
-          Each project bridges mathematical theory with practical implementation.
+          This is a mixture of research code, coursework, notebooks, and side projects.
+          Not everything is polished or finished. I like keeping the experiments around, too.
         </p>
-
-        <div className="mt-8 flex gap-2 flex-wrap">
-          {tabs.map((tab) => (
+        <div className="mt-8 flex flex-wrap gap-2" role="group" aria-label="Filter projects">
+          {projectFilters.map((tab) => (
             <button
-              key={tab.id}
-              onClick={() => setFilter(tab.id)}
+              key={tab.value}
               type="button"
-              aria-pressed={filter === tab.id}
-              className={`px-5 py-2 rounded-sm text-xs uppercase tracking-widest border transition-colors duration-200 ${
-                filter === tab.id
+              aria-pressed={filter === tab.value}
+              onClick={() => setFilter(tab.value)}
+              className={"px-5 py-2 rounded-sm text-xs uppercase tracking-widest border transition-colors duration-200 " +
+                (filter === tab.value
                   ? "border-foreground bg-foreground text-background"
-                  : "border-border text-muted-foreground hover:text-foreground hover:border-foreground"
-              }`}
+                  : "border-border text-muted-foreground hover:text-foreground hover:border-foreground")}
             >
               {tab.label}
             </button>
           ))}
         </div>
-
         <p className="mt-4 text-xs text-muted-foreground" aria-live="polite">
-          {filtered.length} project{filtered.length !== 1 ? "s" : ""}
+          {visible.length} {visible.length === 1 ? "entry" : "entries"}
         </p>
-
         <div className="mt-6 space-y-5">
-          {filtered.map((project) => (
-            <article
-              key={project.title}
-              className="border border-border rounded-sm p-6 card-hover"
-            >
+          {visible.map((project) => (
+            <article key={project.id} className="border border-border rounded-sm p-6 card-hover">
               <div className="flex flex-wrap items-start justify-between gap-3">
-                <h3 className="text-base font-medium text-foreground">{project.title}</h3>
-                <Badge variant={project.variant} />
+                <h2 className="text-lg font-medium text-foreground">{project.title}</h2>
+                <span className="text-xs text-muted-foreground">{project.kind}</span>
               </div>
-              <p className="text-sm text-muted-foreground mt-3 leading-relaxed">
-                {project.summary}
-              </p>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{project.summary}</p>
               <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
                 <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <Tag key={tag} label={tag} />
-                  ))}
+                  {project.tags.map((tag) => <Tag key={tag} label={tag} />)}
                 </div>
-                {project.link && (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    View ↗
-                  </a>
-                )}
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs uppercase tracking-widest text-accent hover:text-foreground transition-colors"
+                >
+                  Open on GitHub ↗
+                </a>
               </div>
             </article>
           ))}
         </div>
+        <p className="mt-8 text-sm leading-relaxed text-muted-foreground">
+          A small note: a notebook full of learning exercises isn't a finished application, and a computational
+          search isn't a proof. I've tried to describe these projects for what they are, not make them sound bigger.
+        </p>
       </section>
     </PageLayout>
   );
-};
-
-export default Projects;
+}
