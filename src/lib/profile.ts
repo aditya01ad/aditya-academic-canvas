@@ -1,7 +1,6 @@
 export const PROFILE = {
   name: "Aditya Chauhan",
   email: "aditya1512me@gmail.com",
-  phone: "+91-6352834024",
   linkedIn: "https://linkedin.com/in/aditya01ad",
   github: "https://github.com/aditya01ad",
   website: "https://aditya-math.me",
