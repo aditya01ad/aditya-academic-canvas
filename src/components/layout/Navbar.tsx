@@ -7,7 +7,7 @@ import { cn, SITE_NAME } from "@/lib/utils";
 const NAV_ITEMS = [
   { label: "Research", to: "/research" },
   { label: "Projects", to: "/projects" },
-  { label: "Blog", to: "/blog" },
+  { label: "Writing", to: "/blog" },
   { label: "About", to: "/about" },
   { label: "Contact", to: "/contact" },
 ];

@@ -5,7 +5,7 @@ import { SITE_NAME } from "@/lib/utils";
 
 const Miscellany = () => {
   useEffect(() => {
-    document.title = `Miscellany — ${SITE_NAME}`;
+    document.title = `Coffee notes — ${SITE_NAME}`;
     return () => {
       document.title = SITE_NAME;
     };

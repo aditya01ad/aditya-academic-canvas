@@ -1,40 +1,57 @@
-# Profile Website
+# My little corner of the internet
 
-Welcome to my personal profile website! This site is built using modern technologies including Vite, React, TypeScript, and Tailwind CSS, along with beautiful components from shadcn-ui.
+This is the source for [my personal website](https://www.aditya-math.me/). I'm Aditya—a mathematics graduate who likes graph theory, writing little bits of code, experimenting with ideas, and occasionally wandering into things that have nothing to do with mathematics.
 
-## Features
-- **Fast Loading**: The website is powered by Vite, ensuring quick load times and an optimal user experience.
-- **Responsive Design**: Tailwind CSS enables a fully responsive design, adapting seamlessly to any device.
-- **TypeScript Support**: Enhancing code quality, maintainability, and developer experience.
-- **Elegant UI Components**: Utilizing shadcn-ui components for a polished and professional look.
+It's not meant to be a CV in website form. There are pages about my research and projects, but also some notes, coffee recipes and bits of everyday curiosity. I expect it to keep changing.
 
-## Technologies Used
-- **Vite**: A build tool that significantly speeds up the development process.
-- **React**: A JavaScript library for building user interfaces.
-- **TypeScript**: A superset of JavaScript that adds static types.
-- **Tailwind CSS**: A utility-first CSS framework for designing directly in your markup.
-- **shadcn-ui**: A set of high-quality UI components for React.
+## What's here
 
-## Getting Started
-To get started with this project, clone the repository and install the dependencies:
+- **Home:** A short introduction, a few selected projects, and whatever has my attention.
+- **About:** My story, education, tools, and interests outside mathematics.
+- **Research:** My M.Sc. work on graph spectra and pendant attachments, explained without assuming everyone knows the terminology.
+- **Projects:** Public repositories with honest notes about what is research, coursework, experimental, or unfinished.
+- **Writing (`/blog`):** Short notes, not a publication list or a promised posting schedule.
+- **Miscellany (`/notes`):** A little interactive coffee recipe book.
+- **Contact:** How to reach me, whether it's about mathematics or something entirely different.
+
+The research and educational details are based on my actual work; the project descriptions link to [public repositories](https://github.com/aditya01ad). My M.Sc. Mathematics degree from IIT Bhubaneswar was completed in May 2026 (final CGPA 8.38/10).
+
+## Tech
+
+The website is a small **Vite + React + TypeScript + Tailwind CSS** application deployed on **Vercel**. It uses React Router for pages and light/dark theme switching.
+
+The site keeps the original visual design; the current maintenance branch contains technical optimizations (route splitting, accessible tabs and navigation) plus content cleanup. The retired components, starter files and duplicates are in [`old/`](old/README.md).
+
+## Running locally
+
+Requires Node.js and npm.
 
 ```bash
 git clone https://github.com/aditya01ad/aditya-academic-canvas.git
 cd aditya-academic-canvas
-npm install
-```
-
-Then, run the development server:
-
-```bash
+npm ci
 npm run dev
 ```
 
-## Author
-Created by **Aditya**. Feel free to reach out through my social media links below!
+The quality command runs ESLint, TypeScript, Vitest, and a production build:
 
-## Repository organization
+```bash
+npm run check
+```
 
-The active website lives in `src/pages/`, `src/components/layout/`, `src/components/Misc/` and the small set of referenced `src/components/ui/` files. Runtime profile information is centralized in `src/lib/profile.ts`.
+## Where to edit things
 
-Unused and superseded code, redundant copies, and historical assets are retained in [`old/`](old/README.md). The `old/` folder is not part of the active application. Use the npm lockfile for installs (`npm ci`).
+| File | Purpose |
+| --- | --- |
+| `src/lib/profile.ts` | Shared biographical, academic and contact details |
+| `src/data/projects.ts` | Public project descriptions and links |
+| `src/pages/` | Page text and structure |
+| `src/components/Misc/RecipeBook.tsx` | The actual recipe content |
+| `src/components/layout/` | Original navigation and footer |
+| `src/index.css` | Original visual styles and theme tokens |
+| `docs/CONTENT_GUIDE.md` | Content decisions and future editing guidelines |
+| `docs/TECHNICAL_CLEANUP.md` | Performance and testing work |
+
+The `website_update` branch is for review; `main` is the production branch. Changes here are not promoted to the live domain until explicitly merged.
+
+If you spot a mistake or want to exchange ideas, [say hello](https://www.aditya-math.me/contact).

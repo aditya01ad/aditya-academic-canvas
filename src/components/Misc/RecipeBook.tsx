@@ -10,15 +10,15 @@ const RECIPES = [
     ingredients:[
       {id:"a",amount:4,unit:"g",name:"Nescafé Gold / BRU Gold",note:"~2g per tsp"},
       {id:"b",amount:8,unit:"g",name:"sugar",note:"~4g per tsp"},
-      {id:"c",amount:29.574,unit:"ml",name:"hot water for whipping",note:"~30ml per 2 tbsp"},
-      {id:"d",amount:200,unit:"ml",name:"cold water",note:"~¾ cup per 200ml"},
+      {id:"c",amount:29.574,unit:"ml",name:"hot water for whipping",note:"about 2 tbsp"},
+      {id:"d",amount:200,unit:"ml",name:"cold water",note:"200ml (about ⅚ cup)"},
     ],
     steps:[
       {text:"Combine Nescafé Gold / BRU Gold, sugar, and hot water for whipping in a small bowl or cup.",timer:null},
       {text:"Whisk vigorously by hand for 3–4 minutes until thick, pale, foamy cream forms.",timer:240},
       {text:"Pour cold water into a glass with ice if available. Spoon whipped coffee on top. Stir before drinking.",timer:null},
     ],
-    notes:"Works without milk entirely. The whipped foam on cold water is surprisingly satisfying. Skip sugar if you want pure caffeine hit — texture changes slightly but still works.",
+    notes:"Works without milk entirely. The whipped foam on cold water is surprisingly satisfying. The sugar helps the foam stay thick. With less sugar, expect a looser whip; for a sugar-free black coffee, the regular version is easier.",
   },
   {
     id:2, emoji:"🧊", cat:"Coffee", time:"6 min",
@@ -28,8 +28,8 @@ const RECIPES = [
     ingredients:[
       {id:"a",amount:4,unit:"g",name:"Nescafé Gold / BRU Gold",note:"~2g per tsp"},
       {id:"b",amount:8,unit:"g",name:"sugar",note:"~4g per tsp"},
-      {id:"c",amount:44.333,unit:"ml",name:"hot water for whipping",note:"~45ml per 3 tbsp"},
-      {id:"d",amount:150,unit:"ml",name:"cold milk",note:"~¾ cup per 150ml"},
+      {id:"c",amount:44.333,unit:"ml",name:"hot water for whipping",note:"about 3 tbsp"},
+      {id:"d",amount:150,unit:"ml",name:"cold milk",note:"150ml (just under ⅔ cup)"},
       {id:"e",amount:4,unit:"",name:"ice cubes",note:null},
     ],
     steps:[
@@ -37,35 +37,35 @@ const RECIPES = [
       {text:"Fill glass with ice cubes, pour cold milk over ice.",timer:null},
       {text:"Spoon whipped coffee on top. Let it sit for a minute before stirring — looks and tastes better.",timer:60},
     ],
-    notes:"Your summer go-to. Surat June heat + iced coffee = actually functional afternoon. Don't skip the whipping step — it makes the whole thing taste 3× better. 1 cup = 240ml for reference.",
+    notes:"Your summer go-to. Surat June heat + iced coffee = actually functional afternoon. Whipping makes the drink creamy. If you're in a hurry, just stir the coffee into the milk instead. 1 cup = 240ml for reference.",
   },
   {
     id:3, emoji:"🫖", cat:"Coffee", time:"7 min",
     title:"Hot Milk Coffee — Evening Wind Down",
-    tagline:"Closest to café latte you can get with instant. Warm, smooth, good for evenings.",
+    tagline:"A simple, creamy cup of instant coffee with warm milk.",
     baseServings:1,
     ingredients:[
       {id:"a",amount:4,unit:"g",name:"Nescafé Gold / BRU Gold",note:"~2g per tsp"},
-      {id:"b",amount:44.333,unit:"ml",name:"hot water concentrate",note:"~45ml per 3 tbsp"},
-      {id:"c",amount:150,unit:"ml",name:"full cream milk",note:"~¾ cup per 150ml"},
+      {id:"b",amount:44.333,unit:"ml",name:"hot water concentrate",note:"about 3 tbsp"},
+      {id:"c",amount:150,unit:"ml",name:"full cream milk",note:"150ml (just under ⅔ cup)"},
       {id:"d",amount:4,unit:"g",name:"sugar",note:"~4g per tsp, optional"},
     ],
     steps:[
       {text:"Dissolve Nescafé Gold / BRU Gold and sugar (optional) in hot water concentrate. Stir into a paste first, then add all the tbsp water.",timer:null},
       {text:"Heat full cream milk on stove until steaming but not boiling.",timer:90},
-      {text:"Optional but worth it — pour hot milk into a jar, seal tight, shake hard for 30 seconds.",timer:30},
+      {text:"Optional: use a milk frother or whisk the warm milk in an open, deep cup for around 30 seconds. Never shake hot milk in a sealed jar.",timer:30},
       {text:"Pour coffee concentrate into cup, add hot milk slowly. Foam goes on top if you made it.",timer:null},
     ],
-    notes:"Heat milk properly — hot but not boiling. If you have a jar with a lid, shake the hot milk for 30 seconds to froth it before pouring. Instant frothed latte. 1 cup = 240ml for reference.",
+    notes:"Warm the milk until steaming, not boiling. A small whisk or frother can add foam without sealing hot liquid in a container.",
   },
   {
     id:4, emoji:"📚", cat:"Coffee", time:"3 min",
     title:"Classic Black — Study Mode",
-    tagline:"Strong, no fuss. Maximum caffeine, minimum effort.",
+    tagline:"Simple, strong, and easy to make.",
     baseServings:1,
     ingredients:[
       {id:"a",amount:4,unit:"g",name:"Nescafé Gold / BRU Gold",note:"~2g per tsp"},
-      {id:"b",amount:200,unit:"ml",name:"hot water",note:"~¾ cup per 200ml"},
+      {id:"b",amount:200,unit:"ml",name:"hot water",note:"200ml (about ⅚ cup)"},
       {id:"c",amount:4,unit:"g",name:"sugar",note:"~4g per tsp, optional"},
     ],
     steps:[
@@ -73,7 +73,7 @@ const RECIPES = [
       {text:"Pour hot water — not boiling, slightly cooled. Stir well.",timer:30},
       {text:"Drink as is. Optional: let sit for a minute if too hot.",timer:null},
     ],
-    notes:"The baseline. When you just need coffee, not an experience. Use less water (~150ml) for a stronger, espresso-adjacent cup. 1 cup = 240ml for reference.",
+    notes:"The baseline. When you just need coffee, not an experience. Use less water (~150ml) if you prefer a stronger black coffee. 1 cup = 240ml for reference.",
   },
 ];
 

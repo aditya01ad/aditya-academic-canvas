@@ -19,7 +19,7 @@ const Footer = () => {
             Projects
           </Link>
           <Link to="/blog" className="hover:text-foreground transition-colors duration-200">
-            Blog
+            Writing
           </Link>
           <Link to="/notes" className="hover:text-foreground transition-colors duration-200">
             Miscellany
@@ -72,7 +72,7 @@ const Footer = () => {
           </a>
         </div>
         <p className="text-xs text-muted-foreground">
-          © {new Date().getFullYear()} {SITE_NAME} · Built with purpose
+          © {new Date().getFullYear()} {SITE_NAME} · Thanks for stopping by
         </p>
       </div>
     </footer>
