@@ -1,45 +1,51 @@
-# Portfolio design system — v2
+# Portfolio design system — quiet edition (October 2026)
 
-## Objective
-An editorial, research-led public portfolio that communicates mathematical rigor and applied interests without exaggerating project outcomes. It is a Vite/React SPA deployed to Vercel. `main` is the production branch; feature work stays on `website_update` until reviewed.
+## Intent
 
-## Information architecture
-- `/`: concise positioning, selected verified projects, interests, academic background, contact CTA
-- `/projects`: direct repository links with accurate status
-- `/research`: thesis, research history, future questions
-- `/about`: detailed academic and technical background
-- `/blog`: planned writing
-- `/contact`: accessible contact methods
-- `/notes`: separately-styled recipe book, retained as-is
+The site should feel like a personal academic notebook made legible for the web, not a polished SaaS landing page. Preserve space for curiosity, specificity, mathematical rigor and human voice. The goals are minimalism, personality, cleanliness, easy reading and graceful responsiveness.
 
-## Implementation
-- `src/data/projects.ts`: source of truth for public project summaries and statuses
-- `src/components/ui/ProjectCard.tsx`: shared card for home and projects
-- `src/components/ui/SectionHeading.tsx`: shared section headings
-- `src/components/visual/MathVisual.tsx`: SVG-based responsive graph illustration, no image assets
-- `src/components/layout/`: common navigation, footer, page shell
-- `src/index.css`: light/dark semantic tokens and reusable component classes
-- `src/lib/profile.ts`: canonical personal and academic data
+## Voice
+
+- Lead with Aditya's name and real interests instead of a marketing slogan.
+- Prefer "I" and natural phrasing to corporate language.
+- Say what was studied, implemented or explored. Do not claim unverified research results.
+- Show work in progress honestly. Avoid fake metrics or generic "innovative" claims.
+- Balance mathematics/research with operations research, optimization and coding.
 
 ## Visual system
-- Palette: warm chalk background, deep pine primary, muted copper accent, slate ink. Dark mode uses a deep green background.
-- Typography: Cormorant Garamond for editorial headings and DM Sans for body and controls.
-- Responsive max-width: 1240px; standard gutters 20/32/48px.
-- Spacing: sections ~80/112px; content remains dense enough for hiring reviewers.
-- Surfaces: rounded, lightly bordered cards with restrained hover states.
-- Interactions: keyboard focus ring, semantic nav, visible state for filters, reduced-motion support.
-- Do not add heavy animation dependencies or turn the portfolio into a dashboard.
 
-## QA before promoting
-1. Vercel preview build READY, inspect build log.
-2. Check /, /projects, /research, /about, /blog, /contact, /notes at desktop and mobile widths.
-3. Verify dark theme, mobile menu, accessible keyboard navigation, project links.
-4. Run npm test, lint and npm build in CI/local if available.
-5. Review the public résumé version, CV academic metrics and factual claims.
-6. Promote only after manual preview review; do not merge to main by default.
+- **Colors:** nearly white warm canvas, deep graphite-green text, one restrained muted-green accent. No colorful backgrounds or callouts.
+- **Typography:** Playfair Display headings, Source Serif 4 reading text, DM Sans small UI metadata. Keep clear hierarchy and comfortable body size.
+- **Width:** ~1030px max overall; prose paragraphs 610–670px wide.
+- **Whitespace:** deliberate, not enormous. A fine rule separates sections.
+- **Surfaces:** no repeated boxed cards, heavy shadows, pill-button CTAs, decorative gradients or large slogans.
+- **Distinctive detail:** a modest, hand-drawn-style graph diagram next to the homepage intro. Never compete with the writing.
+- **Projects:** a numbered, text-first list with accurate status and a direct source link.
+- **Accessibility:** semantic landmarks, focus indicator, adequate reading line-height, motion-reduction rules, accessible mobile navigation and filter state.
+- **Dark theme:** follow the same understated hierarchy with low-chroma contrast.
 
-## Remaining improvements
-- Clean up obsolete shadcn dependencies only with package-lock regeneration and a passing test/build run.
-- Expand project detail pages when completed case studies are available.
-- Improve route-level SEO if the site evolves beyond an SPA.
-- Add browser-level regression and accessibility tests.
+## Architecture
+
+- `src/lib/profile.ts`: single source of truth for public personal/academic facts. M.Sc. final CGPA: 8.38/10.0.
+- `src/data/projects.ts`: real linked project entries.
+- `src/components/ui/ProjectCard.tsx`: shared accessible text-first project entry (historical filename retained).
+- `src/components/ui/SectionHeading.tsx`: shared editorial heading.
+- `src/components/visual/GraphMark.tsx`: lightweight static SVG, no runtime graphic library.
+- `src/components/layout/`: shared shell.
+- `src/pages/`: distinct routes. `/notes` is lazy-loaded and keeps its original recipe UI.
+- `src/index.css`: theme tokens and utility composition.
+- Superseded v2 artwork and unused UI files live under `old/`.
+
+## Content map
+
+Home (introduction, selected work, current interests, thesis) / Projects / Research / About / Writing / Contact / Miscellany.
+
+## Verification before a production merge
+
+1. Vercel Preview must be READY.
+2. Verify /, /projects, /research, /about, /blog, /contact, /notes.
+3. Check mobile width, readable body text, hover/focus, light and dark mode.
+4. Test project filtering, menu, links and navigation.
+5. Run build, lint, tests (Vercel build does not automatically run all three).
+6. Review the public resume version and academic data.
+7. Keep production branch `main` untouched until review.

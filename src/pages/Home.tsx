@@ -36,7 +36,7 @@ export default function Home() {
 
         <div className="hairline" aria-hidden="true" />
 
-        <section className="home-section" aria-labelledby="work-heading">
+        <section className="home-section">
           <SectionHeading
             eyebrow="01 / SELECTED WORK"
             title="Things I've worked on"
