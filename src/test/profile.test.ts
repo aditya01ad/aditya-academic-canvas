@@ -7,6 +7,8 @@ describe("public profile configuration", () => {
     expect(SITE_NAME).toBe(PROFILE.name);
     expect(PROFILE.mscDegree).toBe("M.Sc. Mathematics");
     expect(PROFILE.mscPeriod).toContain("2026");
+    expect(PROFILE.mscCgpa).toBe("8.38/10.0");
+    expect(PROFILE.msc).toContain("8.38/10.0");
   });
 
   it("exposes valid links to core portfolio profiles", () => {

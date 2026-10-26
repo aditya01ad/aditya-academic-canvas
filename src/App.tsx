@@ -1,26 +1,22 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import Home from "./pages/Home";
-import Research from "./pages/Research";
-import Projects from "./pages/Projects";
-import About from "./pages/About";
-import Blog from "./pages/Blog";
-import Contact from "./pages/Contact";
-import Miscellany from "./pages/Miscellany";
 
-const queryClient = new QueryClient();
+// Load secondary sections on demand rather than loading the entire site on first visit.
+// Preserve the original routes, layout, CSS and page content.
+const Research = lazy(() => import("./pages/Research"));
+const Projects = lazy(() => import("./pages/Projects"));
+const About = lazy(() => import("./pages/About"));
+const Blog = lazy(() => import("./pages/Blog"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Miscellany = lazy(() => import("./pages/Miscellany"));
 
-const App = () => (
-  <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
+export default function App() {
+  return (
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+      <BrowserRouter>
+        <Suspense fallback={<div className="min-h-screen bg-background" aria-live="polite" />}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/research" element={<Research />} />
@@ -29,13 +25,10 @@ const App = () => (
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/notes" element={<Miscellany />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<Home />} />
           </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
-  </ThemeProvider>
-);
-
-export default App;
+        </Suspense>
+      </BrowserRouter>
+    </ThemeProvider>
+  );
+}

@@ -206,3 +206,15 @@
   0%, 100% { transform: translateY(0); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
   50%       { transform: translateY(6px); animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
 }
+
+/* Respect users who prefer little or no animation, without changing normal visuals. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .fade-in, .reveal, .reveal-visible, .card-hover,
+  .section-divider, .stagger-1, .stagger-2, .stagger-3, .stagger-4 {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+  .reveal { opacity: 1; }
+}

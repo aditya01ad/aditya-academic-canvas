@@ -65,6 +65,8 @@ const Projects = () => {
             <button
               key={tab.id}
               onClick={() => setFilter(tab.id)}
+              type="button"
+              aria-pressed={filter === tab.id}
               className={`px-5 py-2 rounded-sm text-xs uppercase tracking-widest border transition-colors duration-200 ${
                 filter === tab.id
                   ? "border-foreground bg-foreground text-background"
@@ -76,7 +78,7 @@ const Projects = () => {
           ))}
         </div>
 
-        <p className="mt-4 text-xs text-muted-foreground">
+        <p className="mt-4 text-xs text-muted-foreground" aria-live="polite">
           {filtered.length} project{filtered.length !== 1 ? "s" : ""}
         </p>
 
