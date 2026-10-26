@@ -1,41 +1,163 @@
-import { ArrowUpRight } from "lucide-react";
 import PageLayout from "@/components/layout/PageLayout";
+import Badge from "@/components/ui/Badge";
+import Tabs, { Tab } from "@/components/ui/Tabs";
+import Tag from "@/components/ui/Tag";
 import { PROFILE } from "@/lib/profile";
 
-export default function Research() {
+const interestTags = [
+  "Spectral Graph Theory",
+  "Convex Optimization",
+  "Numerical Analysis",
+  "Graph Neural Networks",
+  "Linear Algebra",
+  "Topology",
+  "Combinatorics",
+  "Matrix Theory",
+];
+
+const Research = () => {
+  const tabs: Tab[] = [
+    {
+      id: "overview",
+      label: "Overview",
+      content: (
+        <div className="space-y-6">
+          <article className="border border-border rounded-sm p-6 card-hover">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <h3 className="text-lg font-medium text-foreground">Research vision</h3>
+            </div>
+            <p className="text-sm text-muted-foreground mt-4 leading-relaxed">
+              Advancing spectral graph theory through rigorous proofs and computational validation.
+              The long-term goal is to bridge theoretical insights with applications in
+              graph algorithms and data-driven computation.
+            </p>
+          </article>
+
+          <div className="accent-left space-y-2">
+            <p className="text-xs uppercase tracking-widest text-muted-foreground">Research Experience</p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Thesis work supervised by {PROFILE.supervisor} on <em>{PROFILE.paperTitle}</em> —
+              studying spectral invariants, adjacency spectra, and characterizations of graph families
+              with pendant attachments.
+            </p>
+          </div>
+
+          <div className="border border-border rounded-sm p-6">
+            <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Conferences</p>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              <li className="flex items-start gap-3">
+                <span className="text-foreground font-medium">2025</span>
+                <span>IWSMGA 2025 &mdash; International Workshop on Spectral Methods in Graph Algorithms</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-foreground font-medium">2025</span>
+                <span>ICLAA 2025 &mdash; International Conference on Linear Algebra and its Applications</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: "das-project",
+      label: "DAS Project",
+      content: (
+        <div className="space-y-6">
+          <article className="border border-border rounded-sm p-6 card-hover">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <h3 className="text-lg font-medium text-foreground">Spectral Determination of Graphs with Pendant Attachments</h3>
+            </div>
+            <p className="text-sm text-muted-foreground mt-4 leading-relaxed">
+              M.Sc. thesis research investigating which graph families are determined by their
+              adjacency spectrum when pendant vertices are attached. The work develops new
+              spectral invariants and characterization techniques for detecting cospectral mates.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <Tag label="Graph spectra" />
+              <Tag label="Pendant attachments" />
+              <Tag label="Adjacency matrix" />
+              <Tag label="Spectral invariants" />
+              <Tag label="Cospectral graphs" />
+            </div>
+          </article>
+
+          <div className="border border-border rounded-sm p-6">
+            <p className="text-xs uppercase tracking-widest text-muted-foreground">Milestones</p>
+            <ul className="mt-4 space-y-3 text-sm text-muted-foreground list-disc list-inside">
+              <li>Developed spectral invariants for pendant-attached graph families.</li>
+              <li>Computational verification across candidate graph families using SageMath.</li>
+															<li>Determined the structure of cospectral mates with construction.</li>
+															<li>Determined Spectral characterization of graph family.</li>
+            </ul>
+          </div>
+
+          <div className="accent-left space-y-2">
+            <p className="text-xs uppercase tracking-widest text-muted-foreground">Supervisor</p>
+            <p className="text-sm text-muted-foreground">
+              {PROFILE.supervisor} &mdash; Department of Mathematics, IIT Bhubaneswar
+            </p>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: "interests",
+      label: "Interests",
+      content: (
+        <div className="space-y-6">
+          <article className="border border-border rounded-sm p-6 card-hover">
+            <h3 className="text-lg font-medium text-foreground">Exploration themes</h3>
+            <p className="text-sm text-muted-foreground mt-3 leading-relaxed">
+              Beyond the thesis, I am drawn to problems that sit at the boundary of pure
+              mathematics and computation — particularly where algebraic structure reveals
+              hidden properties of discrete systems.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {interestTags.map((tag) => (
+                <Tag key={tag} label={tag} />
+              ))}
+            </div>
+          </article>
+
+          <div className="accent-left space-y-2">
+            <p className="text-xs uppercase tracking-widest text-muted-foreground">Open questions</p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Actively seeking collaborations that connect spectral theory to practical
+              implementation &mdash; especially in graph-theoretic algorithms, network analysis,
+              and graph representation learning.
+            </p>
+          </div>
+
+          <div className="border border-border rounded-sm p-6">
+            <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Future directions</p>
+            <ul className="space-y-2 text-sm text-muted-foreground list-disc list-inside">
+              <li>Spectral properties of random and structured graph families</li>
+              <li>Applications of convex optimization to combinatorial problems</li>
+              <li>Graph neural networks grounded in spectral theory</li>
+              <li>Numerical methods for large-scale eigenvalue problems</li>
+															<li>Anything else, always open to new fields.</li>
+            </ul>
+          </div>
+        </div>
+      ),
+    },
+  ];
+
   return (
     <PageLayout title="Research">
-      <div className="page-container inner-page">
-        <header className="page-intro">
-          <p className="eyebrow">MATHEMATICS / GRAPHS</p>
-          <h1 className="page-title">Research & questions<span className="accent-ink">.</span></h1>
-          <p className="page-lede">My academic research began with a simple curiosity: how much can we learn about a graph from its spectrum?</p>
-        </header>
-
-        <section className="reading-section" aria-labelledby="thesis-heading">
-          <p className="section-label">M.SC. THESIS · COMPLETED MAY 2026</p>
-          <h2 className="reading-heading mt-3" id="thesis-heading">{PROFILE.paperTitle}</h2>
-          <p className="reading-copy">Supervised by {PROFILE.supervisor}, Department of Mathematics, IIT Bhubaneswar.</p>
-          <p className="reading-copy">Spectral graph theory studies graph structure through the eigenvalues of matrices associated with it. My thesis considered families of graphs with pendant attachments, and questions of when their adjacency spectra distinguish their structures.</p>
-          <p className="reading-copy">The work involved mathematical investigation of spectral properties and cospectral graphs, supported by computational experiments. I remain interested in the interplay between theorems, constructions, and code.</p>
-          <a className="text-link mt-5" href="https://github.com/aditya01ad/spectral-project" target="_blank" rel="noopener noreferrer">Explore related code <ArrowUpRight className="h-4 w-4" aria-hidden="true"/></a>
-        </section>
-
-        <section className="reading-section" aria-labelledby="research-methods">
-          <h2 className="reading-heading" id="research-methods">Methods & tools</h2>
-          <dl className="detail-list">
-            <div className="detail-row"><dt className="detail-term">Mathematics</dt><dd className="detail-description text-muted-foreground">Graph spectra, eigenvalues, adjacency matrices, spectral invariants, cospectral constructions.</dd></div>
-            <div className="detail-row"><dt className="detail-term">Computation</dt><dd className="detail-description text-muted-foreground">Python, NetworkX, SageMath, and computational experiments with graph families.</dd></div>
-            <div className="detail-row"><dt className="detail-term">Research style</dt><dd className="detail-description text-muted-foreground">Formulate a question, examine structural constraints, explore examples, and distinguish experimental evidence from proof.</dd></div>
-          </dl>
-        </section>
-
-        <section className="reading-section" aria-labelledby="research-next">
-          <h2 className="reading-heading" id="research-next">Questions I want to explore</h2>
-          <p className="reading-copy">I'm curious about graph algorithms, spectral approaches to networks, combinatorial optimization, and the numerical tools that make larger computational questions tractable. These are interests, not claims of completed research in each area.</p>
-          <p className="tag-line">Spectral graph theory · Combinatorics · Linear algebra · Graph algorithms · Optimization · Network science</p>
-        </section>
-      </div>
+      <section className="page-container page-section">
+        <p className="page-subtitle">Research</p>
+        <h1 className="page-title mt-2">Research portfolio</h1>
+        <p className="page-lede mt-4 max-w-2xl">
+          M.Sc. Mathematics &mdash; IIT Bhubaneswar &mdash; thesis on spectral graph theory
+          under {PROFILE.supervisor}. CGPA {PROFILE.mscCgpa}.
+        </p>
+        <div className="mt-10">
+          <Tabs tabs={tabs} defaultTab="overview" />
+        </div>
+      </section>
     </PageLayout>
   );
-}
+};
+
+export default Research;

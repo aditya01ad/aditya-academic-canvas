@@ -1,41 +1,109 @@
-import { ArrowUpRight } from "lucide-react";
 import PageLayout from "@/components/layout/PageLayout";
-import { PROFILE } from "@/lib/profile";
+import Tag from "@/components/ui/Tag";
 
-const channels = [
-  { label: "Email", text: "Send a note", url: `mailto:${PROFILE.email}`, external: false },
-  { label: "GitHub", text: "Explore the code", url: PROFILE.github, external: true },
-  { label: "LinkedIn", text: "Connect professionally", url: PROFILE.linkedIn, external: true },
+const contactItems = [
+  {
+    label: "Email",
+    value: "aditya1512me@gmail.com",
+    href: "mailto:aditya1512me@gmail.com",
+    cta: "Send email →",
+    isExternal: false,
+  },
+  {
+    label: "LinkedIn",
+    value: "in/aditya01ad",
+    href: "https://linkedin.com/in/aditya01ad",
+    cta: "Connect →",
+    isExternal: true,
+  },
+  {
+    label: "GitHub",
+    value: "github.com/aditya01ad",
+    href: "https://github.com/aditya01ad",
+    cta: "Take a look →",
+    isExternal: true,
+  },
 ];
 
-export default function Contact() {
+const preferredTopics = [
+  "Spectral Graph Theory",
+  "Applied Mathematics",
+  "Algorithm Design and Analysis",
+  "Research Collaboration",
+  "Mathematical Problem Solving",
+  "Teaching & Mentoring",
+];
+
+const openTo = [
+  "Research roles & PhD opportunities",
+  "Algorithm Design",
+  "Quantitative & analytical roles",
+  "Teaching & academic positions",
+  "Open source collaboration",
+];
+
+const Contact = () => {
   return (
     <PageLayout title="Contact">
-      <div className="page-container inner-page">
-        <header className="page-intro">
-          <p className="eyebrow">GET IN TOUCH</p>
-          <h1 className="page-title">Say hello<span className="accent-ink">.</span></h1>
-          <p className="page-lede">I’m happy to talk about research ideas, mathematical problems, technical projects, or relevant work opportunities. A thoughtful message is always welcome.</p>
-        </header>
+      <section className="page-container page-section">
+        <div className="max-w-3xl">
+          <p className="page-subtitle">Contact</p>
+          <h1 className="page-title mt-2">Let’s talk.</h1>
+          <p className="text-sm text-muted-foreground mt-4 leading-relaxed">
+            Open to collaboration, research discussion, and new opportunities.
+            M.Sc. Mathematics graduate from IIT Bhubaneswar — available immediately.
+            I typically respond within 48 hours.
+          </p>
 
-        <section className="reading-section" aria-labelledby="contact-how">
-          <h2 className="reading-heading" id="contact-how">Where to find me</h2>
-          <div className="detail-list">
-            {channels.map(c=><div className="detail-row" key={c.label}>
-              <span className="detail-term">{c.label}</span>
-              <a className="detail-description flex w-fit items-center gap-2 text-primary hover:text-foreground" href={c.url} target={c.external?"_blank":undefined} rel={c.external?"noopener noreferrer":undefined}>
-                {c.text} <ArrowUpRight className="h-4 w-4" aria-hidden="true"/>
-              </a>
-            </div>)}
+          <div className="mt-10 grid gap-5 sm:grid-cols-3">
+            {contactItems.map((item) => (
+              <div key={item.label} className="border border-border rounded-sm p-6 card-hover">
+                <p className="text-xs uppercase tracking-widest text-muted-foreground">{item.label}</p>
+                <p className="mt-2 text-sm font-medium text-foreground break-all">{item.value}</p>
+                <a
+                  href={item.href}
+                  target={item.isExternal ? "_blank" : undefined}
+                  rel={item.isExternal ? "noopener noreferrer" : undefined}
+                  className="mt-4 inline-flex text-xs uppercase tracking-widest text-accent hover:text-foreground transition-colors"
+                >
+                  {item.cta}
+                </a>
+              </div>
+            ))}
           </div>
-        </section>
 
-        <section className="reading-section" aria-labelledby="contact-interests">
-          <h2 className="reading-heading" id="contact-interests">Open to</h2>
-          <p className="reading-copy">Entry-level opportunities in operations research, optimization, quantitative and analytical work, mathematical computing, as well as meaningful research collaborations.</p>
-          <p className="mt-4 text-sm text-muted-foreground">Based in {PROFILE.location} · Open to relocation for suitable roles.</p>
-        </section>
-      </div>
+          <div className="mt-10">
+            <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Open to</p>
+            <ul className="space-y-2">
+              {openTo.map((item) => (
+                <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                  <span className="mt-0.5 text-foreground">&#8594;</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="mt-10">
+            <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Happy to discuss</p>
+            <div className="flex flex-wrap gap-2">
+              {preferredTopics.map((topic) => (
+                <Tag key={topic} label={topic} />
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-8 border-t border-border pt-6 space-y-1">
+            <p className="text-sm text-muted-foreground">📍 Surat, Gujarat, India</p>
+            <p className="text-sm text-muted-foreground">
+              M.Sc. Mathematics · IIT Bhubaneswar · Graduated May 2026
+            </p>
+            <p className="text-sm text-muted-foreground">Available immediately · Open to relocation</p>
+          </div>
+        </div>
+      </section>
     </PageLayout>
   );
-}
+};
+
+export default Contact;

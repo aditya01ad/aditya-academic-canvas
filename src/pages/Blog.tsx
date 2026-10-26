@@ -1,31 +1,54 @@
-import { ArrowUpRight } from "lucide-react";
 import PageLayout from "@/components/layout/PageLayout";
-import { PROFILE } from "@/lib/profile";
 
-const themes = [
-  { title: "What a graph's eigenvalues can tell us", note: "Notes from spectral graph theory" },
-  { title: "Optimization, from the ground up", note: "Working through models and algorithms" },
-  { title: "Small computational experiments", note: "Things I discover while learning and coding" },
+const plannedTopics = [
+  "The spectral view of graph neural networks",
+  "What is optimization, mathematically?",
+  "From theorem-proving at IIT to career building — what changed",
+  "Why eigenvalues matter more than you think",
+  "The mathematician’s perspective on engineering problems",
+  "Interesting mathematics everyone should know",
+  "What an M.Sc. Mathematics graduate can offer beyond academia",
 ];
 
-export default function Blog() {
+const Blog = () => {
   return (
-    <PageLayout title="Writing">
-      <div className="page-container inner-page">
-        <header className="page-intro">
-          <p className="eyebrow">NOTES / WRITING</p>
-          <h1 className="page-title">Notes, eventually<span className="accent-ink">.</span></h1>
-          <p className="page-lede">A place for ideas that deserve more than a margin note. I haven't published full articles here yet, but these are a few subjects I want to write about.</p>
-        </header>
-        <div className="work-list">
-          {themes.map((theme,i)=><div className="work-entry" key={theme.title}>
-            <span className="work-number">{String(i+1).padStart(2,"0")}</span>
-            <div><h2 className="work-title">{theme.title}</h2><p className="mt-2 text-sm text-muted-foreground">{theme.note} · Planned</p></div>
-          </div>)}
+    <PageLayout title="Blog">
+      <section className="page-container page-section">
+        <div className="max-w-2xl">
+          <p className="page-subtitle">Writing</p>
+          <h1 className="page-title mt-2">Thinking out loud about Math and Tech.</h1>
+          <p className="page-lede mt-4">
+            Writing about rigorous mathematics, its applications in science and technology,
+            and the journey from pure research to the real world.
+          </p>
+
+          <div className="mt-10">
+            <p className="text-xs uppercase tracking-widest text-muted-foreground">Planned Topics</p>
+            <div className="mt-4 space-y-3">
+              {plannedTopics.map((topic) => (
+                <div key={topic} className="border border-border rounded-sm px-4 py-3 card-hover">
+                  <p className="text-sm text-foreground">{topic}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <p className="mt-10 text-sm text-muted-foreground leading-relaxed">
+            First posts coming soon. Follow on{" "}
+            <a
+              href="https://linkedin.com/in/aditya01ad"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent font-medium hover:text-foreground transition-colors"
+            >
+              LinkedIn
+            </a>{" "}
+            for updates.
+          </p>
         </div>
-        <p className="mt-9 text-sm text-muted-foreground">For now, my more active notes and experiments live on GitHub.</p>
-        <a className="text-link mt-3" href={PROFILE.github} target="_blank" rel="noopener noreferrer">See the repositories <ArrowUpRight className="h-4 w-4" aria-hidden="true"/></a>
-      </div>
+      </section>
     </PageLayout>
   );
-}
+};
+
+export default Blog;

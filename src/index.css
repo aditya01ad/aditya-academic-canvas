@@ -2,145 +2,207 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Quiet, text-first mathematics portfolio. Design principles in docs/DESIGN_SYSTEM.md */
 @layer base {
   :root {
-    --background: 40 26% 98%;
-    --foreground: 168 14% 18%;
-    --card: 40 26% 98%;
-    --card-foreground: 168 14% 18%;
-    --popover: 40 26% 98%;
-    --popover-foreground: 168 14% 18%;
-    --primary: 166 24% 30%;
-    --primary-foreground: 40 26% 98%;
-    --secondary: 40 16% 94%;
-    --secondary-foreground: 168 14% 18%;
-    --muted: 40 16% 94%;
-    --muted-foreground: 165 6% 39%;
-    --accent: 163 27% 34%;
-    --accent-foreground: 40 26% 98%;
-    --destructive: 0 66% 50%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 40 12% 83%;
-    --input: 40 12% 83%;
-    --ring: 163 27% 34%;
-    --radius: .3rem;
+    --background: 40 20% 97%;
+    --foreground: 0 0% 10%;
+
+    --card: 40 15% 95%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 40 20% 97%;
+    --popover-foreground: 0 0% 10%;
+
+    --primary: 0 0% 12%;
+    --primary-foreground: 40 20% 97%;
+
+    --secondary: 40 10% 92%;
+    --secondary-foreground: 0 0% 15%;
+
+    --muted: 40 10% 92%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 25 30% 45%;
+    --accent-foreground: 40 20% 97%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 30 15% 85%;
+    --input: 30 15% 85%;
+    --ring: 0 0% 12%;
+
+    --radius: 0.25rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
   .dark {
-    --background: 175 14% 11%;
-    --foreground: 40 18% 89%;
-    --card: 175 14% 11%;
-    --card-foreground: 40 18% 89%;
-    --popover: 175 14% 14%;
-    --popover-foreground: 40 18% 89%;
-    --primary: 149 23% 71%;
-    --primary-foreground: 175 14% 11%;
-    --secondary: 173 12% 17%;
-    --secondary-foreground: 40 18% 89%;
-    --muted: 173 12% 17%;
-    --muted-foreground: 42 11% 68%;
-    --accent: 147 25% 70%;
-    --accent-foreground: 175 14% 11%;
-    --destructive: 0 62% 55%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 175 10% 27%;
-    --input: 175 10% 27%;
-    --ring: 147 25% 70%;
+    --background: 0 0% 6%;
+    --foreground: 40 15% 90%;
+    --card: 0 0% 9%;
+    --card-foreground: 40 15% 90%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 40 15% 90%;
+    --primary: 40 15% 90%;
+    --primary-foreground: 0 0% 6%;
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 40 15% 90%;
+    --muted: 0 0% 14%;
+    --muted-foreground: 40 10% 60%;
+    --accent: 25 30% 55%;
+    --accent-foreground: 40 20% 97%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 40 15% 90%;
   }
-  * { @apply border-border; }
-  html { scroll-behavior: smooth; }
-  body { @apply bg-background text-foreground antialiased; font-family: "Source Serif 4", Georgia, serif; font-size: 16px; line-height: 1.65; }
-  h1,h2,h3,h4,h5,h6,.font-display { font-family: "Playfair Display", Georgia, serif; }
-  a { text-underline-offset: 4px; }
-  ::selection { background: hsl(var(--accent) / .2); }
-  :focus-visible { outline: 2px solid hsl(var(--accent)); outline-offset: 4px; }
 }
-@layer components {
-  .page-container { @apply mx-auto w-full max-w-[1030px] px-5 sm:px-8 md:px-12; }
-  .site-header { @apply sticky top-0 z-50 border-b border-border bg-background; }
-  .header-inner { @apply flex h-[72px] items-center justify-between gap-5; }
-  .site-wordmark { @apply font-display text-[21px] font-semibold tracking-tight; }
-  .desktop-nav { @apply hidden items-center gap-7 md:flex; }
-  .nav-link { @apply text-[13px] text-muted-foreground transition-colors hover:text-foreground; font-family: "DM Sans", sans-serif; }
-  .nav-active { @apply text-foreground; text-decoration: underline; text-decoration-color: hsl(var(--accent)); text-underline-offset: 9px; }
-  .header-actions { @apply flex items-center gap-2; }
-  .header-icon { @apply inline-flex h-9 w-9 items-center justify-center text-muted-foreground transition-colors hover:text-foreground; }
-  .mobile-menu-button { @apply md:hidden; }
-  .mobile-navigation { @apply border-t border-border bg-background; }
-  .mobile-navigation[hidden] { display:none; }
-  .mobile-navigation-inner { @apply flex flex-col py-2; }
-  .mobile-link { @apply border-b border-border py-3 text-base; }
-  .accent-ink { color:hsl(var(--accent)); }
-  .eyebrow,.section-label,.page-subtitle { @apply text-[11px] font-medium uppercase tracking-[.11em] text-muted-foreground; font-family: "DM Sans", sans-serif; }
-  .home-intro { @apply grid items-center gap-8 pb-14 pt-16 sm:pt-20 md:grid-cols-[minmax(0,1fr)_170px] md:gap-10 md:pb-20 md:pt-24; }
-  .home-intro-text { @apply min-w-0; }
-  .home-name { @apply mt-3 text-[clamp(2.8rem,5.6vw,4.35rem)] font-medium tracking-[-.04em]; line-height:1.2; }
-  .home-subtitle { @apply mt-3 text-[13px] text-muted-foreground; font-family:"DM Sans",sans-serif; }
-  .intro-lead { @apply mt-9 max-w-[640px] text-[clamp(1.25rem,2.2vw,1.5rem)] leading-[1.55]; }
-  .intro-copy { @apply mt-4 max-w-[650px] text-[16px] leading-[1.85] text-muted-foreground; }
-  .intro-links { @apply mt-7 flex flex-wrap gap-x-7 gap-y-3; }
-  .text-link,.quiet-link { @apply inline-flex items-center gap-2 text-sm font-medium text-primary transition-colors hover:text-foreground; font-family:"DM Sans",sans-serif; }
-  .graph-note { @apply mx-auto hidden w-full max-w-[168px] self-start pt-8 text-foreground md:block; transform:rotate(-4deg); }
-  .graph-caption { @apply text-center text-[10px] italic text-muted-foreground; }
-  .graph-notation { fill:hsl(var(--muted-foreground)); font-family:"Source Serif 4",Georgia,serif; font-size:13px; font-style:italic; }
-  .hairline { @apply h-px bg-border; }
-  .home-section { @apply py-14 sm:py-16; }
-  .last-section { @apply border-t border-border pb-20; }
-  .section-heading { @apply mb-7 flex flex-wrap items-end justify-between gap-x-6 gap-y-4; }
-  .section-title { @apply mt-3 text-[clamp(1.65rem,3vw,2.3rem)] font-medium tracking-[-.02em]; line-height:1.3; }
-  .section-description { @apply mt-3 max-w-[620px] leading-8 text-muted-foreground; }
-  .section-action { @apply pb-1; }
-  .work-list { @apply border-t border-border; }
-  .work-entry { @apply grid grid-cols-[32px_minmax(0,1fr)] gap-4 border-b border-border py-7 sm:grid-cols-[54px_minmax(0,1fr)] sm:gap-6; }
-  .work-number { @apply pt-1 text-[11px] text-muted-foreground; font-family:"DM Sans",sans-serif; }
-  .work-heading { @apply flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1; }
-  .work-title { @apply text-[19px] font-medium leading-snug sm:text-[21px]; }
-  .work-status { @apply text-[11px] text-muted-foreground; font-family:"DM Sans",sans-serif; }
-  .work-category { @apply mt-2 text-[11px] tracking-wide text-muted-foreground; font-family:"DM Sans",sans-serif; }
-  .work-description { @apply mt-3 max-w-[660px] leading-[1.8] text-muted-foreground; }
-  .work-meta { @apply mt-3 flex flex-wrap items-center justify-between gap-x-5 gap-y-3; }
-  .work-tags { @apply text-[11px] text-muted-foreground; font-family:"DM Sans",sans-serif; }
-  .quiet-link { @apply text-xs; }
-  .section-columns { @apply grid gap-5 border-t border-border md:grid-cols-[.85fr_1.15fr] md:gap-12; }
-  .prose-column { @apply max-w-[610px] text-muted-foreground; }
-  .prose-column p + p { @apply mt-4; }
-  .prose-column .text-link { @apply mt-5; }
-  .inner-page { @apply pb-20 pt-14 sm:pb-28 sm:pt-20; }
-  .page-intro { @apply max-w-[690px] pb-10; }
-  .page-title { @apply mt-3 text-[clamp(2.45rem,5vw,3.7rem)] font-medium tracking-[-.035em]; line-height:1.2; }
-  .page-lede { @apply mt-4 max-w-[650px] text-[17px] leading-[1.85] text-muted-foreground; }
-  .filter-line { @apply mb-3 flex flex-wrap items-center gap-x-5 gap-y-2 border-b border-border pb-4; }
-  .filter-link { @apply py-2 text-sm text-muted-foreground transition-colors hover:text-foreground; font-family:"DM Sans",sans-serif; }
-  .filter-active { @apply border-b border-primary font-semibold text-foreground; }
-  .project-count { @apply ml-auto text-xs text-muted-foreground; font-family:"DM Sans",sans-serif; }
-  .reading-section { @apply border-t border-border py-10; }
-  .reading-heading { @apply mb-4 text-[22px] font-medium; }
-  .reading-copy { @apply max-w-[670px] text-[16px] leading-[1.85] text-muted-foreground; }
-  .reading-copy + .reading-copy { @apply mt-4; }
-  .detail-list { @apply divide-y divide-border border-y border-border; }
-  .detail-row { @apply grid gap-2 py-5 sm:grid-cols-[165px_minmax(0,1fr)] sm:gap-8; }
-  .detail-term { @apply pt-1 text-[12px] font-medium text-muted-foreground; font-family:"DM Sans",sans-serif; }
-  .detail-description { @apply leading-7; }
-  .tag-line { @apply mt-3 text-[13px] leading-7 text-muted-foreground; font-family:"DM Sans",sans-serif; }
-  .plain-link { @apply text-primary underline decoration-border underline-offset-4 hover:text-foreground; }
-  .site-footer { @apply border-t border-border; }
-  .footer-inner { @apply grid gap-7 py-10 sm:py-12; }
-  .footer-name { @apply font-display text-[20px] font-medium; }
-  .footer-note { @apply mt-1 text-sm text-muted-foreground; }
-  .footer-links { @apply flex flex-wrap gap-x-6 gap-y-2 text-xs text-muted-foreground; font-family:"DM Sans",sans-serif; }
-  .footer-links a:hover,.footer-social a:hover { @apply text-foreground; }
-  .footer-bottom { @apply flex flex-wrap items-center justify-between gap-3 border-t border-border pt-5 text-xs text-muted-foreground; font-family:"DM Sans",sans-serif; }
-  .footer-social { @apply flex gap-5; }
-  .skip-link { @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-background focus:px-4 focus:py-2; }
-  /* Compatibility styles for minor pages and the retained notebook pages. */
-  .page-section { @apply py-14 sm:py-20; }
-  .accent-left { @apply border-l-2 border-accent pl-5; }
-  .card-hover { @apply transition-colors hover:border-primary/40; }
-  .tab-bar { @apply flex flex-wrap gap-3 border-b border-border pb-3; }
-  .tab-btn { @apply border-b border-transparent px-1 py-2 text-sm text-muted-foreground; }
-  .tab-active { @apply border-accent text-foreground; }
-  .tab-panel { @apply mt-8; }
-  .badge { @apply inline-flex text-xs text-muted-foreground; }
-  .badge-active,.badge-completed { @apply text-primary; }
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Source Serif 4', 'Georgia', serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', 'Georgia', serif;
+  }
 }
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+@layer utilities {
+  /* Section divider grows from center on reveal */
+  .section-divider {
+    @apply w-0 h-px bg-border mx-auto my-8;
+    transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.1s;
+  }
+
+  .reveal-visible .section-divider,
+  .section-divider.revealed {
+    @apply w-12;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  /* Stagger helpers for Hero children */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+
+  /* Scroll-reveal: elements start hidden and become visible when the
+     "reveal-visible" class is added via IntersectionObserver. */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Card hover: subtle lift + shadow */
+  .card-hover {
+    transition: box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px -6px hsl(var(--foreground) / 0.12);
+  }
+
+  .tab-bar {
+    @apply flex flex-wrap items-center gap-3 border-b border-border pb-3;
+  }
+
+  .tab-btn {
+    @apply text-xs uppercase tracking-widest px-4 py-2 rounded-sm border border-border text-muted-foreground transition-colors duration-200 hover:text-foreground hover:border-foreground;
+  }
+
+  .tab-active {
+    @apply border-foreground text-foreground bg-secondary;
+  }
+
+  .tab-panel {
+    @apply mt-6;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-sm border border-border px-2 py-1 text-[10px] uppercase tracking-widest text-muted-foreground;
+  }
+
+  .badge-inprep {
+    @apply text-muted-foreground;
+  }
+
+  .badge-active {
+    @apply text-accent;
+  }
+
+  .badge-completed {
+    @apply text-foreground;
+  }
+
+  .badge-planned {
+    @apply text-muted-foreground;
+  }
+
+  .page-container {
+    @apply max-w-4xl mx-auto px-6;
+  }
+
+  .page-section {
+    @apply py-16;
+  }
+
+  .page-title {
+    @apply text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-foreground;
+  }
+
+  .page-subtitle {
+    @apply text-xs uppercase tracking-widest text-muted-foreground;
+  }
+
+  .page-lede {
+    @apply text-base sm:text-lg text-muted-foreground leading-relaxed;
+  }
+
+  .accent-left {
+    @apply border-l-2 border-accent pl-5;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slowBounce {
+  0%, 100% { transform: translateY(0); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
+  50%       { transform: translateY(6px); animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+}

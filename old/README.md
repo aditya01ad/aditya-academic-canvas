@@ -41,7 +41,3 @@ Restore only files actually needed by an active route; do not copy the entire ar
 - The active M.Sc. CGPA and some website text still need factual corrections.
 - Production SEO, route handling, accessible tabs, and substantive tests still need their own changes.
 - The application wasn't built or browser-tested as part of this file-organization commit.
-
-## October 2026 visual-system revision
-
-The oversized v2 mathematical illustration is kept in `v2-design/src/components/visual/MathVisual.tsx`. The live site uses `src/components/visual/GraphMark.tsx` instead. After the pages were simplified, the former tabs, badge/tag components and unneeded notification providers were archived in `unused-ui/`. None are required by current routes.
