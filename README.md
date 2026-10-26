@@ -32,3 +32,9 @@ npm run dev
 
 ## Author
 Created by **Aditya**. Feel free to reach out through my social media links below!
+
+## Repository organization
+
+The active website lives in `src/pages/`, `src/components/layout/`, `src/components/Misc/` and the small set of referenced `src/components/ui/` files. Runtime profile information is centralized in `src/lib/profile.ts`.
+
+Unused and superseded code, redundant copies, and historical assets are retained in [`old/`](old/README.md). The `old/` folder is not part of the active application. Use the npm lockfile for installs (`npm ci`).
