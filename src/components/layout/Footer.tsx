@@ -1,82 +1,10 @@
-import { Github, Mail } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { SITE_NAME } from "@/lib/utils";
 import { PROFILE } from "@/lib/profile";
-
-const Footer = () => {
-  return (
-    <footer className="py-12 px-6 border-t border-border">
-      <div className="max-w-4xl mx-auto text-center space-y-6">
-        <p className="text-sm font-medium text-foreground tracking-wide">{SITE_NAME}</p>
-        <nav className="flex flex-wrap items-center justify-center gap-6 text-xs uppercase tracking-widest text-muted-foreground">
-          <Link to="/about" className="hover:text-foreground transition-colors duration-200">
-            About
-          </Link>
-          <Link to="/research" className="hover:text-foreground transition-colors duration-200">
-            Research
-          </Link>
-          <Link to="/projects" className="hover:text-foreground transition-colors duration-200">
-            Projects
-          </Link>
-          <Link to="/blog" className="hover:text-foreground transition-colors duration-200">
-            Blog
-          </Link>
-          <Link to="/notes" className="hover:text-foreground transition-colors duration-200">
-            Miscellany
-          </Link>
-          <Link to="/about?tab=skills" className="hover:text-foreground transition-colors duration-200">
-            Skills
-          </Link>
-          <Link to="/contact" className="hover:text-foreground transition-colors duration-200">
-            Contact
-          </Link>
-        </nav>
-        <div className="flex items-center justify-center gap-5">
-          <a
-            href={PROFILE.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-foreground transition-colors duration-200"
-            aria-label="GitHub"
-          >
-            <Github className="w-4 h-4" />
-          </a>
-          <a
-            href={PROFILE.linkedIn}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-foreground transition-colors duration-200"
-            aria-label="LinkedIn"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="w-4 h-4"
-            >
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-              <rect width="4" height="12" x="2" y="9" />
-              <circle cx="4" cy="4" r="2" />
-            </svg>
-          </a>
-          <a
-            href={`mailto:${PROFILE.email}`}
-            className="text-muted-foreground hover:text-foreground transition-colors duration-200"
-            aria-label="Email"
-          >
-            <Mail className="w-4 h-4" />
-          </a>
-        </div>
-        <p className="text-xs text-muted-foreground">
-          © {new Date().getFullYear()} {SITE_NAME} · Built with purpose
-        </p>
-      </div>
-    </footer>
-  );
-};
-
-export default Footer;
+const links=[{to:"/projects",label:"Projects"},{to:"/research",label:"Research"},{to:"/about",label:"About"},{to:"/blog",label:"Writing"},{to:"/notes",label:"Notes"},{to:"/contact",label:"Contact"}];
+export default function Footer(){
+ return <footer className="site-footer"><div className="page-container grid gap-10 py-12 md:grid-cols-[1fr_auto]">
+ <div><Link to="/" className="font-display text-2xl tracking-tight">{PROFILE.name}<span className="accent-ink">.</span></Link><p className="mt-3 max-w-md text-sm leading-7 text-muted-foreground">Mathematics, research, and computation. Exploring structure in complex systems.</p><p className="mt-6 text-xs text-muted-foreground">© {new Date().getFullYear()} {PROFILE.name}. All rights reserved.</p></div>
+ <div className="grid gap-8 sm:grid-cols-2"><div><p className="eyebrow mb-4">EXPLORE</p><nav aria-label="Footer navigation" className="grid grid-cols-2 gap-x-6 gap-y-3">{links.map(l=><Link className="footer-link" key={l.to} to={l.to}>{l.label}</Link>)}</nav></div><div><p className="eyebrow mb-4">CONNECT</p><div className="flex flex-col gap-3"><a className="footer-link inline-flex items-center gap-1" href={PROFILE.github} target="_blank" rel="noopener noreferrer">GitHub <ArrowUpRight className="h-3 w-3"/></a><a className="footer-link inline-flex items-center gap-1" href={PROFILE.linkedIn} target="_blank" rel="noopener noreferrer">LinkedIn <ArrowUpRight className="h-3 w-3"/></a><a className="footer-link" href={`mailto:${PROFILE.email}`}>Email</a></div></div></div>
+ </div></footer>
+}

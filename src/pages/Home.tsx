@@ -1,174 +1,90 @@
 import { Link } from "react-router-dom";
+import { ArrowRight, ArrowUpRight, Github } from "lucide-react";
 import PageLayout from "@/components/layout/PageLayout";
-import Badge from "@/components/ui/Badge";
-import Tag from "@/components/ui/Tag";
+import MathVisual from "@/components/visual/MathVisual";
+import SectionHeading from "@/components/ui/SectionHeading";
+import ProjectCard from "@/components/ui/ProjectCard";
+import { projects } from "@/data/projects";
 import { PROFILE } from "@/lib/profile";
 
-const focusAreas = [
-  "Spectral Graph Theory",
-  "Convex Optimization",
-  "Graph Neural Networks",
-  "Numerical Analysis",
-];
+const interests = ["Spectral graph theory", "Operations research", "Optimization", "Scientific computing"];
+const featured = projects.filter(p => p.featured);
 
-const highlights = [
-  { label: "Institution", value: PROFILE.mscInstitution, sub: `${PROFILE.mscDegree} · ${PROFILE.mscPeriod}` },
-  { label: "Academic Standing", value: `CGPA ${PROFILE.mscCgpa}`, sub: `MSc · IIT Bhubaneswar` },
-  { label: "Undergraduate", value: `CGPA ${PROFILE.bscCgpa}`, sub: `BSc · VNSGU, Surat · ${PROFILE.bscPeriod}` },
-  { label: "Supervisor", value: PROFILE.supervisor, sub: "Spectral Graph Theory" },
-  { label: "Availability", value: "Open to Opportunities", sub: "Research · Industry · Teaching" },
-];
-
-const educationEntries = [
-  {
-    degree: PROFILE.mscDegree,
-    institution: PROFILE.mscInstitution,
-    period: PROFILE.mscPeriod,
-    cgpa: `CGPA: ${PROFILE.mscCgpa}`,
-    note: `Thesis: ${PROFILE.paperTitle}`,
-  },
-  {
-    degree: PROFILE.bscDegree,
-    institution: PROFILE.bscInstitution,
-    period: PROFILE.bscPeriod,
-    cgpa: `CGPA: ${PROFILE.bscCgpa}`,
-    note: "",
-  },
-];
-
-const Home = () => {
-  return (
-    <PageLayout title="Home">
-      <section className="page-container page-section text-center">
-        <h1 className="page-title mt-4">{PROFILE.name}</h1>
-        <p className="text-sm text-muted-foreground mt-3">Mathematician · IIT Bhubaneswar</p>
-        <p className="page-lede mt-4 max-w-2xl mx-auto">
-          MSc Mathematics at IIT Bhubaneswar with focus on pure mathematics, interest in applied, programming, tech, physics and project work in spectral graph theory 
-          programming. Excited to work on applied roles through different opportunities and collaboration.
-          A curious mind who enjoys exploring new ideas and intellectual conversations, drop a message randomly if interested.
-        </p>
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-          <Link
-            to="/about"
-            className="inline-flex items-center justify-center border border-border px-5 py-2 rounded-sm text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground hover:border-foreground transition-colors duration-200"
-          >
-            Explore
-          </Link>
-          <Link
-            to="/contact"
-            className="inline-flex items-center justify-center border border-foreground bg-foreground text-background px-5 py-2 rounded-sm text-xs uppercase tracking-widest hover:opacity-90 transition-opacity duration-200"
-          >
-            Start a conversation
-          </Link>
-        </div>
-      </section>
-
-      <section className="page-container page-section">
-        <div className="grid gap-6 md:grid-cols-3">
-          <article className="border border-border rounded-sm p-6 card-hover">
-            <h2 className="text-lg font-medium text-foreground">Research focus</h2>
-            <p className="text-sm text-muted-foreground mt-3">
-              Working under {PROFILE.supervisor} on {PROFILE.paperTitle}, deepening expertise in spectral graph theory. Completed in may 2026.
-            </p>
-            <Link
-              to="/research"
-              className="mt-4 inline-flex text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors"
-            >
-              View research
-            </Link>
-          </article>
-          <article className="border border-border rounded-sm p-6 card-hover">
-            <Badge variant="inprep" />
-            <h2 className="text-lg font-medium text-foreground mt-3">Project portfolio</h2>
-            <p className="text-sm text-muted-foreground mt-3">
-              Applied builds centered on optimization algorithms, graph spectra codes, and structured
-              math notes for learning and teaching.
-            </p>
-            <Link
-              to="/projects"
-              className="mt-4 inline-flex text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Browse projects
-            </Link>
-          </article>
-          <article className="border border-border rounded-sm p-6 card-hover">
-            <Badge variant="planned" />
-            <h2 className="text-lg font-medium text-foreground mt-3">Collaborate & connect</h2>
-            <p className="text-sm text-muted-foreground mt-3">
-              Open to research discussions and collaboration. Reach out via {PROFILE.email} or
-              explore work at {PROFILE.website}.
-            </p>
-            <Link
-              to="/contact"
-              className="mt-4 inline-flex text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Start a conversation
-            </Link>
-          </article>
-        </div>
-      </section>
-
-      <section className="page-container page-section">
-        <p className="page-subtitle">Overview</p>
-        <h2 className="text-2xl font-medium text-foreground mt-2">Profile highlights</h2>
-        <p className="page-lede mt-3 max-w-2xl">
-          A quick snapshot of academic standing, research status, and availability.
-        </p>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-          {highlights.map((highlight) => (
-            <div key={highlight.label} className="border border-border rounded-sm p-5 card-hover">
-              <p className="text-[10px] uppercase tracking-widest text-muted-foreground">{highlight.label}</p>
-              <p className="mt-2 text-base font-medium text-foreground">{highlight.value}</p>
-              {highlight.sub && <p className="mt-1 text-xs text-muted-foreground">{highlight.sub}</p>}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="page-container page-section">
-        <p className="page-subtitle">Education</p>
-        <h2 className="text-2xl font-medium text-foreground mt-2">Academic background</h2>
-        <div className="mt-8 space-y-6">
-          {educationEntries.map((entry) => (
-            <div key={entry.degree} className="border border-border rounded-sm p-6 card-hover">
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
-                <div>
-                  <h3 className="text-base font-medium text-foreground">{entry.degree}</h3>
-                  <p className="text-sm text-muted-foreground mt-1">{entry.institution}</p>
-                  {entry.note && (
-                    <p className="text-xs text-muted-foreground mt-2 italic">{entry.note}</p>
-                  )}
-                </div>
-                <div className="flex flex-col items-start sm:items-end gap-1 shrink-0">
-                  <span className="text-xs text-muted-foreground">{entry.period}</span>
-                  <span className="text-xs font-medium text-foreground">{entry.cgpa}</span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="page-container page-section">
-        <div className="border border-border rounded-sm p-6 md:p-8 card-hover">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-            <div>
-              <p className="page-subtitle">Focus areas</p>
-              <h2 className="text-2xl font-medium text-foreground mt-2">Themes shaping the work</h2>
-              <p className="text-sm text-muted-foreground mt-3 max-w-xl">
-                Rigorous mathematics, active research in spectral graph theory, and a growing interest in applied and computational directions.
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {focusAreas.map((area) => (
-                <Tag key={area} label={area} />
-              ))}
-            </div>
+export default function Home() {
+  return <PageLayout title="Mathematics, research & computation">
+    <section className="hero-shell relative overflow-hidden">
+      <div className="page-container relative grid min-h-[620px] items-center gap-8 py-20 lg:grid-cols-[1.08fr_.92fr] lg:py-24">
+        <div className="relative z-10">
+          <div className="eyebrow hero-kicker"><span className="accent-dot" /> MATHEMATICS / RESEARCH / COMPUTATION</div>
+          <h1 className="hero-heading mt-7">Finding structure <span className="italic accent-ink">in complexity.</span></h1>
+          <p className="mt-7 max-w-xl text-base leading-8 text-muted-foreground md:text-lg">
+            I'm {PROFILE.name}, a mathematics graduate from IIT Bhubaneswar. I explore graph theory, optimization, and computation—connecting rigorous ideas with practical problems.
+          </p>
+          <div className="mt-9 flex flex-wrap items-center gap-3">
+            <Link to="/projects" className="btn-primary">Explore my work <ArrowUpRight className="h-4 w-4" /></Link>
+            <Link to="/about" className="btn-secondary">More about me <ArrowRight className="h-4 w-4" /></Link>
+          </div>
+          <div className="mt-12 flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
+            <span className="hero-detail">{PROFILE.mscDegree}</span><span aria-hidden="true">·</span>
+            <span className="hero-detail">{PROFILE.mscInstitution}</span><span aria-hidden="true">·</span>
+            <span className="hero-detail">Class of 2026</span>
           </div>
         </div>
-      </section>
-    </PageLayout>
-  );
-};
+        <div className="relative mx-auto w-full max-w-[540px] lg:max-w-none"><MathVisual /></div>
+      </div>
+      <div className="page-container"><div className="hero-rule" /></div>
+    </section>
 
-export default Home;
+    <section className="page-container section-space">
+      <SectionHeading eyebrow="01 — SELECTED WORK" title="Ideas, explored in code." description="A selection of research and applied mathematical work. Each project links to its source repository." action={<Link to="/projects" className="text-link">All projects <ArrowUpRight className="h-4 w-4"/></Link>} />
+      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">{featured.map((project,i)=><ProjectCard key={project.id} project={project} index={i}/>)}</div>
+    </section>
+
+    <section className="section-band">
+      <div className="page-container section-space grid gap-12 lg:grid-cols-[.72fr_1.28fr]">
+        <div>
+          <p className="eyebrow mb-5">02 — AREAS OF INTEREST</p>
+          <h2 className="section-title">Theory meets <span className="italic accent-ink">application.</span></h2>
+        </div>
+        <div>
+          <p className="max-w-2xl text-base leading-8 text-muted-foreground md:text-lg">
+            My foundation is in mathematical reasoning: graph spectra, linear algebra, and discrete structures. I’m extending that foundation into operations research, computational tools, and optimization models.
+          </p>
+          <div className="mt-9 flex flex-wrap gap-3">{interests.map((item, i)=><span className="interest-pill" key={item}><span>{String(i+1).padStart(2,"0")}</span>{item}</span>)}</div>
+          <Link className="text-link mt-9" to="/research">Read about my research <ArrowUpRight className="h-4 w-4"/></Link>
+        </div>
+      </div>
+    </section>
+
+    <section className="page-container section-space">
+      <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_.9fr]">
+        <div>
+          <p className="eyebrow mb-5">03 — BACKGROUND</p>
+          <h2 className="section-title">Built on curiosity. <br/><span className="italic accent-ink">Driven by questions.</span></h2>
+          <p className="mt-6 max-w-2xl text-muted-foreground leading-8">I completed my M.Sc. in Mathematics at IIT Bhubaneswar in May 2026, with thesis research under {PROFILE.supervisor}. Today I’m developing more applied skills alongside my interest in spectral and discrete mathematics.</p>
+          <Link to="/about" className="text-link mt-7">My background <ArrowRight className="h-4 w-4"/></Link>
+        </div>
+        <div className="credential-panel">
+          <span className="eyebrow">ACADEMIC FOUNDATION</span>
+          <div className="mt-7 border-b border-border pb-6">
+            <p className="text-xs text-muted-foreground">2024 — 2026</p>
+            <h3 className="mt-2 font-display text-2xl">M.Sc. Mathematics</h3>
+            <p className="mt-2 text-sm text-muted-foreground">Indian Institute of Technology Bhubaneswar</p>
+          </div>
+          <div className="py-6">
+            <p className="text-xs text-muted-foreground">2021 — 2024</p>
+            <h3 className="mt-2 font-display text-2xl">B.Sc. Mathematics</h3>
+            <p className="mt-2 text-sm text-muted-foreground">VNSGU, Surat</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section className="page-container pb-20 md:pb-28">
+      <div className="contact-banner">
+        <div><span className="eyebrow !text-white/60">LET'S CONNECT</span><h2 className="mt-4 font-display text-3xl tracking-tight sm:text-4xl">Interesting problem? Let's talk.</h2><p className="mt-3 text-sm leading-7 text-white/70">Research collaboration, technical projects, and analytical opportunities.</p></div>
+        <div className="flex flex-wrap gap-3"><Link className="btn-on-dark" to="/contact">Get in touch <ArrowUpRight className="h-4 w-4"/></Link><a className="btn-on-dark-outline" href={PROFILE.github} target="_blank" rel="noopener noreferrer"><Github className="h-4 w-4"/> GitHub</a></div>
+      </div>
+    </section>
+  </PageLayout>;
+}
