@@ -86,6 +86,7 @@ export default function About() {
               <p className="mt-1 text-sm text-muted-foreground">{PROFILE.mscInstitution} · Final CGPA {PROFILE.mscCgpa}</p>
               <p className="mt-2 text-xs text-muted-foreground">Thesis: <em>{PROFILE.paperTitle}</em></p>
               <p className="mt-1 text-xs text-muted-foreground">Supervisor: {PROFILE.supervisor}</p>
+              <p className="mt-3 text-xs leading-relaxed text-muted-foreground"><span className="font-medium text-foreground">Relevant coursework:</span> Linear Algebra · Discrete Mathematics · Real & Complex Analysis · Probability & Statistics · Numerical Analysis · Differential Equations · Optimization Techniques · Functional Analysis · Numerical Linear Algebra · Programming & Data Structures · Representation Theory</p>
             </div>
             <div className="accent-left">
               <div className="flex flex-col gap-1 sm:flex-row sm:justify-between">
@@ -93,6 +94,7 @@ export default function About() {
                 <span className="text-xs text-muted-foreground">{PROFILE.bscPeriod}</span>
               </div>
               <p className="mt-1 text-sm text-muted-foreground">Veer Narmad South Gujarat University, Surat · CGPA {PROFILE.bscCgpa}</p>
+              <p className="mt-3 text-xs leading-relaxed text-muted-foreground"><span className="font-medium text-foreground">Relevant coursework:</span> Mathematics · Physics · Chemistry · Mathematical Methods · Mathematical Modelling · Computer-Oriented Numerical Methods I–II</p>
             </div>
           </div>
           <div className="space-y-4">
