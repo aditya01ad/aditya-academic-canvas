@@ -1,0 +1,35 @@
+{
+  "siteName": "Aditya Chauhan",
+  "siteUrl": "https://www.aditya-math.me",
+  "logoPath": "/aditya-logo-a.svg",
+  "pages": {
+    "/": {
+      "title": "Aditya Chauhan | Mathematics, Code & Curiosities",
+      "description": "Hi, I'm Aditya Chauhan. This is my personal website for mathematics, graph theory, coding experiments, coffee notes, and everything in between."
+    },
+    "/about": {
+      "title": "About Me | Aditya Chauhan",
+      "description": "A little about me: my mathematics background at IIT Bhubaneswar, growing up in Surat, what I'm learning, and interests beyond academics."
+    },
+    "/research": {
+      "title": "Research & Spectral Graph Theory | Aditya Chauhan",
+      "description": "My M.Sc. thesis on spectral determination of graphs with pendant attachments, plus an introduction to graph spectra and cospectrality."
+    },
+    "/projects": {
+      "title": "Projects & Coding Experiments | Aditya Chauhan",
+      "description": "Research code, Python and SageMath experiments, mathematical notebooks, MATLAB coursework, and small personal projects, with links to GitHub."
+    },
+    "/blog": {
+      "title": "Writing & Notes | Aditya Chauhan",
+      "description": "Short personal notes about graph spectra, learning through code, mathematics, and everyday curiosities. Just a few things on my mind."
+    },
+    "/contact": {
+      "title": "Contact | Aditya Chauhan",
+      "description": "Get in touch with Aditya Chauhan about mathematics, research, coding projects, or something interesting you would like to share."
+    },
+    "/notes": {
+      "title": "Coffee Notes & Recipes | Aditya Chauhan",
+      "description": "My interactive coffee recipe notebook with simple instant coffee recipes, adjustable ingredient quantities, steps, and kitchen timers."
+    }
+  }
+}

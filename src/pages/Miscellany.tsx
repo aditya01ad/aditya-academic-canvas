@@ -1,16 +1,8 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import RecipeBook from "@/components/Misc/RecipeBook";
 import { SITE_NAME } from "@/lib/utils";
 
 const Miscellany = () => {
-  useEffect(() => {
-    document.title = `Coffee notes — ${SITE_NAME}`;
-    return () => {
-      document.title = SITE_NAME;
-    };
-  }, []);
-
   return (
     <div style={{ position: "relative" }}>
       <Link

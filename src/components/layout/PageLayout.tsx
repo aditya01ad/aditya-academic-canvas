@@ -1,5 +1,4 @@
-import { ReactNode, useEffect } from "react";
-import { SITE_NAME } from "@/lib/utils";
+import type { ReactNode } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
@@ -8,14 +7,7 @@ interface PageLayoutProps {
   title?: string;
 }
 
-export default function PageLayout({ children, title }: PageLayoutProps) {
-  useEffect(() => {
-    if (!title) return;
-    document.title = `${title} — ${SITE_NAME}`;
-    return () => {
-      document.title = SITE_NAME;
-    };
-  }, [title]);
+export default function PageLayout({ children }: PageLayoutProps) {
   return (
     <div className="min-h-screen flex flex-col">
       <a
