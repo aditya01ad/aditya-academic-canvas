@@ -1,64 +1,57 @@
 import PageLayout from "@/components/layout/PageLayout";
 import Tag from "@/components/ui/Tag";
+import { PROFILE } from "@/lib/profile";
 
 const contactItems = [
   {
     label: "Email",
-    value: "aditya1512me@gmail.com",
-    href: "mailto:aditya1512me@gmail.com",
-    cta: "Send email →",
+    value: PROFILE.email,
+    href: "mailto:" + PROFILE.email,
+    cta: "Write to me →",
     isExternal: false,
-  },
-  {
-    label: "LinkedIn",
-    value: "in/aditya01ad",
-    href: "https://linkedin.com/in/aditya01ad",
-    cta: "Connect →",
-    isExternal: true,
   },
   {
     label: "GitHub",
     value: "github.com/aditya01ad",
-    href: "https://github.com/aditya01ad",
-    cta: "Take a look →",
+    href: PROFILE.github,
+    cta: "See what I'm making →",
+    isExternal: true,
+  },
+  {
+    label: "LinkedIn",
+    value: "in/aditya01ad",
+    href: PROFILE.linkedIn,
+    cta: "Find me there →",
     isExternal: true,
   },
 ];
 
-const preferredTopics = [
-  "Spectral Graph Theory",
-  "Applied Mathematics",
-  "Algorithm Design and Analysis",
-  "Research Collaboration",
-  "Mathematical Problem Solving",
-  "Teaching & Mentoring",
+const topics = [
+  "Interesting math questions",
+  "Research & code",
+  "Small projects",
+  "Ideas across subjects",
+  "Music recommendations",
+  "Coffee experiments",
+  "Anything genuinely interesting",
 ];
 
-const openTo = [
-  "Research roles & PhD opportunities",
-  "Algorithm Design",
-  "Quantitative & analytical roles",
-  "Teaching & academic positions",
-  "Open source collaboration",
-];
-
-const Contact = () => {
+export default function Contact() {
   return (
     <PageLayout title="Contact">
       <section className="page-container page-section">
         <div className="max-w-3xl">
           <p className="page-subtitle">Contact</p>
-          <h1 className="page-title mt-2">Let’s talk.</h1>
-          <p className="text-sm text-muted-foreground mt-4 leading-relaxed">
-            Open to collaboration, research discussion, and new opportunities.
-            M.Sc. Mathematics graduate from IIT Bhubaneswar — available immediately.
-            I typically respond within 48 hours.
+          <h1 className="page-title mt-2">Say hello</h1>
+          <p className="page-lede mt-4">
+            Found something interesting here? Working on a problem I might enjoy?
+            Or just want to share an idea, a recommendation, or say hi? Feel free to reach out.
+            It doesn't have to be formal.
           </p>
-
           <div className="mt-10 grid gap-5 sm:grid-cols-3">
             {contactItems.map((item) => (
               <div key={item.label} className="border border-border rounded-sm p-6 card-hover">
-                <p className="text-xs uppercase tracking-widest text-muted-foreground">{item.label}</p>
+                <h2 className="text-xs uppercase tracking-widest text-muted-foreground">{item.label}</h2>
                 <p className="mt-2 text-sm font-medium text-foreground break-all">{item.value}</p>
                 <a
                   href={item.href}
@@ -71,39 +64,22 @@ const Contact = () => {
               </div>
             ))}
           </div>
-
           <div className="mt-10">
-            <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Open to</p>
-            <ul className="space-y-2">
-              {openTo.map((item) => (
-                <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
-                  <span className="mt-0.5 text-foreground">&#8594;</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="mt-10">
-            <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Happy to discuss</p>
+            <h2 className="mb-4 text-xs uppercase tracking-widest text-muted-foreground">Things we could talk about</h2>
             <div className="flex flex-wrap gap-2">
-              {preferredTopics.map((topic) => (
-                <Tag key={topic} label={topic} />
-              ))}
+              {topics.map((topic) => <Tag key={topic} label={topic} />)}
             </div>
           </div>
-
-          <div className="mt-8 border-t border-border pt-6 space-y-1">
-            <p className="text-sm text-muted-foreground">📍 Surat, Gujarat, India</p>
+          <div className="mt-8 border-t border-border pt-6 space-y-2">
             <p className="text-sm text-muted-foreground">
-              M.Sc. Mathematics · IIT Bhubaneswar · Graduated May 2026
+              I'm based in {PROFILE.location}. I also enjoy connecting with people who see things a little differently.
             </p>
-            <p className="text-sm text-muted-foreground">Available immediately · Open to relocation</p>
+            <p className="text-sm text-muted-foreground">
+              And if you've spotted a broken link or a mistake on the website, please tell me.
+            </p>
           </div>
         </div>
       </section>
     </PageLayout>
   );
-};
-
-export default Contact;
+}

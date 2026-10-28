@@ -7,7 +7,7 @@ import { cn, SITE_NAME } from "@/lib/utils";
 const NAV_ITEMS = [
   { label: "Research", to: "/research" },
   { label: "Projects", to: "/projects" },
-  { label: "Blog", to: "/blog" },
+  { label: "Writing", to: "/blog" },
   { label: "About", to: "/about" },
   { label: "Contact", to: "/contact" },
 ];
@@ -69,7 +69,9 @@ const Navbar = () => {
           <button
             className="md:hidden text-muted-foreground hover:text-foreground transition-colors duration-200"
             onClick={() => setMenuOpen((open) => !open)}
-            aria-label="Toggle menu"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-navigation"
             type="button"
           >
             <span className="transition-transform duration-200 inline-block">
@@ -80,6 +82,8 @@ const Navbar = () => {
       </div>
 
       <div
+        id="mobile-navigation"
+        aria-hidden={!menuOpen}
         className={cn(
           "md:hidden border-t border-border bg-background/95 overflow-hidden transition-all duration-300 ease-in-out",
           menuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0",
